@@ -21,6 +21,8 @@ get('/', function () {
 });
 get('blog', 'BlogController@index');
 get('blog/{slug}', 'BlogController@showPost');
+$router->get('contact', 'ContactController@showForm');
+Route::post('contact', 'ContactController@sendContactInfo');
 
 // Admin area
 get('admin', function () {
@@ -43,3 +45,6 @@ $router->group([
 get('/auth/login', 'Auth\AuthController@getLogin');
 post('/auth/login', 'Auth\AuthController@postLogin');
 get('/auth/logout', 'Auth\AuthController@getLogout');
+
+// After the following line
+get('blog/{slug}', 'BlogController@showPost');

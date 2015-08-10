@@ -17,14 +17,25 @@ class Kernel extends ConsoleKernel
     ];
 
     /**
-     * Define the application's command schedule.
-     *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
-     * @return void
-     */
+    * Define the application's command schedule.
+    *
+    * @param  Schedule  $schedule
+    * @return void
+    */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('inspire')
-                 ->hourly();
+        // Run once a minute
+        //$schedule->command('queue:work')->cron('* * * * * *');        // ONCE A MINUTE
+
+        // Run every 5 minutes
+        $schedule->command('queue:work')->everyFiveMinutes();
+
+        // Run once a day
+        //$schedule->command('queue:work')->daily();
+
+        // Run Mondays at 8:15am
+        //$schedule->command('queue:work')->weeklyOn(1, '8:15');
+
+
     }
 }

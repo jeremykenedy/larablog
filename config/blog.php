@@ -12,4 +12,6 @@ return [
 		'storage'   => env('UPLOADS_ENVIRONMENT'),
 		'webpath'   => env('UPLOADS_WEBPATH'),
 	],
+	'contact_email' => config('blog.contact_email'),
 ];
+

@@ -11,7 +11,8 @@
         "michelf/php-smartypants": "1.6.0-beta1",
         "dflydev/apache-mime-types": "^1.0",
         "league/flysystem-aws-s3-v3": "^1.0",
-        "doctrine/dbal": "^2.5"
+        "doctrine/dbal": "^2.5",
+        "guzzlehttp/guzzle": "~5.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
