@@ -21,7 +21,7 @@ $factory->define(App\User::class, function ($faker) {
 });
 
 $factory->define(App\Post::class, function ($faker) {
-  $images = ['background/about-bg.jpg', 'backgrounds/contact-bg.jpg', 'backgrounds/home-bg.jpg', 'backgrounds/post-bg.jpg'];
+  $images = ['backgrounds/about-bg.jpg', 'backgrounds/contact-bg.jpg', 'backgrounds/home-bg.jpg', 'backgrounds/post-bg.jpg'];
   $title = $faker->sentence(mt_rand(3, 10));
   return [
     'title' => $title,
