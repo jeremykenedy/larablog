@@ -72,9 +72,14 @@ gulp.task("copyfiles", function() {
     gulp.src("vendor/bower_dl/pickadate/lib/compressed/picker.time.js")
         .pipe(gulp.dest("public/assets/pickadate/"));
 
+    // Copy parallax.js files
+    gulp.src("vendor/bower_dl/parallax.js/parallax.js")
+        .pipe(gulp.dest('resources/assets/js/'));
+
     // Copy clean-blog less files
     gulp.src("vendor/bower_dl/clean-blog/less/**")
         .pipe(gulp.dest("resources/assets/less/clean-blog"));
+
 });
 
 /**
@@ -95,7 +100,8 @@ elixir(function(mix) {
     mix.scripts([
         'js/jquery.js',
         'js/bootstrap.js',
-        'js/blog.js'
+        'js/blog.js',
+        'js/parallax.js'
     ], 'public/assets/js/blog.js', 'resources//assets');
 
     // Compile CSS
