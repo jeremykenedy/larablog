@@ -29,7 +29,7 @@
       </button>
       <a class="navbar-brand" href="#">{{ config('blog.title') }} Admin</a>
     </div>
-    <div class="collapse navbar-collapse" id=navbar-menu">
+    <div class="collapse navbar-collapse" id="navbar-menu">
       @include('admin.partials.navbar')
     </div>
   </div>
@@ -39,7 +39,14 @@
 
 <script src="/assets/js/admin.js"></script>
 
+
+
 @yield('scripts')
+
+<script type="text/javascript" src="//cdn.ckeditor.com/4.5.2/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'content' );
+</script>
 
 </body>
 </html>

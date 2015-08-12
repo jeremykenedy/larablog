@@ -8,6 +8,7 @@ use App\Post;
 use App\Tag;
 use Illuminate\Http\Request;
 use App\Services\RssFeed;
+use App\Services\SiteMap;
 
 class BlogController extends Controller
 {
@@ -35,5 +36,12 @@ class BlogController extends Controller
 
     return response($rss)
       ->header('Content-type', 'application/rss+xml');
+  }
+  public function siteMap(SiteMap $siteMap)
+  {
+    $map = $siteMap->getSiteMap();
+
+    return response($map)
+      ->header('Content-type', 'text/xml');
   }
 }

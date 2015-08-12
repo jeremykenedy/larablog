@@ -24,6 +24,7 @@ get('blog/{slug}', 'BlogController@showPost');
 $router->get('contact', 'ContactController@showForm');
 Route::post('contact', 'ContactController@sendContactInfo');
 get('rss', 'BlogController@rss');
+get('sitemap.xml', 'BlogController@siteMap');
 
 // Admin area
 get('admin', function () {
@@ -47,5 +48,5 @@ get('/auth/login', 'Auth\AuthController@getLogin');
 post('/auth/login', 'Auth\AuthController@postLogin');
 get('/auth/logout', 'Auth\AuthController@getLogout');
 
-// After the following line
-get('blog/{slug}', 'BlogController@showPost');
+// After this line
+get('rss', 'BlogController@rss');

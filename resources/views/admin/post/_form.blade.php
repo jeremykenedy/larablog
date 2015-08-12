@@ -1,3 +1,5 @@
+
+
 <div class="row">
   <div class="col-md-8">
     <div class="form-group">
@@ -5,8 +7,7 @@
         Title
       </label>
       <div class="col-md-10">
-        <input type="text" class="form-control" name="title" autofocus
-               id="title" value="{{ $title }}">
+        <input type="text" class="form-control" name="title" autofocus id="title" value="{{ $title }}">
       </div>
     </div>
     <div class="form-group">
@@ -14,8 +15,7 @@
         Subtitle
       </label>
       <div class="col-md-10">
-        <input type="text" class="form-control" name="subtitle"
-               id="subtitle" value="{{ $subtitle }}">
+        <input type="text" class="form-control" name="subtitle" id="subtitle" value="{{ $subtitle }}">
       </div>
     </div>
     <div class="form-group">
@@ -61,8 +61,12 @@
         Content
       </label>
       <div class="col-md-10">
-        <textarea class="form-control" name="content" rows="14"
-                  id="content">{{ $content }}</textarea>
+
+
+<!-- EVENTUALLY REPLACE WITH CKEDITOR OR TINY-MCE -->
+        <textarea class="form-control" name="content" rows="14" id="content">{{ $content }}</textarea>
+<!-- EVENTUALLY REPLACE WITH CKEDITOR OR TINY-MCE -->     
+
       </div>
     </div>
   </div>
