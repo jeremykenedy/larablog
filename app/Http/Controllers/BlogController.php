@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Post;
 use App\Tag;
 use Illuminate\Http\Request;
+use App\Services\RssFeed;
 
 class BlogController extends Controller
 {
@@ -18,7 +19,6 @@ class BlogController extends Controller
 
     return view($layout, $data);
   }
-
   public function showPost($slug, Request $request)
   {
     $post = Post::with('tags')->whereSlug($slug)->firstOrFail();
@@ -28,5 +28,12 @@ class BlogController extends Controller
     }
 
     return view($post->layout, compact('post', 'tag', 'slug'));
+  }
+  public function rss(RssFeed $feed)
+  {
+    $rss = $feed->getRSS();
+
+    return response($rss)
+      ->header('Content-type', 'application/rss+xml');
   }
 }
