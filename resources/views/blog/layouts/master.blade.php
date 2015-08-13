@@ -34,7 +34,7 @@
     @include('blog.partials.page-footer')
 
     {{-- Scripts --}}
-    <script src="/assets/js/blog.js"></script>
+    <script type="text/javascript" src="/assets/js/blog.js"></script>
     @yield('scripts')
   </body>
 </html>

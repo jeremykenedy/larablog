@@ -9,6 +9,7 @@
             <h1>{{ $title }}</h1>
             <hr class="small">
             <h2 class="subheading">{{ $subtitle }}</h2>
+            {{--<h2 class="subheading">{{ Inspiring::quote() }}</h2>--}}
           </div>
         </div>
       </div>

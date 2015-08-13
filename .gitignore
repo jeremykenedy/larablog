@@ -22,6 +22,7 @@ Thumbs.db
 .env-dev
 .env-live
 .env-*
+/config/blog.php
 /sql
 
 ### ASSET EXCLUSIONS ###

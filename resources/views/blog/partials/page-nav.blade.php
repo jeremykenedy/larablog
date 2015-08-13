@@ -24,7 +24,33 @@
         <li>
           <a href="/contact">Contact</a>
         </li>
+          @if (Auth::guest())
+          @else
+            <li class="dropdown ">
+              <a href="/admin/post" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                Hi {{ Auth::user()->name }}!
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li @if (Request::is('admin/post*')) class="active" @endif>
+                  <a href="/admin/post">Posts</a>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li @if (Request::is('admin/tag*')) class="active" @endif>
+                  <a href="/admin/tag">Tags</a>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li @if (Request::is('admin/upload*')) class="active" @endif>
+                  <a href="/admin/upload">Uploads</a>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/auth/logout">Logout</a></li>
+              </ul>
+            </li>
+          @endif
       </ul>
     </div>
   </div>
 </nav>
+
+

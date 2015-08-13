@@ -1,9 +1,13 @@
 <html>
 <head>
   <title>{{ config('blog.title') }}</title>
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
-        rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
 </head>
+<link rel="stylesheet" type="text/css" href="">
+
+
+
+
 <body>
   <div class="container">
     <h1>{{ config('blog.title') }}</h1>

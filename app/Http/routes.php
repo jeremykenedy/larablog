@@ -50,3 +50,9 @@ get('/auth/logout', 'Auth\AuthController@getLogout');
 
 // After this line
 get('rss', 'BlogController@rss');
+
+
+// Catch-all URL is last | Not Found Page
+Route::any('/{page?}',function(){
+  return View::make('blog.layouts.404');
+})->where('page','.*');

@@ -1,8 +1,7 @@
 <html>
 <head>
   <title>{{ $post->title }}</title>
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
-        rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
   <div class="container">

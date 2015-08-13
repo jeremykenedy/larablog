@@ -103,7 +103,8 @@ elixir(function(mix) {
         'js/jquery.js',
         'js/bootstrap.js',
         'js/jquery.dataTables.js',
-        'js/dataTables.bootstrap.js'
+        'js/dataTables.bootstrap.js',
+        'js/admin.js'
     ],
     'public/assets/js/admin.js', 'resources//assets');
 
