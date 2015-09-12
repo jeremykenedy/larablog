@@ -1,8 +1,8 @@
 # larablog
 A blog project built on Laravel 5.1 and Bootstrap 3.5 - https://larablog.io
 
-| Features  | Center Aligned  | Right Aligned |
-| :------------ |:---------------:| -----:|
+| Features  |
+| :------------ |
 | Built on Laravel 5.1 |
 | Uses MySQL Database, manage in .env file |
 | Front End and Admin Area are Responsive Using Bootstrap 3.5 |
