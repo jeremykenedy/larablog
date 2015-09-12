@@ -1,2 +1,4 @@
 # larablog
-A Build out of the L5Beauty write up - located at http://laravelcoding.com/
+A blog project built on Laravel 5.1 and Bootstrap 3 - https://larablog.io
+## Enjoy
+~ Jeremy
