@@ -155,9 +155,10 @@ A blog project built on Laravel 5.1 and Bootstrap 3.5 - https://larablog.io
 	</nav>
 ```
 
-### 2. Edit the ROUTES in: `/app/Http/routes.php`
+### 2. Edit the ROUTES in: /app/Http/routes.php
 	i. After the following line: `get('blog/{slug}', 'BlogController@showPost');`
 		a. Add the following TWO lines:
+		
 ```
 	$router->get('about', 'AboutController@showView');
 ```
