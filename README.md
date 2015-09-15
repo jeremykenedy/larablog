@@ -72,11 +72,11 @@ A blog project built on Laravel 5.1 and Bootstrap 3.5 - https://larablog.io
 
 ## Dev Commands
 
-### Make a new page
+# Make a new page
 * Create the controller with Artisan:  
 	`php artisan make:controller --plain TheNameOfYourController`
 
-### Compile Scripts, Less/Sass with:
+# Compile Scripts, Less/Sass with:
 `sudo gulp`
 * You Can pull the listed assets in `gulpfile.js` with the following command:
 `sudo gulp copyfile`
@@ -84,7 +84,7 @@ A blog project built on Laravel 5.1 and Bootstrap 3.5 - https://larablog.io
 ---
 
 ## Create about page as Example:
-1. Edit the NAV in: `/resources/views/blog/partials/page-nav.blade.php`
+### 1. Edit the NAV in: `/resources/views/blog/partials/page-nav.blade.php`
 
   i. Add the following to the NAV:
 ```
@@ -155,14 +155,14 @@ A blog project built on Laravel 5.1 and Bootstrap 3.5 - https://larablog.io
 	</nav>
 ```
 
-1. Edit the ROUTES in: `/app/Http/routes.php`
+### 2. Edit the ROUTES in: `/app/Http/routes.php`
 	i. After the following line: `get('blog/{slug}', 'BlogController@showPost');`
 		a. Add the following TWO lines:
 ```
 	$router->get('about', 'AboutController@showView');
 ```
 
-2.  Create the CONTROLLER using ARTISAN:  `php artisan make:controller --plain AboutController`
+### 3.  Create the CONTROLLER using ARTISAN:  `php artisan make:controller --plain AboutController`
 	i. Replace Content of `/app/Http/Controllers/AboutController.php` with :
 
 ```
@@ -188,7 +188,7 @@ A blog project built on Laravel 5.1 and Bootstrap 3.5 - https://larablog.io
 	}
 ```
 
-3.  Create `about.blade.php` in the `/resources/views/blog/layouts` directory.
+### 4.  Create `about.blade.php` in the `/resources/views/blog/layouts` directory.
     i. Replace Content of `/resources/views/blog/layouts/about.blade.php` with :
 
 ```
@@ -227,12 +227,12 @@ A blog project built on Laravel 5.1 and Bootstrap 3.5 - https://larablog.io
 	@endsection
 
 ```
-4.  Test by going to the `http://yourprojectURI/about`.
-5.  Complete.
+### 5.  Test by going to the `http://yourprojectURI/about`.
+### 6.  Complete.
 
 ---
 
-### Mail Commands ###
+# Mail Commands #
 ```
 php artisan queue:work
 ```
