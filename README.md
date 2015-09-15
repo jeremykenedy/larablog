@@ -276,13 +276,20 @@ php artisan make:job --queued TestJob
 
 * Change page content to be pulled from database.
 * Add controller, methods, and view for editing page in admin panel.
-* Add maged page functionality to admin.
+* Add managed page functionality to admin.
+* Add Avatar
 * Add GA
 * Add GA Tracking 
 * Add GA admin functionality.
 * Add GA tracking admin functionality.
 * Add Homepage content to database.
 * Add Homepage editing functionality to admin.
+
+---
+
+## ~~ Bugs ~~ Features
+* Parallax background will not render until page width is touched, most likely js conflict.
+* Z-Index of front end user dropdown not correct and links un-clickable.
 
 ---
 
