@@ -85,6 +85,7 @@ A blog project built on Laravel 5.1 and Bootstrap 3.5 - https://larablog.io
 
 ## Create about page as Example:
 1. Edit the NAV in: `/resources/views/blog/partials/page-nav.blade.php`
+
   i. Add the following to the NAV:
 ```
 	<li>
@@ -92,6 +93,7 @@ A blog project built on Laravel 5.1 and Bootstrap 3.5 - https://larablog.io
 	</li>
 
 ```
+
   ii.  The content of `/resources/views/blog/partials/page-nav.blade.php` will now look like:
 
 ```
