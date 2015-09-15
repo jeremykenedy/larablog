@@ -38,6 +38,24 @@ A blog project built on Laravel 5.1 and Bootstrap 3.5 - https://larablog.io
 |Automatically Generates sitemap.xml file of published posts and public pages|
 |Completely Open Source with MIT License Included|
 
+---
+
+## Quick Project Setup
+1. Run `sudo git clone git@bitbucket.org:jeremykenedy/larablog.git larablog`
+2. Run `composer update` from the projects root folder
+3. From the projects root run `cp .env.example .env`
+4. Configure your .env file
+5. From the projects root run `cp /config.blog.example.php /config/blog.php`
+6. Configure your blog.php file.
+7. From the projects root run `php artisan migrate`
+8. From the projects root run `sudo chmod -R 777 ../larablog`
+9. Go to your browser and refresh the projects page.
+10. From the projects root run `sudo chmod -R 755 ../larablog`
+
+
+
+
+
 ## Enjoy
 
 ~ Jeremy
