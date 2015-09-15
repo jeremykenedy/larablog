@@ -287,7 +287,7 @@ php artisan make:job --queued TestJob
 
 ---
 
-## ~~ Bugs ~~ Features
+## ~~Bugs~~ Features
 * Parallax background will not render until page width is touched, most likely js conflict.
 * Z-Index of front end user dropdown not correct and links un-clickable.
 
