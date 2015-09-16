@@ -69,12 +69,8 @@ A blog project built on Laravel 5.1 and Bootstrap 3.5 - https://larablog.io
 * MySQL Access: `mysql -u homestead -ppassword` 
 
 ---
-
 ## Dev Commands
-
-# Make a new page
-* Create the controller with Artisan:  
-	`php artisan make:controller --plain TheNameOfYourController`
+---
 
 # Compile Scripts, Less/Sass with:
 `sudo gulp`
@@ -83,8 +79,12 @@ A blog project built on Laravel 5.1 and Bootstrap 3.5 - https://larablog.io
 
 ---
 
+# Make a new page
 ## Create about page as Example:
-### 1. Edit the NAV in: `/resources/views/blog/partials/page-nav.blade.php`
+### 1. From the projects root folder create the controller with Artisan:  
+	`php artisan make:controller --plain TheNameOfYourController`
+
+### 2. Edit the NAV in: `/resources/views/blog/partials/page-nav.blade.php`
 
   i. Add the following to the NAV:
 ```
@@ -155,7 +155,7 @@ A blog project built on Laravel 5.1 and Bootstrap 3.5 - https://larablog.io
 	</nav>
 ```
 
-### 2. Edit the ROUTES in: /app/Http/routes.php
+### 3. Edit the ROUTES in: /app/Http/routes.php
 	i. After the following line: `get('blog/{slug}', 'BlogController@showPost');`
 		a. Add the following TWO lines:
 		
@@ -163,7 +163,7 @@ A blog project built on Laravel 5.1 and Bootstrap 3.5 - https://larablog.io
 	$router->get('about', 'AboutController@showView');
 ```
 
-### 3.  Create the CONTROLLER using ARTISAN:  `php artisan make:controller --plain AboutController`
+### 4.  Create the CONTROLLER using ARTISAN:  `php artisan make:controller --plain AboutController`
 	i. Replace Content of `/app/Http/Controllers/AboutController.php` with :
 
 ```
@@ -189,7 +189,7 @@ A blog project built on Laravel 5.1 and Bootstrap 3.5 - https://larablog.io
 	}
 ```
 
-### 4.  Create `about.blade.php` in the `/resources/views/blog/layouts` directory.
+### 5.  Create `about.blade.php` in the `/resources/views/blog/layouts` directory.
     i. Replace Content of `/resources/views/blog/layouts/about.blade.php` with :
 
 ```
@@ -228,8 +228,8 @@ A blog project built on Laravel 5.1 and Bootstrap 3.5 - https://larablog.io
 	@endsection
 
 ```
-### 5.  Test by going to the `http://yourprojectURI/about`.
-### 6.  Complete.
+### 6.  Test by going to the `http://yourprojectURI/about`.
+### 7.  Complete.
 
 ---
 
