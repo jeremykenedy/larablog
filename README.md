@@ -6,7 +6,7 @@
 
 A powerful Laravel [CRUD](https://scotch.io/tutorials/simple-laravel-crud-with-resource-controllers) (Create Read Update Delete) blog built on [Laravel](http://laravel.com/) 5.1 and [Bootstrap](http://getbootstrap.com) 3.5.x - [<https://larablog.io>](https://larablog.io) 
 
-| Features  |
+| Larablog Features  |
 | :------------ |
 |Built on Laravel 5.1|
 |Uses MySQL Database, manage in .env file|
