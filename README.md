@@ -1,4 +1,4 @@
-## [Larablog](https://larablog.com/)
+# [Larablog](https://larablog.com/)
 
 [![Build Status](https://travis-ci.org/laravel/framework.png)](https://travis-ci.org/laravel/framework) [![Latest Stable Version](https://poser.pugx.org/laravel/framework/version.png)](https://packagist.org/packages/laravel/framework) ![Bower version](https://img.shields.io/bower/v/bootstrap.svg) [![npm version](https://img.shields.io/npm/v/bootstrap.svg)](https://www.npmjs.com/package/bootstrap) [![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
 
@@ -53,7 +53,7 @@ Laravel aims to make the development process a pleasing one for the developer wi
 
 Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
 
-## Official Laravel Documentation
+### Official Laravel Documentation
 
 Documentation for the entire framework can be found on the [Laravel website](http://laravel.com/docs).
 
@@ -65,8 +65,6 @@ Documentation for the entire framework can be found on the [Laravel website](htt
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
 
----
-
 ## [Bootstrap](http://getbootstrap.com) Front-End Framework
 
 [![Build Status](https://img.shields.io/travis/twbs/bootstrap/master.svg)](https://travis-ci.org/twbs/bootstrap) ![Bower version](https://img.shields.io/bower/v/bootstrap.svg) [![npm version](https://img.shields.io/npm/v/bootstrap.svg)](https://www.npmjs.com/package/bootstrap) [![devDependency Status](https://img.shields.io/david/dev/twbs/bootstrap.svg)](https://david-dm.org/twbs/bootstrap#info=devDependencies) [![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
@@ -74,8 +72,6 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development, created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thornton](https://twitter.com/fat), and maintained by the [core team](https://github.com/orgs/twbs/people) with the massive support and involvement of the community.
 
 [Bootstrap](http://getbootstrap.com)'s documentation, included in this repo in the root directory, is built with [Jekyll](http://jekyllrb.com) and publicly hosted on GitHub Pages at [<http://getbootstrap.com>](http://getbootstrap.com).
-
----
 
 ## [Larablog](https://larablog.io)
 
@@ -94,36 +90,41 @@ Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and
 9. Go to your browser and refresh the projects page.
 10. From the projects root run `sudo chmod -R 755 ../larablog`
 
----
+## Other Very Usefull Information
 
-## Vagrant Dev Environment Start
+### Vagrant Dev Environment Start
 
 | Command        | Action           
 | ------------- |:-------------|
 | `vagrant up` | Start Vagrant VM named homestead |  
 | `vagrant up --provision` | Start Vagrant VM named homestead if vagrantfile updated |    
 
-## Environment Access
+### Environment Access
 * From Terminal run `sudo ssh vagrant@127.0.0.1 -p 222` Password is `vagrant`
 * MySQL Access: `mysql -u homestead -ppassword` 
 
-## Dev Commands
+### GULP Asset Processing Commands 
 
-### Compile Scripts, Less/Sass with:
+####
+GULP settings and asset management setting can be found in file:
+`gulpfile.js`
+
+#### Compile Less/Sass command:
 `sudo gulp`
-You Can pull the listed assets in `gulpfile.js` with the following command:
+
+#### Pull listed GULP assets command:
 `sudo gulp copyfile`
 
----
 
-# Make a new page
-# Create about page as Example:
-### 1. From the projects root folder create the controller with Artisan:  
+## How to Make a new page
+#### Create about page as Example:
+
+##### 1. From the projects root folder create the controller with Artisan:  
 	`php artisan make:controller --plain TheNameOfYourController`
 
-### 2. Edit the NAV in: `/resources/views/blog/partials/page-nav.blade.php`
+##### 2. Edit the NAV in: `/resources/views/blog/partials/page-nav.blade.php`
 
-  i. Add the following to the NAV:
+###### i. Add the following to the NAV:
 ```
 	<li>
 	  <a href="/about">About</a>
@@ -131,7 +132,7 @@ You Can pull the listed assets in `gulpfile.js` with the following command:
 
 ```
 
-  ii.  The content of `/resources/views/blog/partials/page-nav.blade.php` will now look like:
+###### ii.  The content of `/resources/views/blog/partials/page-nav.blade.php` will now look like:
 
 ```
 	{{-- Navigation --}}
@@ -192,16 +193,18 @@ You Can pull the listed assets in `gulpfile.js` with the following command:
 	</nav>
 ```
 
-### 3. Edit the ROUTES in: /app/Http/routes.php
-	i. After the following line: `get('blog/{slug}', 'BlogController@showPost');`
-		a. Add the following TWO lines:
-		
+##### 3. Edit the ROUTES in: /app/Http/routes.php
+
+###### i. After the following line: `get('blog/{slug}', 'BlogController@showPost');`
+
+####### a. Add the following TWO lines:
+	
 ```
 	$router->get('about', 'AboutController@showView');
 ```
 
-### 4.  Create the CONTROLLER using ARTISAN:  `php artisan make:controller --plain AboutController`
-	i. Replace Content of `/app/Http/Controllers/AboutController.php` with :
+##### 4.  Create the CONTROLLER using ARTISAN:  `php artisan make:controller --plain AboutController`
+###### i. Replace Content of `/app/Http/Controllers/AboutController.php` with :
 
 ```
 	<?php
@@ -226,8 +229,9 @@ You Can pull the listed assets in `gulpfile.js` with the following command:
 	}
 ```
 
-### 5.  Create `about.blade.php` in the `/resources/views/blog/layouts` directory.
-    i. Replace Content of `/resources/views/blog/layouts/about.blade.php` with :
+##### 5.  Create `about.blade.php` in the `/resources/views/blog/layouts` directory.
+
+###### i. Replace Content of `/resources/views/blog/layouts/about.blade.php` with :
 
 ```
 	@extends('blog.layouts.master', ['meta_description' => 'About Me'])
@@ -265,22 +269,20 @@ You Can pull the listed assets in `gulpfile.js` with the following command:
 	@endsection
 
 ```
-### 6.  Test by going to the `http://yourprojectURI/about`.
-### 7.  Complete.
+##### 6.  Test by going to the `http://yourprojectURI/about`.
+#### 7.  Complete.
 
----
-
-# Mail Commands #
+## Mail Commands #
 ```
 php artisan queue:work
 ```
 
-# OK
+### OK
 ```
 queue:listen
 ```
 
-## BETTER
+### BETTER
 Running `queue:listen` with supervisord
 supervisord is a *nix utility to monitor and control processes. We’re not delving into how to install this utility, but if you have it and get it installed, below is a portion of /etc/supervisord.conf that works well.
 ```
@@ -297,7 +299,7 @@ numprocs=1
 
 You'll need to replace the /PATH/TO/ to match your local install. Likewise, the user setting will be unique to your installation.
 
-## THEN
+### THEN
 ```
 crontab -e
 * * * * * php /path/to/artisan schedule:run 1>> /dev/null 2>&1
@@ -306,8 +308,6 @@ crontab -e
 ```
 php artisan make:job --queued TestJob
 ```
-
----
 
 ### Contributing To Larablog
 
@@ -330,14 +330,10 @@ The Larablog framework is open-sourced software licensed under the [MIT license]
 * Add Homepage content to database.
 * Add Homepage editing functionality to admin.
 
----
-
 ## ~~Bugs~~ Features
 * Parallax background will not render until page width is touched, most likely js conflict.
 * Z-Index of front end user dropdown not correct and links un-clickable.
 
----
-
 ## Enjoy
 
-~ Jeremy
+### ~ Jeremy
