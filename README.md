@@ -1,6 +1,6 @@
 ## [Larablog](https://larablog.com/)
 
-[![Build Status](https://travis-ci.org/laravel/framework.png)](https://travis-ci.org/laravel/framework) [![Build Status](https://img.shields.io/travis/twbs/bootstrap/master.svg)](https://travis-ci.org/twbs/bootstrap) ![Bower version](https://img.shields.io/bower/v/bootstrap.svg) [![npm version](https://img.shields.io/npm/v/bootstrap.svg)](https://www.npmjs.com/package/bootstrap) [![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+[![Build Status](https://img.shields.io/travis/twbs/bootstrap/master.svg)](https://travis-ci.org/twbs/bootstrap) ![Bower version](https://img.shields.io/bower/v/bootstrap.svg) [![npm version](https://img.shields.io/npm/v/bootstrap.svg)](https://www.npmjs.com/package/bootstrap) [![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
 
 [![Selenium Test Status](https://saucelabs.com/browser-matrix/bootstrap.svg)](https://saucelabs.com/u/bootstrap)
 
@@ -79,6 +79,9 @@ Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and
 
 ## [Larablog](https://larablog.io)
 
+[![Build Status](https://img.shields.io/travis/twbs/bootstrap/master.svg)](https://travis-ci.org/twbs/bootstrap)
+[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+
 ### Quick Project Setup
 1. Run `sudo git clone https://github.com/jeremykenedy/larablog.git larablog`
 2. Run `composer update` from the projects root folder
@@ -93,7 +96,7 @@ Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and
 
 ---
 
-### Vagrant Dev Environment Start
+## Vagrant Dev Environment Start
 
 | Command        | Action           
 | ------------- |:-------------|
@@ -101,24 +104,20 @@ Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and
 | `vagrant up --provision` | Start Vagrant VM named homestead if vagrantfile updated |    
 
 ## Environment Access
-* From Terminal run `sudo ssh vagrant@127.0.0.1 -p 222`
-   * Password is `vagrant`
-
+* From Terminal run `sudo ssh vagrant@127.0.0.1 -p 222` Password is `vagrant`
 * MySQL Access: `mysql -u homestead -ppassword` 
 
----
 ## Dev Commands
----
 
-# Compile Scripts, Less/Sass with:
+### Compile Scripts, Less/Sass with:
 `sudo gulp`
-* You Can pull the listed assets in `gulpfile.js` with the following command:
+You Can pull the listed assets in `gulpfile.js` with the following command:
 `sudo gulp copyfile`
 
 ---
 
 # Make a new page
-## Create about page as Example:
+# Create about page as Example:
 ### 1. From the projects root folder create the controller with Artisan:  
 	`php artisan make:controller --plain TheNameOfYourController`
 
