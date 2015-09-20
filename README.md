@@ -1,5 +1,10 @@
-# larablog 
-A powerful Laravel blog built on Laravel 5.1 and Bootstrap 3.5.x - https://larablog.io
+## [Larablog](https://larablog.com/)
+
+[![Build Status](https://travis-ci.org/laravel/framework.png)](https://travis-ci.org/laravel/framework) [![Build Status](https://img.shields.io/travis/twbs/bootstrap/master.svg)](https://travis-ci.org/twbs/bootstrap) ![Bower version](https://img.shields.io/bower/v/bootstrap.svg) [![npm version](https://img.shields.io/npm/v/bootstrap.svg)](https://www.npmjs.com/package/bootstrap) [![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+
+[![Selenium Test Status](https://saucelabs.com/browser-matrix/bootstrap.svg)](https://saucelabs.com/u/bootstrap)
+
+A powerful Laravel [CRUD](https://scotch.io/tutorials/simple-laravel-crud-with-resource-controllers) (Create Read Update Delete) blog built on [Laravel](http://laravel.com/) 5.1 and [Bootstrap](http://getbootstrap.com) 3.5.x - [<https://larablog.io>](https://larablog.io) 
 
 | Features  |
 | :------------ |
@@ -38,15 +43,9 @@ A powerful Laravel blog built on Laravel 5.1 and Bootstrap 3.5.x - https://larab
 |Automatically Generates sitemap.xml file of published posts and public pages|
 |Completely Open Source with MIT License Included|
 
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/version.png)](https://packagist.org/packages/laravel/framework) [![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.png)](https://packagist.org/packages/laravel/framework) [![Build Status](https://travis-ci.org/laravel/framework.png)](https://travis-ci.org/laravel/framework)
+## [Laravel](http://laravel.com/) PHP Framework
 
-## Laravel PHP Framework
-
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/downloads.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+[![Latest Stable Version](https://poser.pugx.org/laravel/framework/version.png)](https://packagist.org/packages/laravel/framework) [![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.png)](https://packagist.org/packages/laravel/framework) [![Build Status](https://travis-ci.org/laravel/framework.png)](https://travis-ci.org/laravel/framework) [![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, and caching.
 
@@ -68,17 +67,19 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ---
 
-### Contributing To Larablog
+## [Bootstrap](http://getbootstrap.com) Front-End Framework
 
-**All Larablog issues and pull requests should be filed on the [jeremykenedy/larablog](http://github.com/jeremykenedy/larablog) repository.**
+![Bower version](https://img.shields.io/bower/v/bootstrap.svg) [![npm version](https://img.shields.io/npm/v/bootstrap.svg)](https://www.npmjs.com/package/bootstrap) [![Build Status](https://img.shields.io/travis/twbs/bootstrap/master.svg)](https://travis-ci.org/twbs/bootstrap) [![devDependency Status](https://img.shields.io/david/dev/twbs/bootstrap.svg)](https://david-dm.org/twbs/bootstrap#info=devDependencies) [![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
 
-### Larablog License
+Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development, created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thornton](https://twitter.com/fat), and maintained by the [core team](https://github.com/orgs/twbs/people) with the massive support and involvement of the community.
 
-The Larablog framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+[Bootstrap](http://getbootstrap.com)'s documentation, included in this repo in the root directory, is built with [Jekyll](http://jekyllrb.com) and publicly hosted on GitHub Pages at [<http://getbootstrap.com>](http://getbootstrap.com).
 
 ---
 
-## Larablog Quick Project Setup
+## [Larablog](https://larablog.io)
+
+### Quick Project Setup
 1. Run `sudo git clone https://github.com/jeremykenedy/larablog.git larablog`
 2. Run `composer update` from the projects root folder
 3. From the projects root run `cp .env.example .env`
@@ -92,7 +93,7 @@ The Larablog framework is open-sourced software licensed under the [MIT license]
 
 ---
 
-## Vagrant Dev Environment Start
+### Vagrant Dev Environment Start
 
 | Command        | Action           
 | ------------- |:-------------|
@@ -308,6 +309,14 @@ php artisan make:job --queued TestJob
 ```
 
 ---
+
+### Contributing To Larablog
+
+**All Larablog issues and pull requests should be filed on the [jeremykenedy/larablog](http://github.com/jeremykenedy/larablog) repository.**
+
+### Larablog License
+
+The Larablog framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
 
 ## Running To Do List:
 
