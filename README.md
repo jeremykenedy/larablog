@@ -1,5 +1,7 @@
+[![Latest Stable Version](https://poser.pugx.org/laravel/framework/version.png)](https://packagist.org/packages/laravel/framework) [![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.png)](https://packagist.org/packages/laravel/framework) [![Build Status](https://travis-ci.org/laravel/framework.png)](https://travis-ci.org/laravel/framework)
+
 # larablog 
-A blog project built on Laravel 5.1 and Bootstrap 3.5 - https://larablog.io
+A powerful Laravel blog built on Laravel 5.1 and Bootstrap 3.5.x - https://larablog.io
 
 | Features  |
 | :------------ |
@@ -38,9 +40,39 @@ A blog project built on Laravel 5.1 and Bootstrap 3.5 - https://larablog.io
 |Automatically Generates sitemap.xml file of published posts and public pages|
 |Completely Open Source with MIT License Included|
 
+## Laravel PHP Framework
+
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, and caching.
+
+Laravel aims to make the development process a pleasing one for the developer without sacrificing application functionality. Happy developers make the best code. To this end, we've attempted to combine the very best of what we have seen in other web frameworks, including frameworks implemented in other languages, such as Ruby on Rails, ASP.NET MVC, and Sinatra.
+
+Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+
+## Official Laravel Documentation
+
+Documentation for the entire framework can be found on the [Laravel website](http://laravel.com/docs).
+
+### Contributing To Laravel
+
+**All Laravel Framework related issues and pull requests should be filed on the [laravel/framework](http://github.com/laravel/framework) repository.**
+
+### Laravel License
+
+The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+
 ---
 
-## Quick Project Setup
+### Contributing To Larablog
+
+**All Larablog issues and pull requests should be filed on the [jeremykenedy/larablog](http://github.com/jeremykenedy/larablog) repository.**
+
+### Larablog License
+
+The Larablog framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+
+---
+
+## Larablog Quick Project Setup
 1. Run `sudo git clone https://github.com/jeremykenedy/larablog.git larablog`
 2. Run `composer update` from the projects root folder
 3. From the projects root run `cp .env.example .env`
@@ -60,7 +92,6 @@ A blog project built on Laravel 5.1 and Bootstrap 3.5 - https://larablog.io
 | ------------- |:-------------|
 | `vagrant up` | Start Vagrant VM named homestead |  
 | `vagrant up --provision` | Start Vagrant VM named homestead if vagrantfile updated |    
-
 
 ## Environment Access
 * From Terminal run `sudo ssh vagrant@127.0.0.1 -p 222`
