@@ -96,17 +96,17 @@ Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and
 
 ## Start Vagrant
 
-|:Command        |:Action           
+|Command        |Action           
 |:------------- |:-------------|
 | `vagrant up` | Start Vagrant VM |  
 | `vagrant up --provision` | Start Vagrant VM if vagrantfile updated |    
 | `vagrant halt` | Stop Vagrant VM |  
 
 ## Access Vagrant SSH and MySQL
-|:Command        |:Action      |:Important Notes 
+|:Command        |Action      | 
 |:------------- |:------------- |:-------------|
-| ```sudo ssh vagrant@127.0.0.1 -p 222``` | Access Vagrant VM | Password is ``` vagrant  ``` |
-| ```mysql -u homestead -ppassword``` | Start Vagrant VM named homestead if vagrantfile updated |
+| ```sudo ssh vagrant@127.0.0.1 -p 222``` | Access Vagrant VM via SSH. Password is ``` vagrant  ``` |
+| ```mysql -u homestead -ppassword``` | Access Vagrant VM MySQL. Password is ``` vagrant  ``` |
 
 ### GULP Asset Processing Commands 
 
@@ -141,7 +141,6 @@ sudo gulp copyfile
 	<li>
 	  <a href="/about">About</a>
 	</li>
-
 ```
 
 ###### ii.  The content of `/resources/views/blog/partials/page-nav.blade.php` will now look like:
@@ -309,14 +308,17 @@ redirect_stderr=true
 numprocs=1
 ```
 
-You'll need to replace the /PATH/TO/ to match your local install. Likewise, the user setting will be unique to your installation.
+##### You'll need to replace the /PATH/TO/ to match your local install. Likewise, the user setting will be unique to your installation.
 
-### THEN
+###### 1. Access and edit the systems CRON with the following command:
 ```
 crontab -e
+```
+###### 2. Add the following to your CRON file:
+```
 * * * * * php /path/to/artisan schedule:run 1>> /dev/null 2>&1
 ```
-
+###### 3. Intialize and test Laravel mail with your version of the following command:
 ```
 php artisan make:job --queued TestJob
 ```
