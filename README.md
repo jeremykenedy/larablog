@@ -206,7 +206,10 @@ sudo gulp copyfile
 
 ##### 3. Edit the ROUTES in: /app/Http/routes.php
 
-###### i. After the following line: `get('blog/{slug}', 'BlogController@showPost');`
+###### i. After the following line: 
+```
+get('blog/{slug}', 'BlogController@showPost');
+```
 
 ####### a. Add the following TWO lines:
 	
@@ -214,8 +217,11 @@ sudo gulp copyfile
 	$router->get('about', 'AboutController@showView');
 ```
 
-##### 4.  Create the CONTROLLER using ARTISAN:  `php artisan make:controller --plain AboutController`
-###### i. Replace Content of `/app/Http/Controllers/AboutController.php` with :
+##### 4.  Create the CONTROLLER using ARTISAN with the following command:  
+```
+php artisan make:controller --plain AboutController
+```
+##### 5. Replace Content of `/app/Http/Controllers/AboutController.php` with :
 
 ```
 	<?php
@@ -240,9 +246,9 @@ sudo gulp copyfile
 	}
 ```
 
-##### 5.  Create `about.blade.php` in the `/resources/views/blog/layouts` directory.
+##### 6. Create `about.blade.php` in the `/resources/views/blog/layouts` directory.
 
-###### i. Replace Content of `/resources/views/blog/layouts/about.blade.php` with :
+##### 7. Replace Content of `/resources/views/blog/layouts/about.blade.php` with :
 
 ```
 	@extends('blog.layouts.master', ['meta_description' => 'About Me'])
@@ -280,20 +286,21 @@ sudo gulp copyfile
 	@endsection
 
 ```
-##### 6.  Test by going to the `http://yourprojectURI/about`.
-#### 7.  Complete.
+##### 8.  Test by going to the `http://yourprojectURI/about`.
+##### 9.  Complete.
 
 ## Mail Commands #
+### Show Queued Mail
 ```
 php artisan queue:work
 ```
 
-### OK
+### Actively Listen for mail
 ```
 queue:listen
 ```
 
-### BETTER
+### Automate Mail
 Running `queue:listen` with supervisord
 supervisord is a *nix utility to monitor and control processes. We’re not delving into how to install this utility, but if you have it and get it installed, below is a portion of /etc/supervisord.conf that works well.
 ```
