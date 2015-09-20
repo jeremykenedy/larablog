@@ -1,5 +1,3 @@
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/version.png)](https://packagist.org/packages/laravel/framework) [![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.png)](https://packagist.org/packages/laravel/framework) [![Build Status](https://travis-ci.org/laravel/framework.png)](https://travis-ci.org/laravel/framework)
-
 # larablog 
 A powerful Laravel blog built on Laravel 5.1 and Bootstrap 3.5.x - https://larablog.io
 
@@ -39,6 +37,8 @@ A powerful Laravel blog built on Laravel 5.1 and Bootstrap 3.5.x - https://larab
 |About Page|
 |Automatically Generates sitemap.xml file of published posts and public pages|
 |Completely Open Source with MIT License Included|
+
+[![Latest Stable Version](https://poser.pugx.org/laravel/framework/version.png)](https://packagist.org/packages/laravel/framework) [![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.png)](https://packagist.org/packages/laravel/framework) [![Build Status](https://travis-ci.org/laravel/framework.png)](https://travis-ci.org/laravel/framework)
 
 ## Laravel PHP Framework
 
