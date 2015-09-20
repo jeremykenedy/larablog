@@ -92,35 +92,47 @@ Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and
 
 ## Other Very Usefull Information
 
-### Vagrant Dev Environment Start
+### Vagrant Dev Environment
 
-| Command        | Action           
-| ------------- |:-------------|
-| `vagrant up` | Start Vagrant VM named homestead |  
-| `vagrant up --provision` | Start Vagrant VM named homestead if vagrantfile updated |    
+## Start Vagrant
 
-### Environment Access
-* From Terminal run `sudo ssh vagrant@127.0.0.1 -p 222` Password is `vagrant`
-* MySQL Access: `mysql -u homestead -ppassword` 
+|:Command        |:Action           
+|:------------- |:-------------|
+| `vagrant up` | Start Vagrant VM |  
+| `vagrant up --provision` | Start Vagrant VM if vagrantfile updated |    
+| `vagrant halt` | Stop Vagrant VM |  
+
+## Access Vagrant SSH and MySQL
+|:Command        |:Action      |:Important Notes 
+|:------------- |:------------- |:-------------|
+| ```sudo ssh vagrant@127.0.0.1 -p 222``` | Access Vagrant VM | Password is ``` vagrant  ``` |
+| ```mysql -u homestead -ppassword``` | Start Vagrant VM named homestead if vagrantfile updated |
 
 ### GULP Asset Processing Commands 
 
 ####
 GULP settings and asset management setting can be found in file:
-`gulpfile.js`
+``` 
+gulpfile.js
+```
 
 #### Compile Less/Sass command:
-`sudo gulp`
+```
+sudo gulp
+```
 
 #### Pull listed GULP assets command:
-`sudo gulp copyfile`
-
+```
+sudo gulp copyfile
+```
 
 ## How to Make a new page
 #### Create about page as Example:
 
 ##### 1. From the projects root folder create the controller with Artisan:  
-	`php artisan make:controller --plain TheNameOfYourController`
+```
+	php artisan make:controller --plain TheNameOfYourController
+```
 
 ##### 2. Edit the NAV in: `/resources/views/blog/partials/page-nav.blade.php`
 
