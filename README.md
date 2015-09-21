@@ -115,17 +115,17 @@ larablog/
    │   │   │   ├── TagUpdateRequest.php
    │   │   │   ├── UploadFileRequest.php
    │   │   │   └── UploadNewFolderRequest.php
-   │   │	├── Jobs/
-   │   │	│   ├── BlogIndexData.php
-   │   │	│   ├── Job.php
-   │   │	│   ├── PostFormFields.php
-   │   │	│   └── TestJob.php
-   │   │	├── Services/
-   │   │	│   ├── Markdowner.php
-   │   │	│   ├── RssFeed.php
-   │   │	│   ├── SiteMap.php
-   │   │	│   └── UploadsManager.php
-   │   │	└── routes.php
+   │   │   ├── Jobs/
+   │   │   │   ├── BlogIndexData.php
+   │   │   │   ├── Job.php
+   │   │   │   ├── PostFormFields.php
+   │   │   │   └── TestJob.php
+   │   │   ├── Services/
+   │   │   │   ├── Markdowner.php
+   │   │   │   ├── RssFeed.php
+   │   │   │   ├── SiteMap.php
+   │   │   │   └── UploadsManager.php
+   │   │   └── routes.php
    │   ├── Post.php
    │   ├── Tag.php
    │   ├── User.php 
