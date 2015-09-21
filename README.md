@@ -93,72 +93,71 @@ Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and
 ### Commonly Used Folders and Files Structure
 ```
 larablog/
-├── app/
-│   ├── Http/
-│   │	├── Controllers/
-│   │	│   ├── Admin/
-│   │	│   │	├── PostController.php
-│   │	│   │	├── TagController.php			
-│   │	│   │	└── UploadController.php
-│   │	│   ├── Auth/
-│   │	│   │	├── AuthController.php
-│   │	│   │	└── PasswordController.php
-│   │	│   ├── BlogController.php
-│   │	│   ├── ContactController.php
-│   │	│   └── Controller.php
-│   │	├── Requests/
-│   │	│   ├── ContactMeRequest.php
-│   │	│   ├── PostCreateRequest.php
-│   │	│   ├── PostUpdateRequest.php
-│   │	│   ├── Request.php
-│   │	│   ├── TagCreateRequest.php
-│   │	│   ├── TagUpdateRequest.php
-│   │	│   ├── UploadFileRequest.php
-│   │   │   └── UploadNewFolderRequest.php
-│   │	├── Jobs/
-│   │	│   ├── BlogIndexData.php
-│   │	│   ├── Job.php
-│   │	│   ├── PostFormFields.php
-│   │	│   └── TestJob.php
-│   │	├── Services/
-│   │	│   ├── Markdowner.php
-│   │	│   ├── RssFeed.php
-│   │	│   ├── SiteMap.php
-│   │	│   └── UploadsManager.php
-│   │	└── routes.php
-│   ├── Post.php
-│   ├── Tag.php
-│   ├── User.php 
-│   └── helpers.php
-├── config/
-│   ├── app.php
-│   ├── auth.php
-│   ├── blog.php
-│   ├── database.php
-│   ├── filesystems.php
-│   ├── mail.php
-│   ├── queue.php
-│   ├── services.php
-│   ├── session.php
-│   └── view.php
-├──
-│   ├──
-│   │	├──
-│   │   │   ├──
-│   │   │   │   ├──
-│   │   │   │   │   ├──
-│   │   │   │   │   │   ├──
-│   │   │   │	│   │   │   └──
-│   │   │   │   │   │   └──
-│   │   │   │   │   └──
-│   │   │   │   └──
-│   │   │   └──
-│   │   └──
-│   └──
-├──
-└──
+   ├── app/
+   │   ├── Http/
+   │   │   ├── Controllers/
+   │   │   │   ├── Admin/
+   │   │   │   │   ├── PostController.php
+   │   │   │   │   ├── TagController.php			
+   │   │   │   │   └── UploadController.php
+   │   │   │   ├── Auth/
+   │   │   │   │   ├── AuthController.php
+   │   │   │   │   └── PasswordController.php
+   │   │   │   ├── BlogController.php
+   │   │   │   ├── ContactController.php
+   │   │   │   └── Controller.php
+   │   │   ├── Requests/
+   │   │   │   ├── ContactMeRequest.php
+   │   │   │   ├── PostCreateRequest.php
+   │   │   │   ├── PostUpdateRequest.php
+   │   │   │   ├── Request.php
+   │   │   │   ├── TagCreateRequest.php
+   │   │   │   ├── TagUpdateRequest.php
+   │   │   │   ├── UploadFileRequest.php
+   │   │   │   └── UploadNewFolderRequest.php
+   │   │	├── Jobs/
+   │   │	│   ├── BlogIndexData.php
+   │   │	│   ├── Job.php
+   │   │	│   ├── PostFormFields.php
+   │   │	│   └── TestJob.php
+   │   │	├── Services/
+   │   │	│   ├── Markdowner.php
+   │   │	│   ├── RssFeed.php
+   │   │	│   ├── SiteMap.php
+   │   │	│   └── UploadsManager.php
+   │   │	└── routes.php
+   │   ├── Post.php
+   │   ├── Tag.php
+   │   ├── User.php 
+   │   └── helpers.php
+   ├── config/
+   │   ├── app.php
+   │   ├── auth.php
+   │   ├── blog.php
+   │   ├── database.php
+   │   ├── filesystems.php
+   │   ├── mail.php
+   │   ├── queue.php
+   │   ├── services.php
+   │   ├── session.php
+   │   └── view.php
+   ├──
+   │   ├──
+   │   │	├──
+   │   │   │   ├──
+   │   │   │   │   ├──
+   │   │   │   │   │   ├──
+   │   │   │   │   │   │   ├──
+   │   │   │   │   │   │   │   └──
+   │   │   │   │   │   │   └──
+   │   │   │   │   │   └──
+   │   │   │   │   └──
+   │   │   │   └──
+   │   │   └──
+   │   └──
+   ├──
+   └──
 ```
-
 
 ## Other Very Usefull Information
 
