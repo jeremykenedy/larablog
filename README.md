@@ -83,12 +83,29 @@ Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and
 2. Run `composer update` from the projects root folder
 3. From the projects root run `cp .env.example .env`
 4. Configure your .env file
-5. From the projects root run `cp /config.blog.example.php /config/blog.php`
+5. From the projects root run `cp /config/blog.example.php /config/blog.php`
 6. Configure your blog.php file.
 7. From the projects root run `php artisan migrate`
 8. From the projects root run `sudo chmod -R 777 ../larablog`
 9. Go to your browser and refresh the projects page.
 10. From the projects root run `sudo chmod -R 755 ../larablog`
+11. Create your admin user using `sudo php artisan tinker`
+     * Below are the steps for using `php artisan tinker` to create the admin user:
+```
+	~/Code/larablog php artisan tinker
+	Psy Shell v0.4.3 (PHP 5.6.7-1+deb.sury.org~utopic+1 — cli) by Justin Hileman
+	>>> $user = new App\User;
+	=> <App\User #000000007543b78f0000000009f4a1ca> {}
+	>>> $user->name = 'Your Name';
+	=> "Your Name"
+	>>> $user->email = 'YOUR@email.com';
+	=> "YOUR@email.com"
+	>>> $user->password = bcrypt('YOUR PASSWORD');
+	=> "fgkdjfgjfsdlgkjdkortjk&jkrjdskljr54$kfdkgjkdfjgkjkgjdfkgjlkfd"
+	>>> $user->save();
+	=> true
+	>>> exit;
+```
 
 ### Commonly Used Folders and Files Structure
 ```
@@ -374,7 +391,7 @@ Running `queue:listen` with supervisord
 supervisord is a *nix utility to monitor and control processes. We’re not delving into how to install this utility, but if you have it and get it installed, below is a portion of /etc/supervisord.conf that works well.
 ```
 Portion of supervisord.conf for queue:listen
-[program:l5beauty-queue-listen]
+[program:larablog-queue-listen]
 command=php /PATH/TO/l5beauty/artisan queue:listen
 user=NONROOT-USER
 process_name=%(program_name)s_%(process_num)d
