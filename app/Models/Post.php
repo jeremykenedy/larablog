@@ -79,6 +79,15 @@ class Post extends Model implements Feedable
     ];
 
     /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'layout',
+    ];
+
+    /**
      * The many-to-many relationship between pages and tags.
      *
      * @return BelongsToMany
