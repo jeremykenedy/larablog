@@ -1,4 +1,4 @@
-@extends('blog.layouts.app')
+@extends('layouts.app')
 
 @section('template_title'){{ $post->title }}@endsection
 @section('template_description'){{ $post->meta_description }}@endsection

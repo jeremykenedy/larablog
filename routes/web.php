@@ -27,7 +27,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'permission:perms.su
 
 // Admin and above routes
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'permission:perms.admin']], function () {
-    //
+    Route::resource('posts', 'Admin\PostController');
 });
 
 // Dynamic Pages Routes
