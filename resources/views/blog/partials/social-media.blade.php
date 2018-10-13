@@ -1,8 +1,8 @@
 <ul class="list-inline text-center">
 
-    @if(Route::has('rss'))
+    @if(Route::has('feeds.blog'))
         <li class="list-inline-item">
-            <a href="{{ url('rss') }}" target="_blank" data-toggle="tooltip" title="RSS feed">
+            <a href="{{ route('feeds.blog') }}" data-toggle="tooltip" title="RSS feed">
                 <span class="fa-stack fa-lg">
                     <i class="fas fa-circle fa-stack-2x"></i>
                     <i class="fa fa-rss fa-stack-1x fa-inverse"></i>

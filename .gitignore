@@ -10,9 +10,9 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-#yarn.lock
-#package.lock
-#composer.lock
+yarn.lock
+package.lock
+composer.lock
 .env
 .phpunit.result.cache
 sitemap.xml

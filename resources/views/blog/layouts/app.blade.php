@@ -17,6 +17,9 @@
         <meta name="author" content="{{ config('blog.author') }}">
         <link rel="shortcut icon" href="/favicon.ico">
 
+        {{-- Dynamic RSS Feed Calls --}}
+        @include('feed::links')
+
         {{-- Fonts --}}
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">
         <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>

@@ -11,15 +11,15 @@
 |
 */
 
-
-// Auth::routes();
-// Route::get('/home', 'HomeController@index')->name('home');
-
 // Homepage Route
 Route::get('/', 'BlogController@index');
 
 // RSS Feed Route
-// Route::feeds();
+Route::feeds();
+
+// Admin Routes
+// Auth::routes();
+// Route::get('/home', 'HomeController@index')->name('home');
 
 // Dynamic Pages Routes
 Route::get('/{slug}/', 'BlogController@showPost');
