@@ -21,7 +21,7 @@ Route::feeds();
 Auth::routes();
 
 // Super Admin only routes
-Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'permission:perms.super-admin']], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'permission:perms.super.admin']], function () {
     //
 });
 
