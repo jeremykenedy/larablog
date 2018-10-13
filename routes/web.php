@@ -19,7 +19,7 @@
 Route::get('/', 'BlogController@index');
 
 // RSS Feed Route
-Route::feeds();
+// Route::feeds();
 
 // Dynamic Pages Routes
 Route::get('/{slug}/', 'BlogController@showPost');
