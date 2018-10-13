@@ -20,7 +20,7 @@ class CreateTagsTable extends Migration
             $table->longText('subtitle');
             $table->longText('page_image');
             $table->longText('meta_description');
-            $table->string('layout')->default('blog.layouts.index');
+            $table->string('layout')->default('blog.index');
             $table->boolean('reverse_direction');
             $table->timestamps();
         });

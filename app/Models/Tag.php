@@ -93,11 +93,11 @@ class Tag extends Model
      *
      * @return string
      */
-    public static function layout($tag, $default = 'blog.layouts.index')
+    public static function layout($tag, $default = 'blog.index')
     {
         $layout = static::whereTag($tag)->pluck('layout');
 
-        return $layout ?: $default;
+        return $layout[0] ?: $default;
     }
 
 }

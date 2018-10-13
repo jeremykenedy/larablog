@@ -93,7 +93,7 @@ class PostProcesses
             ->orderBy('published_at', $reverse_direction ? 'asc' : 'desc')
             ->simplePaginate(config('blog.posts_per_page'));
 
-        $posts->addQuery('tag', $tag->tag);
+        // $posts->addQuery('tag', $tag->tag);
 
         $post_image = $tag->post_image ?: config('blog.post_image');
 
