@@ -51,4 +51,19 @@ class BlogController extends Controller
         return view($post->layout, $data);
     }
 
+    /**
+     * Get the RSS feed
+     *
+     * @param RssFeed $feed
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function rss(RssFeed $feed)
+    {
+        $rss = $feed->getRSS();
+
+        return response($rss)->header('Content-type', 'application/rss+xml');
+    }
+
+
 }

@@ -95,6 +95,17 @@ return [
         'github_url'        => env('BLOG_SM_URL_GITHUB', null),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Services
+    |--------------------------------------------------------------------------
+    */
+    'services' => [
+        'disqusKey'         => env('BLOG_DISQUSSHORTNAME', null),
+        'googleAnalyticsID' => env('BLOG_GOOGLEANALYTICSID', null),
+    ],
+
+
 ];
 
 

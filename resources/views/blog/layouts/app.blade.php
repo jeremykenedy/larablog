@@ -2,6 +2,9 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
+        @if(config('blog.services.googleAnalyticsID'))
+            @include('blog.partials.analytics')
+        @endif
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -29,8 +32,7 @@
             ]) !!};
         </script>
 
-        @yield('head')
-
+        @stack('head')
     </head>
     <body>
         <div id="app">
@@ -48,7 +50,7 @@
         {{-- Scripts --}}
         <script src="{{ mix('js/app.js') }}" defer></script>
 
-        @yield('scripts')
+        @stack('scripts')
 
     </body>
 </html>
