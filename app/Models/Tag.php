@@ -37,6 +37,20 @@ class Tag extends Model
     ];
 
     /**
+     * Typecasting is awesome.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'tag'               => 'string',
+        'title'             => 'string',
+        'subtitle'          => 'string',
+        'page_image'        => 'string',
+        'meta_description'  => 'string',
+        'reverse_direction' => 'boolean',
+    ];
+
+    /**
      * The many-to-many relationship between tags and font end pages.
      *
      * @return BelongsToMany

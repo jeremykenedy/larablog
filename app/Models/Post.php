@@ -32,7 +32,7 @@ class Post extends Model implements Feedable
     /**
      * Define the date field.
      *
-     * @var        array
+     * @var array
      */
     protected $dates = [
         'published_at',

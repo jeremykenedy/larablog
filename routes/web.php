@@ -17,12 +17,18 @@ Route::get('/', 'BlogController@index');
 // RSS Feed Route
 Route::feeds();
 
-// Admin Routes
-// Auth::routes();
-// Route::get('/home', 'HomeController@index')->name('home');
+// Register, Login, and forget PW Routes
+Auth::routes();
+
+// Super Admin only routes
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'permission:perms.super-admin']], function () {
+    //
+});
+
+// Admin and above routes
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'permission:perms.admin']], function () {
+    //
+});
 
 // Dynamic Pages Routes
 Route::get('/{slug}/', 'BlogController@showPost');
-
-
-

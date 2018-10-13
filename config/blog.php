@@ -105,7 +105,4 @@ return [
         'googleAnalyticsID' => env('BLOG_GOOGLEANALYTICSID', null),
     ],
 
-
 ];
-
-

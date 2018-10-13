@@ -15,6 +15,6 @@ class UsersTableSeeder extends Seeder
 
         // User::truncate();
 
-        factory(User::class, 500)->create();
+        // factory(User::class, 500)->create();
     }
 }
