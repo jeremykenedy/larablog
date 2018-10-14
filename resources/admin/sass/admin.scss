@@ -1,0 +1,75 @@
+// ------------------------------------------------------------------------------------
+//
+// =========================================================
+// * Paper Dashboard 2 - v2.0.0
+// =========================================================
+//
+// * Product Page: https://www.creative-tim.com/product/paper-dashboard-2
+// * Copyright 2018 Creative Tim (http://www.creative-tim.com)
+//
+// * Designed by www.invisionapp.com Coded by www.creative-tim.com
+//
+// =========================================================
+//
+// * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+//
+// ------------------------------------------------------------------------------------
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// Font Awesome 5
+@import '~@fortawesome/fontawesome-free/scss/v4-shims';
+@import '~@fortawesome/fontawesome-free/scss/brands';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+// Papaer Dashboard
+@import '~paper-dashboard-2/assets/scss/paper-dashboard/variables';
+@import '~paper-dashboard-2/assets/scss/paper-dashboard/mixins';
+
+// Plugins CSS
+@import "~paper-dashboard-2/assets/scss/paper-dashboard/plugins/plugin-animate-bootstrap-notify";
+@import "~paper-dashboard-2/assets/scss/paper-dashboard/plugins/plugin-perfect-scrollbar";
+
+// Core CSS
+@import "~paper-dashboard-2/assets/scss/paper-dashboard/buttons";
+@import "~paper-dashboard-2/assets/scss/paper-dashboard/inputs";
+@import "~paper-dashboard-2/assets/scss/paper-dashboard/typography";
+@import "~paper-dashboard-2/assets/scss/paper-dashboard/misc";
+@import "~paper-dashboard-2/assets/scss/paper-dashboard/checkboxes-radio";
+
+// components
+@import "~paper-dashboard-2/assets/scss/paper-dashboard/navbar";
+@import "~paper-dashboard-2/assets/scss/paper-dashboard/page-header";
+@import "~paper-dashboard-2/assets/scss/paper-dashboard/dropdown";
+@import "~paper-dashboard-2/assets/scss/paper-dashboard/alerts";
+@import "~paper-dashboard-2/assets/scss/paper-dashboard/images";
+@import "~paper-dashboard-2/assets/scss/paper-dashboard/tables";
+@import "~paper-dashboard-2/assets/scss/paper-dashboard/sidebar-and-main-panel";
+@import "~paper-dashboard-2/assets/scss/paper-dashboard/footers";
+@import "~paper-dashboard-2/assets/scss/paper-dashboard/fixed-plugin";
+// Must include separately due to pathing issue in @font-face call.
+// @import "~paper-dashboard-2/assets/scss/paper-dashboard/nucleo-outline";
+@import 'nucleo-icons';
+
+// cards
+@import "~paper-dashboard-2/assets/scss/paper-dashboard/cards";
+@import "~paper-dashboard-2/assets/scss/paper-dashboard/cards/card-plain";
+@import "~paper-dashboard-2/assets/scss/paper-dashboard/cards/card-chart";
+@import "~paper-dashboard-2/assets/scss/paper-dashboard/cards/card-user";
+@import "~paper-dashboard-2/assets/scss/paper-dashboard/cards/card-map";
+@import "~paper-dashboard-2/assets/scss/paper-dashboard/cards/card-stats";
+@import "~paper-dashboard-2/assets/scss/paper-dashboard/responsive";
+
+.sidebar .sidebar-wrapper,
+.off-canvas-sidebar .sidebar-wrapper {
+    overflow-x: hidden;
+}
+.dropdown-menu .dropdown-item {
+    border-radius: inherit;
+}

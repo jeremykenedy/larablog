@@ -9,21 +9,23 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">
-                        {!! trans('larablog.nav.home') !!}
-                    </a>
-                </li>
+                @if (!Request::is('/'))
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is('/') ? 'active' : null }}" href="/">
+                            {!! trans('larablog.nav.home') !!}
+                        </a>
+                    </li>
+                @endif
                 @if (Route::has('about'))
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('about') }}">
+                        <a class="nav-link {{ Request::is('about') ? 'active' : null }}" href="{{ route('about') }}">
                             {!! trans('larablog.nav.about') !!}
                         </a>
                     </li>
                 @endif
                 @if (Route::has('contact'))
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('contact') }}">
+                        <a class="nav-link {{ Request::is('contact') ? 'active' : null }}" href="{{ route('contact') }}">
                             {!! trans('larablog.nav.contact') !!}
                         </a>
                     </li>
@@ -31,14 +33,14 @@
                 @guest
                     @if (Route::has('login'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">
+                            <a class="nav-link {{ Request::is('login') ? 'active' : null }}" href="{{ route('login') }}">
                                 {!! trans('larablog.nav.login') !!}
                             </a>
                         </li>
                     @endif
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">
+                            <a class="nav-link {{ Request::is('register') ? 'active' : null }}" href="{{ route('register') }}">
                                 {!! trans('larablog.nav.register') !!}
                             </a>
                         </li>
@@ -55,6 +57,9 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
+                            <a class="dropdown-item {{ Request::is('admin') ? 'active' : null }}" href="{{ route('admin') }}">
+                                {!! trans('larablog.nav.admin') !!}
+                            </a>
                         </div>
                     </li>
                 @endguest

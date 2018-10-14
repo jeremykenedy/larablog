@@ -19,11 +19,11 @@
 
         {{-- Fonts --}}
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-        <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <!-- <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> -->
+        <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'> -->
 
         {{-- Styles --}}
-        <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+        <link href="{{ mix('css/admin.css') }}" rel="stylesheet">
 
         {{-- Scripts --}}
         <script>
@@ -38,13 +38,44 @@
         <div id="app">
 
             <main>
-                @yield('content')
+
+                @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
+                @endif
+
+                <div class="wrapper ">
+
+                    @include('admin.partials.sidebar')
+
+                    <div class="main-panel">
+
+                        @include('admin.partials.navbar')
+
+                        <!--
+                        <div class="panel-header panel-header-lg">
+                           <canvas id="bigDashboardChart"></canvas>
+                        </div>
+                        -->
+
+                        <div class="content">
+
+                            @yield('content')
+
+                        </div>
+
+                        @include('admin.partials.footer')
+
+                    </div>
+                </div>
+
             </main>
 
         </div>
 
         {{-- Scripts --}}
-        <script src="{{ mix('js/app.js') }}" defer></script>
+        <script src="{{ mix('js/admin.js') }}" defer></script>
 
         @stack('scripts')
 

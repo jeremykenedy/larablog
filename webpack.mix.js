@@ -15,3 +15,8 @@ mix.js('resources/js/app.js', 'public/js')
     .copy('node_modules/@fortawesome/fontawesome-free/webfonts/**', 'public/fonts/font-awesome/', true)
     .sass('resources/sass/app.scss', 'public/css')
     .version();
+
+mix.js('resources/admin/js/admin.js', 'public/js')
+    .copy('node_modules/paper-dashboard-2/assets/fonts/**', 'public/fonts/nucleo/', true)
+    .sass('resources/admin/sass/admin.scss', 'public/css')
+    .version();

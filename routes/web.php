@@ -12,7 +12,7 @@
 */
 
 // Homepage Route
-Route::get('/', 'BlogController@index');
+Route::get('/', 'BlogController@index')->name('home');
 
 // RSS Feed Route
 Route::feeds();
@@ -27,7 +27,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'permission:perms.su
 
 // Admin and above routes
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'permission:perms.admin']], function () {
-    Route::resource('posts', 'Admin\PostController');
+    // Route::resource('posts', 'Admin\PostController');
+    Route::get('/', 'Admin\AdminController@index')->name('admin');
+
 });
 
 // Dynamic Pages Routes

@@ -1,6 +1,8 @@
 {
-    "/js/app.js": "/js/app.js?id=ab9001f08b82d540f73b",
-    "/css/app.css": "/css/app.css?id=19002ed13e442fb952ad",
+    "/js/app.js": "/js/app.js?id=b71234b91178389188fc",
+    "/css/app.css": "/css/app.css?id=ed7f379545ef1684739d",
+    "/css/admin.css": "/css/admin.css?id=36a7d2fa7602dd66c9ae",
+    "/js/admin.js": "/js/admin.js?id=5f6e59de4f4331254d09",
     "/fonts/font-awesome/fa-brands-400.eot": "/fonts/font-awesome/fa-brands-400.eot?id=01405789261ecbea309c",
     "/fonts/font-awesome/fa-brands-400.svg": "/fonts/font-awesome/fa-brands-400.svg?id=b5472631dbace30d5493",
     "/fonts/font-awesome/fa-brands-400.ttf": "/fonts/font-awesome/fa-brands-400.ttf?id=e8867679280efd772211",
@@ -15,5 +17,9 @@
     "/fonts/font-awesome/fa-solid-900.svg": "/fonts/font-awesome/fa-solid-900.svg?id=38508b2e7fac045869a8",
     "/fonts/font-awesome/fa-solid-900.ttf": "/fonts/font-awesome/fa-solid-900.ttf?id=8953f46d9184a2ea3f8c",
     "/fonts/font-awesome/fa-solid-900.woff": "/fonts/font-awesome/fa-solid-900.woff?id=1668d350941bea62d06c",
-    "/fonts/font-awesome/fa-solid-900.woff2": "/fonts/font-awesome/fa-solid-900.woff2?id=a378c823f9614f36027d"
+    "/fonts/font-awesome/fa-solid-900.woff2": "/fonts/font-awesome/fa-solid-900.woff2?id=a378c823f9614f36027d",
+    "/fonts/nucleo/nucleo-icons.eot": "/fonts/nucleo/nucleo-icons.eot?id=f82bf43fbbf5f21d16b4",
+    "/fonts/nucleo/nucleo-icons.ttf": "/fonts/nucleo/nucleo-icons.ttf?id=bb32afaf0a771cb5cee6",
+    "/fonts/nucleo/nucleo-icons.woff": "/fonts/nucleo/nucleo-icons.woff?id=49ae0f6bb803e4d29280",
+    "/fonts/nucleo/nucleo-icons.woff2": "/fonts/nucleo/nucleo-icons.woff2?id=b73e3c1971984675c936"
 }
