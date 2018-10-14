@@ -24767,3 +24767,10 @@ License - nucleoapp.com/license/
   border-radius: inherit;
 }
 
+.auth-page {
+  height: 100%;
+  width: 100%;
+  background-color: #f4f3ef;
+  margin-top: 2em;
+}
+

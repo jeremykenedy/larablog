@@ -73,3 +73,10 @@
 .dropdown-menu .dropdown-item {
     border-radius: inherit;
 }
+
+.auth-page {
+    height: 100%;
+    width: 100%;
+    background-color: $default-body-bg;
+    margin-top: 2em;
+}
