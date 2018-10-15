@@ -38,10 +38,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'permission:perms.wr
     ])->names([
         'create' => 'posts.create',
         'index' => 'admin.posts',
-    ])->parameters([
+    ])
+    ->parameters([
         'post' => 'id'
     ]);
-
 
     Route::get('/', 'Admin\AdminController@index')->name('admin');
 });

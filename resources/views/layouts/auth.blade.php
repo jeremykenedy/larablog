@@ -17,6 +17,10 @@
         <meta name="author" content="{{ config('blog.author') }}">
         <link rel="shortcut icon" href="/favicon.ico">
 
+        {{-- Fonts --}}
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+
         {{-- Styles --}}
         <link href="{{ mix('css/admin.css') }}" rel="stylesheet">
 

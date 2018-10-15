@@ -6,6 +6,9 @@ use App\Models\Post;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Services\PostFormFields;
+
+
 class PostController extends Controller
 {
     /**
@@ -13,9 +16,15 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin.post.index')->with(['posts' => Post::all()]);
+        $posts = Post::orderBy('published_at', 'desc')->get();
+
+        $data = [
+            'posts' => $posts,
+        ];
+
+        return view('admin.post.index')->with($data);
     }
 
     /**
@@ -45,7 +54,7 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
         //
     }
@@ -56,9 +65,12 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        //
+        $service = new PostFormFields($id);
+        $data    = $service->handle();
+
+        return view('admin.post.edit')->with($data);
     }
 
     /**

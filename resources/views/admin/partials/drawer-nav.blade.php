@@ -15,7 +15,7 @@
         @if (Route::has('admin.posts'))
             <li class="{{ Request::is('admin/posts') ? 'active' : null }} ">
                 <a href="{{ route('admin.posts') }}">
-                    <i class="nc-icon nc-diamond"></i>
+                    <i class="nc-icon nc-paper"></i>
                     <p>
                         {!! trans('admin.drawer-nav.posts') !!}
                     </p>
@@ -26,7 +26,7 @@
         @if (Route::has('admin/tags'))
             <li class="{{ Request::is('admin/tags') ? 'active' : null }} ">
                 <a href="{{ route('admin/tags') }}">
-                    <i class="nc-icon nc-pin-3"></i>
+                    <i class="nc-icon nc-tag-content"></i>
                     <p>
                         {!! trans('admin.drawer-nav.tags') !!}
                     </p>
@@ -37,7 +37,7 @@
         @if (Route::has('admin/files'))
             <li class="{{ Request::is('admin/files') ? 'active' : null }} ">
                 <a href="{{ route('admin/files') }}">
-                    <i class="nc-icon nc-bell-55"></i>
+                    <i class="nc-icon nc-box"></i>
                     <p>
                         {!! trans('admin.drawer-nav.file-manager') !!}
                     </p>
