@@ -22,7 +22,7 @@ class RolesTableSeeder extends Seeder
                 'name'        => 'Super Admin',
                 'slug'        => 'super-admin',
                 'description' => 'Super Admin Role',
-                'level'       => 4,
+                'level'       => 5,
             ]);
         }
 

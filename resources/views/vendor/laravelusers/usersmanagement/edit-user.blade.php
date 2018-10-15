@@ -4,6 +4,9 @@
     {!! trans('laravelusers::laravelusers.editing-user', ['name' => $user->name]) !!}
 @endsection
 
+@section('template_description')
+@endsection
+
 @section('template_linked_css')
     @if(config('laravelusers.enabledDatatablesJs'))
         <link rel="stylesheet" type="text/css" href="{{ config('laravelusers.datatablesCssCDN') }}">

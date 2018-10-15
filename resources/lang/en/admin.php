@@ -17,9 +17,9 @@ return [
         'dashboard'     => 'Dashboard',
         'posts'         => 'Posts',
         'tags'          => 'Tags',
-        'file-manager'  => 'File Manager',
-        'users'         => 'Users Management',
-        'roles'         => 'Roles Management',
+        'file-manager'  => 'Files',
+        'users'         => 'Users',
+        'roles'         => 'Roles',
         'settings'      => 'Settings',
     ],
 

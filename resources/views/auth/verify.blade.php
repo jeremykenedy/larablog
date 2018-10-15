@@ -1,5 +1,13 @@
 @extends('layouts.auth')
 
+@section('template_title')
+    Verify
+@endsection
+
+@section('template_description')
+@endsection
+
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

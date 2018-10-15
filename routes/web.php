@@ -25,11 +25,25 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'permission:perms.su
     //
 });
 
-// Admin and above routes
-Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'permission:perms.admin']], function () {
-    // Route::resource('posts', 'Admin\PostController');
-    Route::get('/', 'Admin\AdminController@index')->name('admin');
+// Writer and above routes
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'permission:perms.writer']], function () {
 
+    Route::resource('posts', 'Admin\PostController',
+        ['except' => 'show']
+    );
+
+
+    Route::resource('posts', 'Admin\PostController')->except([
+        'show'
+    ])->names([
+        'create' => 'posts.create',
+        'index' => 'admin.posts',
+    ])->parameters([
+        'post' => 'id'
+    ]);
+
+
+    Route::get('/', 'Admin\AdminController@index')->name('admin');
 });
 
 // Dynamic Pages Routes

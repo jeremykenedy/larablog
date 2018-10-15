@@ -12,9 +12,9 @@
             </li>
         @endif
 
-        @if (Route::has('admin/posts'))
+        @if (Route::has('admin.posts'))
             <li class="{{ Request::is('admin/posts') ? 'active' : null }} ">
-                <a href="{{ route('admin/posts') }}">
+                <a href="{{ route('admin.posts') }}">
                     <i class="nc-icon nc-diamond"></i>
                     <p>
                         {!! trans('admin.drawer-nav.posts') !!}
@@ -45,7 +45,7 @@
             </li>
         @endif
 
-        @if (Route::has('users'))
+        @if (Route::has('users') && Auth::check() && Auth::user()->hasPermission('perms.super.admin'))
             <li class="{{ Request::is('users') ? 'active' : null }} ">
                 <a href="{{ route('users') }}">
                     <i class="nc-icon nc-single-02"></i>

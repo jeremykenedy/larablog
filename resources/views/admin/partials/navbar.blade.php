@@ -52,7 +52,7 @@
                         <i class="nc-icon nc-circle-10"></i>
                         <p>
                             <span class="d-lg-none d-md-block">
-                                Some Actions
+                                Admin Menu
                             </span>
                         </p>
                     </a>
