@@ -45,37 +45,50 @@
             </li>
         @endif
 
-        @if (Route::has('users') && Auth::check() && Auth::user()->hasPermission('perms.super.admin'))
-            <li class="{{ Request::is('users') ? 'active' : null }} ">
-                <a href="{{ route('users') }}">
-                    <i class="nc-icon nc-single-02"></i>
-                    <p>
-                        {!! trans('admin.drawer-nav.users') !!}
-                    </p>
-                </a>
-            </li>
-        @endif
+        @if(Auth::check() && Auth::user()->hasPermission('perms.super.admin'))
+            @if (Route::has('users'))
+                <li class="{{ Request::is('users') ? 'active' : null }} ">
+                    <a href="{{ route('users') }}">
+                        <i class="nc-icon nc-single-02"></i>
+                        <p>
+                            {!! trans('admin.drawer-nav.users') !!}
+                        </p>
+                    </a>
+                </li>
+            @endif
 
-        @if (Route::has('admin/roles'))
-            <li class="{{ Request::is('admin/roles') ? 'active' : null }} ">
-                <a href="{{ route('admin/roles') }}">
-                    <i class="nc-icon nc-tile-56"></i>
-                    <p>
-                        {!! trans('admin.drawer-nav.roles') !!}
-                    </p>
-                </a>
-            </li>
-        @endif
+            @if (Route::has('admin/roles'))
+                <li class="{{ Request::is('admin/roles') ? 'active' : null }} ">
+                    <a href="{{ route('admin/roles') }}">
+                        <i class="nc-icon nc-tile-56"></i>
+                        <p>
+                            {!! trans('admin.drawer-nav.roles') !!}
+                        </p>
+                    </a>
+                </li>
+            @endif
 
-        @if (Route::has('admin/settings'))
-            <li class="{{ Request::is('admin/settings') ? 'active' : null }} ">
-                <a href="{{ route('admin/settings') }}">
-                    <i class="nc-icon nc-single-02"></i>
-                    <p>
-                        {!! trans('admin.drawer-nav.settings') !!}
-                    </p>
-                </a>
-            </li>
+            @if (Route::has('laravelPhpInfo::phpinfo'))
+                <li class="{{ Request::is('laravelPhpInfo::phpinfo') ? 'active' : null }} ">
+                    <a href="{{ route('laravelPhpInfo::phpinfo') }}">
+                        <i class="nc-icon nc-alert-circle-i"></i>
+                        <p>
+                            {!! trans('admin.drawer-nav.phpinfo') !!}
+                        </p>
+                    </a>
+                </li>
+            @endif
+
+            @if (Route::has('admin/settings'))
+                <li class="{{ Request::is('admin/settings') ? 'active' : null }} ">
+                    <a href="{{ route('admin/settings') }}">
+                        <i class="nc-icon nc-single-02"></i>
+                        <p>
+                            {!! trans('admin.drawer-nav.settings') !!}
+                        </p>
+                    </a>
+                </li>
+            @endif
         @endif
 
     </ul>

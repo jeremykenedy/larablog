@@ -20,6 +20,7 @@ return [
         'file-manager'  => 'Files',
         'users'         => 'Users',
         'roles'         => 'Roles',
+        'phpinfo'       => 'PHP Info',
         'settings'      => 'Settings',
     ],
 

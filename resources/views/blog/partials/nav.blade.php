@@ -31,6 +31,7 @@
                     </li>
                 @endif
                 @guest
+                    {{--
                     @if (Route::has('login'))
                         <li class="nav-item">
                             <a class="nav-link {{ Request::is('login') ? 'active' : null }}" href="{{ route('login') }}">
@@ -45,6 +46,7 @@
                             </a>
                         </li>
                     @endif
+                    --}}
                 @else
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

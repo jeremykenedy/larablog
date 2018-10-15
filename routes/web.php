@@ -28,18 +28,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'permission:perms.su
 // Writer and above routes
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'permission:perms.writer']], function () {
 
-    Route::resource('posts', 'Admin\PostController',
-        ['except' => 'show']
-    );
-
-
     Route::resource('posts', 'Admin\PostController')->except([
         'show'
     ])->names([
         'create' => 'posts.create',
         'index' => 'admin.posts',
-    ])
-    ->parameters([
+    ])->parameters([
         'post' => 'id'
     ]);
 
