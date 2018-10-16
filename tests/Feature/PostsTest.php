@@ -3,11 +3,8 @@
 namespace Tests\Feature;
 
 use App\Models\Post;
-use App\Models\Tag;
-
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class PostsTest extends TestCase
 {
@@ -16,9 +13,8 @@ class PostsTest extends TestCase
     protected $postId;
     protected $modifiedTitle;
 
-
     /**
-     * Initial setup of contructor
+     * Initial setup of contructor.
      *
      * @return void
      */
@@ -40,7 +36,7 @@ class PostsTest extends TestCase
         Post::truncate();
 
         $post = factory(Post::class)->create([
-            'id' => $this->postId
+            'id' => $this->postId,
         ]);
 
         $this->assertEquals($post->id, $this->postId);

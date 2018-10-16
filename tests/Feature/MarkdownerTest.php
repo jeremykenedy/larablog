@@ -3,15 +3,13 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class MarkdownerTest extends TestCase
 {
     protected $markdown;
 
     /**
-     * Initial setup of contructor
+     * Initial setup of contructor.
      *
      * @return void
      */
@@ -46,8 +44,8 @@ class MarkdownerTest extends TestCase
     /**
      * @dataProvider conversionsProvider
      *
-     * @param string $value     The value
-     * @param string $expected  The expected
+     * @param string $value    The value
+     * @param string $expected The expected
      *
      * @return void
      */
@@ -57,17 +55,16 @@ class MarkdownerTest extends TestCase
     }
 
     /**
-     * Array of values and expectations to tests
+     * Array of values and expectations to tests.
      *
      * @return array
      */
     public function conversionsProvider()
     {
         return [
-            ["test", "<p>test</p>\n"],
-            ["# title", "<h1>title</h1>\n"],
+            ['test', "<p>test</p>\n"],
+            ['# title', "<h1>title</h1>\n"],
             ["Here's Jeremy!", "<p>Here&#8217;s Jeremy!</p>\n"],
         ];
     }
-
 }

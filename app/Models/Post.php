@@ -98,7 +98,7 @@ class Post extends Model implements Feedable
     }
 
     /**
-     * Set the title attribute and automatically the slug
+     * Set the title attribute and automatically the slug.
      *
      * @param string $value
      */
@@ -106,16 +106,16 @@ class Post extends Model implements Feedable
     {
         $this->attributes['title'] = $value;
 
-        if (! $this->exists) {
+        if (!$this->exists) {
             $this->setUniqueSlug($value, '');
         }
     }
 
     /**
-     * Recursive routine to set a unique slug
+     * Recursive routine to set a unique slug.
      *
      * @param string $title
-     * @param mixed $extra
+     * @param mixed  $extra
      */
     protected function setUniqueSlug($title, $extra)
     {
@@ -123,6 +123,7 @@ class Post extends Model implements Feedable
 
         if (static::whereSlug($slug)->exists()) {
             $this->setUniqueSlug($title, $extra + 1);
+
             return;
         }
 
@@ -130,7 +131,7 @@ class Post extends Model implements Feedable
     }
 
     /**
-     * Set the HTML content automatically when the raw content is set
+     * Set the HTML content automatically when the raw content is set.
      *
      * @param string $value
      */
@@ -143,7 +144,7 @@ class Post extends Model implements Feedable
     }
 
     /**
-     * Sync tag relation adding new tags as needed
+     * Sync tag relation adding new tags as needed.
      *
      * @param array $tags
      */
@@ -155,6 +156,7 @@ class Post extends Model implements Feedable
             $this->tags()->sync(
                 Tag::whereIn('tag', $tags)->pluck('id')->all()
             );
+
             return;
         }
 
@@ -162,7 +164,7 @@ class Post extends Model implements Feedable
     }
 
     /**
-     * Return the date portion of published_at
+     * Return the date portion of published_at.
      */
     public function getPublishDateAttribute($value)
     {
@@ -170,15 +172,15 @@ class Post extends Model implements Feedable
     }
 
     /**
-    * Alias for content_raw
-    */
+     * Alias for content_raw.
+     */
     public function getContentAttribute($value)
     {
         return $this->content_raw;
     }
 
     /**
-     * Return URL to page
+     * Return URL to page.
      *
      * @param Tag $tag
      *
@@ -195,7 +197,7 @@ class Post extends Model implements Feedable
     }
 
     /**
-     * Return array of tag links
+     * Return array of tag links.
      *
      * @param string $base
      *
@@ -210,13 +212,15 @@ class Post extends Model implements Feedable
             $url = str_replace('%TAG%', urlencode($tag), $base);
             $return[] = '<a class="badge" href="'.$url.'">'.e($tag).'</a>';
         }
+
         return $return;
     }
 
     /**
-     * Return next post after this one or null
+     * Return next post after this one or null.
      *
      * @param Tag $tag
+     *
      * @return Post
      */
     public function newerPost(Tag $tag = null)
@@ -235,9 +239,10 @@ class Post extends Model implements Feedable
     }
 
     /**
-     * Return older post before this one or null
+     * Return older post before this one or null.
      *
      * @param Tag $tag
+     *
      * @return Post
      */
     public function olderPost(Tag $tag = null)
@@ -255,7 +260,7 @@ class Post extends Model implements Feedable
     }
 
     /**
-     * Model RSS feed items to return
+     * Model RSS feed items to return.
      *
      * @return FeedItem
      */
@@ -272,7 +277,7 @@ class Post extends Model implements Feedable
     }
 
     /**
-     * Get the feed items
+     * Get the feed items.
      *
      * @return collection
      */
@@ -288,11 +293,10 @@ class Post extends Model implements Feedable
      */
     public static function getAllPublishedPosts()
     {
-        return Post::with('tags')
+        return self::with('tags')
             ->where('published_at', '<=', Carbon::now())
             ->where('is_draft', 0)
             ->orderBy('published_at', 'desc')
             ->get();
     }
-
 }

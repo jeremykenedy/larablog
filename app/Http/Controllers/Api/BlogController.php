@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Services\PostProcesses;
-use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -35,7 +35,7 @@ class BlogController extends Controller
 
         return response()->json([
             'code'      => 200,
-            'message'   => "Welcome to the " . config('blog.title') . " API",
+            'message'   => 'Welcome to the '.config('blog.title').' API',
             'data'      => [
                 'title'         => config('blog.title'),
                 'subtitle'      => config('blog.subtitle'),
@@ -50,17 +50,17 @@ class BlogController extends Controller
                     'post_published_at' => $publishedPosts->last()->published_at,
                     'post_subtitle'     => $publishedPosts->last()->subtitle,
                 ],
-                'sitemap' => config('app.url') . '/sitemap.xml',
-                'rss' => [
-                    'blog' => route('feeds.blog')
+                'sitemap' => config('app.url').'/sitemap.xml',
+                'rss'     => [
+                    'blog' => route('feeds.blog'),
                 ],
 
-            ]
+            ],
         ], Response::HTTP_OK);
     }
 
     /**
-     * Display the posts paginated
+     * Display the posts paginated.
      *
      * @param \Illuminate\Http\Request
      *
@@ -68,15 +68,15 @@ class BlogController extends Controller
      */
     public function posts(Request $request)
     {
-        $tag        = $request->get('tag');
-        $service    = new PostProcesses($tag);
-        $data       = $service->getResponse();
+        $tag = $request->get('tag');
+        $service = new PostProcesses($tag);
+        $data = $service->getResponse();
 
-        return $data["posts"];
+        return $data['posts'];
     }
 
     /**
-     * Display all the posts
+     * Display all the posts.
      *
      * @return \Illuminate\Http\Response
      */
@@ -88,7 +88,7 @@ class BlogController extends Controller
     }
 
     /**
-     * Get the Latest Post
+     * Get the Latest Post.
      *
      * @param \Illuminate\Http\Request
      *
@@ -102,5 +102,4 @@ class BlogController extends Controller
             ->orderBy('published_at', 'desc')
             ->first();
     }
-
 }

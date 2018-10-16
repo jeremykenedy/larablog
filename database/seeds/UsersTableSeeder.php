@@ -41,6 +41,7 @@ class UsersTableSeeder extends Seeder
 
         if ($newSuperAdminSeeded) {
             echo "\033[01;33mSuccessfully Seeded: \033[0mSuper Admin User\r\n";
+
             return;
         }
 

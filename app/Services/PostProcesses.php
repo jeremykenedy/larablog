@@ -51,10 +51,10 @@ class PostProcesses
     }
 
     /**
-    * Return data for normal index page
-    *
-    * @return array
-    */
+     * Return data for normal index page.
+     *
+     * @return array
+     */
     protected function normalIndexData()
     {
         $posts = Post::with('tags')
@@ -75,15 +75,16 @@ class PostProcesses
     }
 
     /**
-    * Return data for a tag index page
-    *
-    * @param string $tag
-    * @return array
-    */
+     * Return data for a tag index page.
+     *
+     * @param string $tag
+     *
+     * @return array
+     */
     protected function tagIndexData($tag)
     {
         $tag = Tag::where('tag', $tag)->firstOrFail();
-        $reverse_direction = (bool)$tag->reverse_direction;
+        $reverse_direction = (bool) $tag->reverse_direction;
 
         $posts = Post::where('published_at', '<=', Carbon::now())
             ->whereHas('tags', function ($q) use ($tag) {
@@ -107,5 +108,4 @@ class PostProcesses
             'meta_description'  => $tag->meta_description ?: \ config('blog.description'),
         ];
     }
-
 }

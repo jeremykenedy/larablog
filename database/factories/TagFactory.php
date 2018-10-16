@@ -7,9 +7,10 @@ $factory->define(App\Models\Tag::class, function (Faker $faker) {
         'backgrounds/about-bg.jpg',
         'backgrounds/contact-bg.jpg',
         'backgrounds/home-bg.jpg',
-        'backgrounds/post-bg.jpg'
+        'backgrounds/post-bg.jpg',
     ];
     $word = $faker->unique()->name;
+
     return [
         'tag'               => $word,
         'title'             => ucfirst($word),
@@ -19,5 +20,3 @@ $factory->define(App\Models\Tag::class, function (Faker $faker) {
         'reverse_direction' => false,
     ];
 });
-
-
