@@ -10,18 +10,18 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
+        "@fortawesome/fontawesome": "^1.1.8",
         "axios": "^0.18",
         "bootstrap": "^4.0.0",
         "cross-env": "^5.1",
+        "datatables": "^1.10.18",
         "jquery": "^3.2",
         "laravel-mix": "^2.0",
         "lodash": "^4.17.5",
+        "paper-dashboard-2": "^2.0.0",
         "popper.js": "^1.12",
+        "startbootstrap-clean-blog": "^5.0.1",
         "vue": "^2.5.7"
     },
-    "dependencies": {
-        "@fortawesome/fontawesome": "^1.1.8",
-        "paper-dashboard-2": "^2.0.0",
-        "startbootstrap-clean-blog": "^5.0.1"
-    }
+    "dependencies": {}
 }

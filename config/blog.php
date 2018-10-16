@@ -49,7 +49,7 @@ return [
     | Default entry for pagination of returning posts in results.
     |--------------------------------------------------------------------------
     */
-    'pages_per_page' => env('BLOG_DEFAULT_PAGES_PER_PAGE', 10),
+    'posts_per_page' => env('BLOG_DEFAULT_PAGES_PER_PAGE', 10),
 
     /*
     |--------------------------------------------------------------------------

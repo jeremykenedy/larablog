@@ -18,7 +18,7 @@ class CreateTagsTable extends Migration
             $table->string('tag')->unique();
             $table->longText('title');
             $table->longText('subtitle');
-            $table->longText('page_image');
+            $table->longText('post_image');
             $table->longText('meta_description');
             $table->string('layout')->default('blog.index');
             $table->boolean('reverse_direction');

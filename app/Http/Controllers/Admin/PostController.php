@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Services\PostFormFields;
+use App\Services\PostProcesses;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -16,7 +17,9 @@ class PostController extends Controller
      */
     public function index(Request $request)
     {
-        $posts = Post::orderBy('published_at', 'desc')->get();
+        $posts = Post::with('tags')
+            ->orderBy('published_at', 'desc')
+            ->paginate(config('admin.posts_per_page'));
 
         $data = [
             'posts' => $posts,

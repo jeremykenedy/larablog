@@ -69,6 +69,10 @@
 // Helpers
 @import '../../sass/partials/bs-visibility-classes';
 
+.data-style {
+    font-family: monospace;
+    font-size: .7em;
+}
 .sidebar .sidebar-wrapper,
 .off-canvas-sidebar .sidebar-wrapper {
     overflow-x: hidden;
@@ -84,7 +88,6 @@
     margin-top: 2em;
 }
 
-
 .input-group-append {
     .btn {
         margin: 0;
@@ -99,16 +102,25 @@
         }
     }
 }
-
 #users_table {
     td {
-        padding: 0.3rem;
-        font-size: .9em;
-
         &:nth-child(5),
         &:nth-child(6) {
-            font-family: monospace;
-            font-size: .7em;
+            @extend .data-style;
         }
+    }
+}
+table {
+    &.table-sm {
+        td {
+            padding: 0.3rem;
+            font-size: .9em;
+        }
+    }
+}
+
+#page-image-preview {
+    @media(min-width: 767px) {
+        max-height: 40px;
     }
 }

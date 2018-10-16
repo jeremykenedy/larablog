@@ -15,7 +15,7 @@ $factory->define(App\Models\Tag::class, function (Faker $faker) {
         'tag'               => $word,
         'title'             => ucfirst($word),
         'subtitle'          => $faker->sentence,
-        'page_image'        => $images[mt_rand(0, 3)],
+        'post_image'        => $images[mt_rand(0, 3)],
         'meta_description'  => "Meta for $word",
         'reverse_direction' => false,
     ];

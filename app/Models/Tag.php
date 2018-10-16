@@ -31,7 +31,7 @@ class Tag extends Model
         'tag',
         'title',
         'subtitle',
-        'page_image',
+        'post_image',
         'meta_description',
         'reverse_direction',
     ];
@@ -45,7 +45,7 @@ class Tag extends Model
         'tag'               => 'string',
         'title'             => 'string',
         'subtitle'          => 'string',
-        'page_image'        => 'string',
+        'post_image'        => 'string',
         'meta_description'  => 'string',
         'reverse_direction' => 'boolean',
     ];
@@ -78,7 +78,7 @@ class Tag extends Model
                 'tag'               => $tag,
                 'title'             => $tag,
                 'subtitle'          => 'Articles tagged: '.$tag,
-                'page_image'        => '',
+                'post_image'        => '',
                 'meta_description'  => '',
                 'reverse_direction' => false,
             ]);

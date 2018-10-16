@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('template_title')
+    {{ trans('admin.posts.pages.index.title') }}
 @endsection
 
 @section('template_description')
@@ -14,7 +15,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">
-                            Posts
+                            {{ trans('admin.posts.table.title') }}
                         </h4>
                     </div>
                     <div class="card-body">
@@ -22,22 +23,23 @@
                             <table id="posts-table" class="table table-sm">
                                 <thead class="text-primary">
                                     <th>
-                                        Published
+                                        {{ trans('admin.posts.table.titles.published') }}
                                     </th>
                                     <th>
-                                        Title
+                                        {{ trans('admin.posts.table.titles.title') }}
                                     </th>
                                     <th>
-                                        Subtitle
+                                        {{ trans('admin.posts.table.titles.subtitle') }}
                                     </th>
                                     <th data-sortable="false">
-                                        Actions
+                                        {{ trans('admin.posts.table.titles.actions') }}
                                     </th>
+                                    <th></th>
                                 </thead>
                                 <tbody>
                                     @foreach ($posts as $post)
                                         <tr>
-                                            <td data-order="{{ $post->published_at->timestamp }}">
+                                            <td data-order="{{ $post->published_at->timestamp }}" class="data-style">
                                               {{ $post->published_at->format('M-j-y g:ia') }}
                                             </td>
                                             <td>
@@ -47,13 +49,15 @@
                                                 {{ $post->subtitle }}
                                             </td>
                                             <td>
-                                                <a href="/admin/posts/{{ $post->id }}/edit" class="btn btn-xs btn-info">
+                                                <a href="/admin/posts/{{ $post->id }}/edit" class="btn btn-sm btn-info">
                                                     <i class="fa fa-edit"></i>
-                                                    Edit
+                                                    {{ trans('admin.buttons.edit') }}
                                                 </a>
-                                                <a href="/{{ $post->slug }}" class="btn btn-xs btn-warning">
+                                            </td>
+                                            <td>
+                                                <a href="/{{ $post->slug }}" class="btn btn-sm btn-warning">
                                                     <i class="fa fa-eye"></i>
-                                                    View
+                                                    {{ trans('admin.buttons.view') }}
                                                 </a>
                                             </td>
                                         </tr>
@@ -61,6 +65,10 @@
                                 </tbody>
                             </table>
                         </div>
+
+                        <div class="clearfix mb-2"></div>
+                        {{ $posts->links() }}
+
                     </div>
                 </div>
             </div>
@@ -70,13 +78,4 @@
 @endsection
 
 @push('scripts')
-    <!--
-    <script>
-        $(function() {
-            $("#posts-table").DataTable({
-                order: [[0, "desc"]]
-            });
-        });
-    </script>
-    -->
 @endpush

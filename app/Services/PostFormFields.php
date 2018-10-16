@@ -16,7 +16,7 @@ class PostFormFields
     protected $fieldList = [
         'title'            => '',
         'subtitle'         => '',
-        'page_image'       => '',
+        'post_image'       => '',
         'content'          => '',
         'meta_description' => '',
         'is_draft'         => '0',
