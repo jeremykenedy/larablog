@@ -8,7 +8,7 @@ use Michelf\SmartyPants;
 class Markdowner
 {
     /**
-     * Prepare content to be saved as HTML
+     * Prepare content to be saved as HTML.
      *
      * @param string $text
      *

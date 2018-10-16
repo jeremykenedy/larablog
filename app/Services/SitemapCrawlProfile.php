@@ -2,17 +2,17 @@
 
 namespace App\Services;
 
-use Spatie\Crawler\CrawlProfile;
 use Psr\Http\Message\UriInterface;
+use Spatie\Crawler\CrawlProfile;
 
 class SitemapCrawlProfile extends CrawlProfile
 {
     /**
-     * Sitemap Cralwer Custom Crawl Profile
+     * Sitemap Cralwer Custom Crawl Profile.
      *
      * @param \Psr\Http\Message\UriInterface $url
      *
-     * @return boolean
+     * @return bool
      */
     public function shouldCrawl(UriInterface $url): bool
     {

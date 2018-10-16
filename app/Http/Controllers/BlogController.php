@@ -16,10 +16,10 @@ class BlogController extends Controller
      */
     public function index(Request $request)
     {
-        $tag        = $request->get('tag');
-        $service    = new PostProcesses($tag);
-        $data       = $service->getResponse();
-        $layout     = $tag ? Tag::layout($tag) : 'blog.index';
+        $tag = $request->get('tag');
+        $service = new PostProcesses($tag);
+        $data = $service->getResponse();
+        $layout = $tag ? Tag::layout($tag) : 'blog.index';
 
         return view($layout, $data);
     }
@@ -27,7 +27,7 @@ class BlogController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param string $slug
+     * @param string  $slug
      * @param Request $request
      *
      * @return \Illuminate\Http\Response
@@ -51,7 +51,7 @@ class BlogController extends Controller
     }
 
     /**
-     * Get the RSS feed
+     * Get the RSS feed.
      *
      * @param RssFeed $feed
      *
@@ -63,5 +63,4 @@ class BlogController extends Controller
 
         return response($rss)->header('Content-type', 'application/rss+xml');
     }
-
 }

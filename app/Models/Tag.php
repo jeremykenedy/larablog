@@ -61,14 +61,14 @@ class Tag extends Model
     }
 
     /**
-     * Add any tags needed from the list
+     * Add any tags needed from the list.
      *
      * @param array $tags List of tags to check/add
      */
     public static function addNeededTags(array $tags)
     {
         if (count($tags) === 0) {
-          return;
+            return;
         }
 
         $found = static::whereIn('tag', $tags)->pluck('tag')->all();
@@ -86,7 +86,7 @@ class Tag extends Model
     }
 
     /**
-     * Return the index layout to use for a tag
+     * Return the index layout to use for a tag.
      *
      * @param string $tag
      * @param string $default
@@ -99,5 +99,4 @@ class Tag extends Model
 
         return $layout[0] ?: $default;
     }
-
 }

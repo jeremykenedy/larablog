@@ -9,27 +9,27 @@ use Carbon\Carbon;
 class PostFormFields
 {
     /**
-     * List of fields and default value for each field
+     * List of fields and default value for each field.
      *
      * @var array
      */
     protected $fieldList = [
-        'title' => '',
-        'subtitle' => '',
-        'page_image' => '',
-        'content' => '',
+        'title'            => '',
+        'subtitle'         => '',
+        'page_image'       => '',
+        'content'          => '',
         'meta_description' => '',
-        'is_draft' => "0",
-        'publish_date' => '',
-        'publish_time' => '',
-        'layout' => 'front-end.pages.page-dynamic',
-        'tags' => [],
+        'is_draft'         => '0',
+        'publish_date'     => '',
+        'publish_time'     => '',
+        'layout'           => 'front-end.pages.page-dynamic',
+        'tags'             => [],
     ];
 
     /**
      * Create a new job instance.
      *
-     * @param integer $id
+     * @param int $id
      *
      * @return void
      */
@@ -65,11 +65,10 @@ class PostFormFields
         );
     }
 
-
     /**
-     * Return the field values from the model
+     * Return the field values from the model.
      *
-     * @param integer $id
+     * @param int   $id
      * @param array $fields
      *
      * @return array
@@ -89,6 +88,4 @@ class PostFormFields
 
         return $fields;
     }
-
-
 }

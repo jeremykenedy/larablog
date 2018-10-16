@@ -66,6 +66,5 @@ class ConnectRelationshipsSeeder extends Seeder
         foreach ($userPermissions as $permission) {
             $roleUser->attachPermission($permission);
         }
-
     }
 }

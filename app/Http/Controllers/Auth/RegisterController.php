@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Models\User;
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
 use jeremykenedy\LaravelRoles\Models\Role;
 
 class RegisterController extends Controller
@@ -44,7 +44,8 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param array $data
+     *
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
@@ -59,7 +60,8 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param array $data
+     *
      * @return \App\User
      */
     protected function create(array $data)
@@ -78,7 +80,7 @@ class RegisterController extends Controller
     }
 
     /**
-     * Override registration page
+     * Override registration page.
      *
      * @return void
      */
@@ -88,7 +90,7 @@ class RegisterController extends Controller
     }
 
     /**
-     * Override registration form
+     * Override registration form.
      *
      * @return void
      */
@@ -96,5 +98,4 @@ class RegisterController extends Controller
     {
         return abort(404);
     }
-
 }

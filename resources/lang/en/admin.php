@@ -27,7 +27,7 @@ return [
     'footer' => [
 
         'nav' => [
-            'github' => 'GitHub',
+            'github'  => 'GitHub',
             'license' => 'License',
         ],
 

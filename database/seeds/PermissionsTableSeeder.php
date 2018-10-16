@@ -97,6 +97,5 @@ class PermissionsTableSeeder extends Seeder
                 'model'       => 'Permission',
             ]);
         }
-
     }
 }
