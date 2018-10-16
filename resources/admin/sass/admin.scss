@@ -66,6 +66,9 @@
 @import "~paper-dashboard-2/assets/scss/paper-dashboard/cards/card-stats";
 @import "~paper-dashboard-2/assets/scss/paper-dashboard/responsive";
 
+// Helpers
+@import '../../sass/partials/bs-visibility-classes';
+
 .sidebar .sidebar-wrapper,
 .off-canvas-sidebar .sidebar-wrapper {
     overflow-x: hidden;
@@ -79,4 +82,33 @@
     width: 100%;
     background-color: $default-body-bg;
     margin-top: 2em;
+}
+
+
+.input-group-append {
+    .btn {
+        margin: 0;
+        line-height: 1;
+        padding-top: 1em;
+    }
+}
+.input-group {
+    .form-control + .input-group-append {
+        .input-group-text {
+            padding: 11px 10px 12px 0;
+        }
+    }
+}
+
+#users_table {
+    td {
+        padding: 0.3rem;
+        font-size: .9em;
+
+        &:nth-child(5),
+        &:nth-child(6) {
+            font-family: monospace;
+            font-size: .7em;
+        }
+    }
 }

@@ -1,7 +1,7 @@
 {
     "/js/app.js": "/js/app.js?id=b71234b91178389188fc",
-    "/css/app.css": "/css/app.css?id=ed7f379545ef1684739d",
-    "/css/admin.css": "/css/admin.css?id=3e689be61a6c3bf1d0d0",
+    "/css/app.css": "/css/app.css?id=c14b9a8536254be058d9",
+    "/css/admin.css": "/css/admin.css?id=47f0a8d9eaae3df3c907",
     "/js/admin.js": "/js/admin.js?id=5f6e59de4f4331254d09",
     "/fonts/font-awesome/fa-brands-400.eot": "/fonts/font-awesome/fa-brands-400.eot?id=01405789261ecbea309c",
     "/fonts/font-awesome/fa-brands-400.svg": "/fonts/font-awesome/fa-brands-400.svg?id=b5472631dbace30d5493",
@@ -21,5 +21,6 @@
     "/fonts/nucleo/nucleo-icons.eot": "/fonts/nucleo/nucleo-icons.eot?id=f82bf43fbbf5f21d16b4",
     "/fonts/nucleo/nucleo-icons.ttf": "/fonts/nucleo/nucleo-icons.ttf?id=bb32afaf0a771cb5cee6",
     "/fonts/nucleo/nucleo-icons.woff": "/fonts/nucleo/nucleo-icons.woff?id=49ae0f6bb803e4d29280",
-    "/fonts/nucleo/nucleo-icons.woff2": "/fonts/nucleo/nucleo-icons.woff2?id=b73e3c1971984675c936"
+    "/fonts/nucleo/nucleo-icons.woff2": "/fonts/nucleo/nucleo-icons.woff2?id=b73e3c1971984675c936",
+    "/js/jquery.min.js": "/js/jquery.min.js?id=a09e13ee94d51c524b7e"
 }

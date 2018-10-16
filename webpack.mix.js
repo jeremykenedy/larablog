@@ -18,5 +18,6 @@ mix.js('resources/js/app.js', 'public/js')
 
 mix.js('resources/admin/js/admin.js', 'public/js')
     .copy('node_modules/paper-dashboard-2/assets/fonts/**', 'public/fonts/nucleo/', true)
+    .copy('node_modules/jquery/dist/jquery.min.js', 'public/js/', true)
     .sass('resources/admin/sass/admin.scss', 'public/css')
     .version();

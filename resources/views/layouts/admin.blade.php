@@ -54,12 +54,6 @@
 
                         @include('admin.partials.navbar')
 
-                        <!--
-                        <div class="panel-header panel-header-lg">
-                           <canvas id="bigDashboardChart"></canvas>
-                        </div>
-                        -->
-
                         <div class="content">
 
                             @yield('content')
@@ -77,8 +71,9 @@
 
         {{-- Scripts --}}
         <script src="{{ mix('js/admin.js') }}" defer></script>
-
+        <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
         @stack('scripts')
+        @yield('template_scripts')
 
     </body>
 </html>
