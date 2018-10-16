@@ -57,6 +57,7 @@ return [
         'welcome-access'            => 'Your role level: ',
         'access-level-string'       => '{0} You have no access.|{1} You have access to level:|[2,*] You have access to levels:',
         'welcome-card-footer'       => '<em>Thank you</em> for checking this project out. <strong>Please remember to star it!</strong>',
+        'permissions-string'        => 'You have permissions:',
     ],
 
     'posts' => [

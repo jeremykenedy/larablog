@@ -3,7 +3,7 @@
 
         <div class="form-group has-feedback row {{ $errors->has('title') ? ' has-error ' : '' }}">
             {!! Form::label('title', trans('forms.edit-post.labels.post-title'), ['class' => 'col-12 control-label']); !!}
-            <div class="col-md-12">
+            <div class="col-12">
                 {!! Form::text('title', $title, array('id' => 'title', 'class' => 'form-control', 'placeholder' => trans('forms.edit-post.labels.post-title'))) !!}
             </div>
             @if ($errors->has('title'))
@@ -15,7 +15,7 @@
 
         <div class="form-group has-feedback row {{ $errors->has('subtitle') ? ' has-error ' : '' }}">
             {!! Form::label('subtitle', trans('forms.edit-post.labels.post-subtitle'), ['class' => 'col-12 control-label']); !!}
-            <div class="col-md-12">
+            <div class="col-12">
                 {!! Form::text('subtitle', $subtitle, array('id' => 'subtitle', 'class' => 'form-control', 'placeholder' => trans('forms.edit-post.labels.post-subtitle'))) !!}
             </div>
             @if ($errors->has('subtitle'))
@@ -27,7 +27,7 @@
 
         <div class="form-group has-feedback row {{ $errors->has('subtitle') ? ' has-error ' : '' }}">
             {!! Form::label('post_image', trans('forms.edit-post.labels.post-post_image'), ['class' => 'col-12 control-label']); !!}
-            <div class="col-md-12">
+            <div class="col-12">
                 <div class="row">
                     <div class="col-md-9 mb-4 mb-md-0">
                         <input type="text" class="form-control" name="post_image" id="post_image" onchange="handle_image_change()" value="{{ $post_image }}">
@@ -52,11 +52,11 @@
         </div>
     </div>
 
-    <div class="col-4">
+    <div class="col-12 col-md-4">
 
         <div class="form-group has-feedback row {{ $errors->has('publish_date') ? ' has-error ' : '' }}">
             {!! Form::label('publish_date', trans('forms.edit-post.labels.post-publish_date'), ['class' => 'col-12 control-label']); !!}
-            <div class="col-md-12">
+            <div class="col-12">
                 {!! Form::text('publish_date', $publish_date, array('id' => 'publish_date', 'class' => 'form-control', 'placeholder' => trans('forms.edit-post.labels.post-publish_date'))) !!}
             </div>
             @if ($errors->has('publish_date'))
@@ -68,7 +68,7 @@
 
         <div class="form-group has-feedback row {{ $errors->has('publish_time') ? ' has-error ' : '' }}">
             {!! Form::label('publish_time', trans('forms.edit-post.labels.post-publish_time'), ['class' => 'col-12 control-label']); !!}
-            <div class="col-md-12">
+            <div class="col-12">
                 {!! Form::text('publish_time', $publish_time, array('id' => 'publish_time', 'class' => 'form-control', 'placeholder' => trans('forms.edit-post.labels.post-publish_time'))) !!}
             </div>
             @if ($errors->has('publish_time'))
@@ -102,7 +102,7 @@
 
         <div class="form-group has-feedback row {{ $errors->has('layout') ? ' has-error ' : '' }}">
             {!! Form::label('layout', trans('forms.edit-post.labels.post-layout'), ['class' => 'col-12 control-label']); !!}
-            <div class="col-md-12">
+            <div class="col-12">
                 {!! Form::text('layout', $layout, array('id' => 'layout', 'class' => 'form-control', 'placeholder' => trans('forms.edit-post.labels.post-layout'))) !!}
             </div>
             @if ($errors->has('layout'))

@@ -53,7 +53,6 @@
                                 </span>
                             @endrole
                         </strong>
-                        {!! trans('admin.access_levels.access') !!}
                     </p>
 
                     <p>
@@ -81,7 +80,8 @@
                     </p>
 
                     <p>
-                        You have permissions:
+                        {!! trans('admin.dashboard.permissions-string') !!}
+
                         @permission('view.users')
                             <span class="badge badge-primary margin-half margin-left-0">
                                 {!! trans('admin.access_levels.permissions.view-users') !!}
