@@ -67,7 +67,7 @@ class PostProcesses
             'title'             => config('blog.title'),
             'subtitle'          => config('blog.subtitle'),
             'posts'             => $posts,
-            'post_image'        => config('blog.post_image'),
+            'post_image'        => config('blog.home_page_image'),
             'meta_description'  => config('blog.description'),
             'reverse_direction' => config('blog.reverse_pagination_direction'),
             'tag'               => null,
@@ -94,7 +94,7 @@ class PostProcesses
             ->orderBy('published_at', $reverse_direction ? 'asc' : 'desc')
             ->simplePaginate(config('blog.posts_per_page'));
 
-        // $posts->addQuery('tag', $tag->tag);
+        $posts->appends('tag', $tag->tag);
 
         $post_image = $tag->post_image ?: config('blog.post_image');
 

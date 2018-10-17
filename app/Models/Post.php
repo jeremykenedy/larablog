@@ -283,20 +283,50 @@ class Post extends Model implements Feedable
      */
     public static function getFeedItems()
     {
-        return self::getAllPublishedPosts();
+        return self::allPublishedPosts()->get();
     }
 
     /**
-     * Get all published posts.
+     * Scope a query to get only published posts.
      *
      * @return collection
      */
-    public static function getAllPublishedPosts()
+    public function scopeAllPublishedPosts($query)
     {
-        return self::with('tags')
+        return $query->with('tags')
             ->where('published_at', '<=', Carbon::now())
             ->where('is_draft', 0)
-            ->orderBy('published_at', 'desc')
-            ->get();
+            ->orderBy('published_at', 'desc');
     }
+
+    /**
+     * Scope a query to only authors with published posts.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeActiveAuthors($query)
+    {
+        return $query->select('author')
+                        ->where('published_at', '<=', Carbon::now())
+                        ->where('is_draft', 0)
+                        ->distinct()
+                        ->orderBy('author', 'asc');
+    }
+
+    /**
+     * Scope a query to only authors with published posts.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopePostsByAuthors($query, $author)
+    {
+        return $query->with('tags')
+            ->where('author', $author)
+            ->where('published_at', '<=', Carbon::now())
+            ->where('is_draft', 0)
+            ->orderBy('published_at', 'desc');
+    }
+
 }

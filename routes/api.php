@@ -20,4 +20,7 @@ use Illuminate\Http\Request;
 Route::get('/', 'Api\BlogController@index')->name('api');
 Route::get('posts', 'Api\BlogController@posts')->name('api-posts');
 Route::get('posts/all', 'Api\BlogController@allPosts')->name('api-all-posts');
-Route::get('post/latest', 'Api\BlogController@latestPost')->name('api-latest-post');
+Route::get('posts/latest', 'Api\BlogController@latestPost')->name('api-latest-post');
+Route::get('posts/authors', 'Api\BlogController@getPostsAuthors')->name('api-posts-authors');
+Route::get('posts/author/{author}', 'Api\BlogController@getPostsByAuthor')->name('api-posts-by-author');
+

@@ -16,6 +16,13 @@
                         </a>
                     </li>
                 @endif
+                @if (Route::has('authors'))
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is('authors') ? 'active' : null }}" href="{{ route('authors') }}">
+                            {!! trans('larablog.nav.authors') !!}
+                        </a>
+                    </li>
+                @endif
                 @if (Route::has('about'))
                     <li class="nav-item">
                         <a class="nav-link {{ Request::is('about') ? 'active' : null }}" href="{{ route('about') }}">

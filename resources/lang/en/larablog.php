@@ -13,6 +13,7 @@ return [
         'menu'      => 'Menu',
         'home'      => 'Home',
         'about'     => 'About',
+        'authors'   => 'Authors',
         'contact'   => 'Contact',
         'register'  => 'Register',
         'login'     => 'Login',
@@ -34,6 +35,18 @@ return [
     'home' => [
         'title'         => 'Welcome to Larablog',
         'description'   => 'Larablog is an open source blog built on Laravel and Bootstrap',
+    ],
+
+    'authors' => [
+        'title'         => 'Authors',
+        'subtitle'      => 'The people behind the goods.',
+        'description'   => 'A list of authors with published posts.'
+    ],
+
+    'author' => [
+        'title'         => ':author',
+        'subtitle'      => '{0} no posts|{1} :postcount post total|[2,*] :postcount total posts',
+        'description'   => 'All published posts by :author',
     ],
 
     'footer' => [

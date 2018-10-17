@@ -12,7 +12,7 @@
                         </h3>
                     </a>
                     <p class="post-meta">
-                        {!! trans('larablog.blogroll.postedBy', ['url' => $post->slug, 'author' => $post->author, 'date' => $post->published_at->format('F j, Y')]) !!}
+                        {!! trans('larablog.blogroll.postedBy', ['url' => url('/author/' . $post->author), 'author' => $post->author, 'date' => $post->published_at->format('F j, Y')]) !!}
                     </p>
                     @if ($post->tags->count())
                         <div class="tags-area">

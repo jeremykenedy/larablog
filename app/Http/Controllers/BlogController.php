@@ -6,11 +6,12 @@ use App\Models\Post;
 use App\Models\Tag;
 use App\Services\PostProcesses;
 use Illuminate\Http\Request;
+use Validator;
 
 class BlogController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the published blog posts.
      *
      * @return \Illuminate\Http\Response
      */
@@ -32,7 +33,7 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function showPost($slug, Request $request)
+    public function showPost(Request $request, $slug)
     {
         $post = Post::with('tags')
                         ->whereSlug($slug)
@@ -48,6 +49,57 @@ class BlogController extends Controller
         $data = compact('post', 'tag', 'slug');
 
         return view($post->layout, $data);
+    }
+
+    /**
+     * Display a listing of the authors with published content.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function authors(Request $request)
+    {
+        $authors = Post::activeAuthors()->get();
+
+        if (!$authors) {
+            $authors = [];
+        }
+
+        $data = [
+            'authors'   => $authors,
+            'image'     => config('blog.authors_page_image'),
+        ];
+
+        return view('blog.authors', $data);
+    }
+
+    /**
+     * Display a listing of an authors published posts.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function author(Request $request, $author)
+    {
+        $validator = Validator::make([
+            'author' => $author
+        ], [
+            'author' => 'string|max:255',
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator);
+        }
+
+        $tag = $request->get('tag');
+        $posts = Post::postsByAuthors($author)->get();
+
+        $data = [
+            'author'    => $author,
+            'image'     => config('blog.author_page_image'),
+            'posts'     => $posts,
+            'tag'       => $tag,
+        ];
+
+        return view('blog.author', $data);
     }
 
     /**

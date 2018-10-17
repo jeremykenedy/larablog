@@ -14,6 +14,10 @@
 // Homepage Route
 Route::get('/', 'BlogController@index')->name('home');
 
+// Authors Routes
+Route::get('/authors', 'BlogController@authors')->name('authors');
+Route::get('/author/{author}', 'BlogController@author')->name('author');
+
 // RSS Feed Route
 Route::feeds();
 

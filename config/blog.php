@@ -39,13 +39,6 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Default entry for blog HTML accessible variable `subtitle`.
-    |--------------------------------------------------------------------------
-    */
-    'post_image' => env('BLOG_DEFAULT_IMAGE', '/backgrounds/default-home-bg.jpg'),
-
-    /*
-    |--------------------------------------------------------------------------
     | Default entry for pagination of returning posts in results.
     |--------------------------------------------------------------------------
     */
@@ -57,13 +50,6 @@ return [
     |--------------------------------------------------------------------------
     */
     'reverse_pagination_direction' => env('BLOG_DEFAULT_REVERSE_PAGINATION_DIRECTION', false),
-
-    /*
-    |--------------------------------------------------------------------------
-    | Default entry for the RSS size feed of the blog posts.
-    |--------------------------------------------------------------------------
-    */
-    'rss_size' => env('BLOG_DEFAULT_RSS_SIZE', 25),
 
     /*
     |--------------------------------------------------------------------------
@@ -104,5 +90,22 @@ return [
         'disqusKey'         => env('BLOG_DISQUSSHORTNAME', null),
         'googleAnalyticsID' => env('BLOG_GOOGLEANALYTICSID', null),
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Default entry for blog HTML accessible variable `post_image`.
+    |--------------------------------------------------------------------------
+    */
+    'post_image' => env('BLOG_DEFAULT_IMAGE', '/backgrounds/default-post-bg.jpg'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Other Images
+    |--------------------------------------------------------------------------
+    */
+    'home_page_image' => env('BLOG_HOME_IMAGE', '/backgrounds/default-home-bg.jpg'),
+    'authors_page_image' => env('BLOG_AUTHORS_IMAGE', '/backgrounds/default-authors-bg.jpg'),
+    'author_page_image' => env('BLOG_AUTHOR_IMAGE', '/backgrounds/default-authors-bg.jpg'),
+
 
 ];

@@ -9,6 +9,7 @@ use App\Services\PostProcesses;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Validator;
 
 class BlogController extends Controller
 {
@@ -31,7 +32,7 @@ class BlogController extends Controller
      */
     public function index(Request $request)
     {
-        $publishedPosts = Post::getAllPublishedPosts();
+        $publishedPosts = Post::allPublishedPosts()->get();
 
         return response()->json([
             'code'      => 200,
@@ -68,23 +69,35 @@ class BlogController extends Controller
      */
     public function posts(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'tag' => 'string|max:255',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'errors' => $validator->errors()
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
         $tag = $request->get('tag');
         $service = new PostProcesses($tag);
         $data = $service->getResponse();
 
-        return $data['posts'];
+        return response()->json($data['posts'], Response::HTTP_OK);
     }
 
     /**
      * Display all the posts.
      *
+     * @param \Illuminate\Http\Request
+     *
      * @return \Illuminate\Http\Response
      */
     public function allPosts(Request $request)
     {
-        $publishedPosts = Post::getAllPublishedPosts();
+        $publishedPosts = Post::allPublishedPosts()->get();
 
-        return $publishedPosts;
+        return response()->json($publishedPosts, Response::HTTP_OK);
     }
 
     /**
@@ -96,10 +109,61 @@ class BlogController extends Controller
      */
     public function latestPost(Request $request)
     {
-        return Post::with('tags')
-            ->where('published_at', '<=', Carbon::now())
-            ->where('is_draft', 0)
-            ->orderBy('published_at', 'desc')
-            ->first();
+        $post = Post::allPublishedPosts()->first();
+
+        if (!$post) {
+            $post = null;
+        }
+
+        return response()->json($post, Response::HTTP_OK);
     }
+
+    /**
+     * Gets the posts authors.
+     *
+     * @param \Illuminate\Http\Request
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getPostsAuthors(Request $request)
+    {
+        $authors = Post::activeAuthors()->get();
+
+        if (!$authors) {
+            $authors = [];
+        }
+
+        return response()->json($authors, Response::HTTP_OK);
+    }
+
+    /**
+     * Gets posts by author.
+     *
+     * @param \Illuminate\Http\Request
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getPostsByAuthor(Request $request, $author)
+    {
+        $validator = Validator::make([
+            'author' => $author
+        ], [
+            'author' => 'string|max:255',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'errors' => $validator->errors()
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        $posts = Post::postsByAuthors($author)->get();
+
+        if (!$posts) {
+            $posts = [];
+        }
+
+        return response()->json($posts, Response::HTTP_OK);
+    }
+
 }

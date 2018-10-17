@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
-@section('template_title'){!! trans('larablog.home.title') !!}@endsection
-@section('template_description'){!! trans('larablog.home.description') !!}@endsection
+@section('template_title'){{ trans('larablog.home.title') }}@endsection
+@section('template_description'){{ trans('larablog.home.description') }}@endsection
+
+@push('head')
+@endpush
 
 @section('content')
 
