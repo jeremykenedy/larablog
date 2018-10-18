@@ -19,9 +19,13 @@
         "laravel-mix": "^2.0",
         "lodash": "^4.17.5",
         "paper-dashboard-2": "^2.0.0",
+        "pickadate": "^3.5.6",
         "popper.js": "^1.12",
+        "selectize": "^0.12.6",
         "startbootstrap-clean-blog": "^5.0.1",
         "vue": "^2.5.7"
     },
-    "dependencies": {}
+    "dependencies": {
+        "ckeditor": "^4.10.1"
+    }
 }

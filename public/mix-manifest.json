@@ -1,8 +1,8 @@
 {
-    "/js/app.js": "/js/app.js?id=10a94ef33b517ce7df25",
-    "/css/app.css": "/css/app.css?id=d1b84f198b2748d1a70c",
-    "/css/admin.css": "/css/admin.css?id=4667be02202dd7c07724",
-    "/js/admin.js": "/js/admin.js?id=510af6400aff34565978",
+    "/js/admin.js": "/js/admin.js?id=c97d4d9abd91d43e990d",
+    "/js/app.js": "/js/app.js?id=b71234b91178389188fc",
+    "/css/app.css": "/css/app.css?id=c14b9a8536254be058d9",
+    "/css/admin.css": "/css/admin.css?id=e254fe06c2b4ca852a28",
     "/fonts/font-awesome/fa-brands-400.eot": "/fonts/font-awesome/fa-brands-400.eot?id=01405789261ecbea309c",
     "/fonts/font-awesome/fa-brands-400.svg": "/fonts/font-awesome/fa-brands-400.svg?id=b5472631dbace30d5493",
     "/fonts/font-awesome/fa-brands-400.ttf": "/fonts/font-awesome/fa-brands-400.ttf?id=e8867679280efd772211",
@@ -22,6 +22,8 @@
     "/fonts/nucleo/nucleo-icons.ttf": "/fonts/nucleo/nucleo-icons.ttf?id=bb32afaf0a771cb5cee6",
     "/fonts/nucleo/nucleo-icons.woff": "/fonts/nucleo/nucleo-icons.woff?id=49ae0f6bb803e4d29280",
     "/fonts/nucleo/nucleo-icons.woff2": "/fonts/nucleo/nucleo-icons.woff2?id=b73e3c1971984675c936",
-    "/js/jquery.min.js": "/js/jquery.min.js?id=a09e13ee94d51c524b7e",
-    "/js/jquery.dataTables.min.js": "/js/jquery.dataTables.min.js?id=4d2910ca45f9cea3f35e"
+    "/js/jquery.dataTables.min.js": "/js/jquery.dataTables.min.js?id=4d2910ca45f9cea3f35e",
+    "/js/ckeditor/config.js": "/js/ckeditor/config.js?id=f37ac9c50e99cbe024a2",
+    "/js/ckeditor/styles.js": "/js/ckeditor/styles.js?id=79d9518a7fe3ec4b4b1c",
+    "/js/ckeditor/contents.css": "/js/ckeditor/contents.css?id=b3e7cc212831a13311fe"
 }

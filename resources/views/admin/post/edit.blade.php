@@ -6,6 +6,14 @@
 @section('template_description')
 @endsection
 
+@push('head')
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/themes/default.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/themes/default.date.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/themes/default.time.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css">
+
+@endpush
 @section('content')
 <div class="content">
     <div class="row">
@@ -53,10 +61,18 @@
 @endsection
 
 @push('scripts')
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.9.2/ckeditor.js"></script>
     <script type="text/javascript">
         $(function() {
             CKEDITOR.replace( 'content' );
+            $("#publish_date").pickadate({
+                format: "mmm-d-yyyy"
+            });
+            $("#publish_time").pickatime({
+                format: "h:i A"
+            });
+            $("#tags").selectize({
+                create: true
+            });
         });
     </script>
 @endpush

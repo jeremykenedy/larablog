@@ -20,8 +20,6 @@
         {{-- Fonts --}}
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-        <!-- <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> -->
-        <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'> -->
 
         {{-- Styles --}}
         <link href="{{ mix('css/admin.css') }}" rel="stylesheet">
@@ -37,9 +35,7 @@
     </head>
     <body>
         <div id="app">
-
             <main>
-
                 @if (session('status'))
                     <div class="alert alert-success" role="alert">
                         {{ session('status') }}
@@ -55,23 +51,21 @@
                         @include('admin.partials.navbar')
 
                         <div class="content">
-
                             @yield('content')
-
                         </div>
 
                         @include('admin.partials.footer')
 
                     </div>
                 </div>
-
             </main>
-
         </div>
 
         {{-- Scripts --}}
-        <script src="{{ mix('js/admin.js') }}" defer></script>
-        <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
+        <script type="text/javascript">
+            var CKEDITOR_BASEPATH = '/js/ckeditor/';
+        </script>
+        <script src="{{ mix('js/admin.js') }}"></script>
         @stack('scripts')
         @yield('template_scripts')
 

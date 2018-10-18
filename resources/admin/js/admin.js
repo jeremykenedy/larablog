@@ -5,7 +5,13 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+
 require('./bootstrap');
+require('ckeditor');
+require('pickadate/lib/picker');
+require('pickadate/lib/picker.date');
+require('pickadate/lib/picker.time');
+require('selectize');
 
 window.Vue = require('vue');
 
