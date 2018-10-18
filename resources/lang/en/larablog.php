@@ -40,7 +40,7 @@ return [
     'authors' => [
         'title'         => 'Authors',
         'subtitle'      => 'The people behind the goods.',
-        'description'   => 'A list of authors with published posts.'
+        'description'   => 'A list of authors with published posts.',
     ],
 
     'author' => [
