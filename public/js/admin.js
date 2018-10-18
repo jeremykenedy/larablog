@@ -59827,7 +59827,6 @@ __webpack_require__("./node_modules/ckeditor/ckeditor.js");
 __webpack_require__("./node_modules/pickadate/lib/picker.js");
 __webpack_require__("./node_modules/pickadate/lib/picker.date.js");
 __webpack_require__("./node_modules/pickadate/lib/picker.time.js");
-
 __webpack_require__("./node_modules/selectize/dist/js/selectize.js");
 
 window.Vue = __webpack_require__("./node_modules/vue/dist/vue.common.js");
