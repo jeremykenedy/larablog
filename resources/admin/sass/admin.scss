@@ -66,6 +66,15 @@
 @import "~paper-dashboard-2/assets/scss/paper-dashboard/cards/card-stats";
 @import "~paper-dashboard-2/assets/scss/paper-dashboard/responsive";
 
+// pickadatejs
+@import "~pickadate/lib/compressed/themes/default.css";
+@import "~pickadate/lib/compressed/themes/default.date.css";
+@import "~pickadate/lib/compressed/themes/default.time.css";
+
+// selectizejs
+@import "~selectize/dist/css/selectize.bootstrap3.css";
+@import "~selectize/dist/css/selectize.css";
+
 // Helpers
 @import '../../sass/partials/bs-visibility-classes';
 

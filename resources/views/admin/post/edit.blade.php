@@ -7,13 +7,8 @@
 @endsection
 
 @push('head')
-
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/themes/default.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/themes/default.date.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/themes/default.time.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css">
-
 @endpush
+
 @section('content')
 <div class="content">
     <div class="row">
@@ -48,7 +43,7 @@
                                 {!! Form::button(trans('forms.edit-post.buttons.save-finished'), ['class' => 'btn btn-success btn-lg btn-block','type' => 'submit', 'name' => 'action', 'value' => 'finished']) !!}
                             </div>
                             <div class="col-md-6 mb-4">
-                                {!! Form::button(trans('forms.edit-post.buttons.delete'), ['class' => 'btn btn-danger btn-lg btn-block','type' => 'submit', 'name' => 'action', 'value' => 'finished', 'data-toggle' => 'modal', 'data-target' => '#modal-delete']) !!}
+                                <!-- {!! Form::button(trans('forms.edit-post.buttons.delete'), ['class' => 'btn btn-danger btn-lg btn-block','type' => 'submit', 'name' => 'action', 'value' => 'finished', 'data-toggle' => 'modal', 'data-target' => '#modal-delete']) !!} -->
                             </div>
                         </div>
                     </div>
@@ -65,10 +60,10 @@
         $(function() {
             CKEDITOR.replace( 'content' );
             $("#publish_date").pickadate({
-                format: "mmm-d-yyyy"
+                format: "mmm-d-yyyy"           // need to align this.
             });
             $("#publish_time").pickatime({
-                format: "h:i A"
+                format: "h:i A"                // need to align this.
             });
             $("#tags").selectize({
                 create: true
