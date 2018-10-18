@@ -103,9 +103,8 @@ return [
     | Other Images
     |--------------------------------------------------------------------------
     */
-    'home_page_image' => env('BLOG_HOME_IMAGE', '/backgrounds/default-home-bg.jpg'),
+    'home_page_image'    => env('BLOG_HOME_IMAGE', '/backgrounds/default-home-bg.jpg'),
     'authors_page_image' => env('BLOG_AUTHORS_IMAGE', '/backgrounds/default-authors-bg.jpg'),
-    'author_page_image' => env('BLOG_AUTHOR_IMAGE', '/backgrounds/default-authors-bg.jpg'),
-
+    'author_page_image'  => env('BLOG_AUTHOR_IMAGE', '/backgrounds/default-authors-bg.jpg'),
 
 ];

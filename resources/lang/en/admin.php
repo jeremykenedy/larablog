@@ -67,7 +67,7 @@ return [
             ],
         ],
         'table' => [
-            'title' => 'Blog Posts',
+            'title'  => 'Blog Posts',
             'titles' => [
                 'published' => 'Published',
                 'title'     => 'Title',

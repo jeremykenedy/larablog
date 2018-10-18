@@ -80,7 +80,7 @@ class BlogController extends Controller
     public function author(Request $request, $author)
     {
         $validator = Validator::make([
-            'author' => $author
+            'author' => $author,
         ], [
             'author' => 'string|max:255',
         ]);

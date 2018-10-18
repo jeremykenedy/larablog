@@ -303,6 +303,7 @@ class Post extends Model implements Feedable
      * Scope a query to only authors with published posts.
      *
      * @param \Illuminate\Database\Eloquent\Builder $query
+     *
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeActiveAuthors($query)
@@ -318,6 +319,7 @@ class Post extends Model implements Feedable
      * Scope a query to only authors with published posts.
      *
      * @param \Illuminate\Database\Eloquent\Builder $query
+     *
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopePostsByAuthors($query, $author)
@@ -328,5 +330,4 @@ class Post extends Model implements Feedable
             ->where('is_draft', 0)
             ->orderBy('published_at', 'desc');
     }
-
 }

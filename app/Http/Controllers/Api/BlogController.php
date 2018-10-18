@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Services\PostProcesses;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Validator;
@@ -75,7 +74,7 @@ class BlogController extends Controller
 
         if ($validator->fails()) {
             return response()->json([
-                'errors' => $validator->errors()
+                'errors' => $validator->errors(),
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
@@ -146,14 +145,14 @@ class BlogController extends Controller
     public function getPostsByAuthor(Request $request, $author)
     {
         $validator = Validator::make([
-            'author' => $author
+            'author' => $author,
         ], [
             'author' => 'string|max:255',
         ]);
 
         if ($validator->fails()) {
             return response()->json([
-                'errors' => $validator->errors()
+                'errors' => $validator->errors(),
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
@@ -165,5 +164,4 @@ class BlogController extends Controller
 
         return response()->json($posts, Response::HTTP_OK);
     }
-
 }
