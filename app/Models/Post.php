@@ -300,9 +300,10 @@ class Post extends Model implements Feedable
     }
 
     /**
-     * Scope a query to get by slug
+     * Scope a query to get by slug.
      *
      * @param string $slug
+     *
      * @return collection
      */
     public function scopeBySlug($query, $slug)
@@ -311,7 +312,7 @@ class Post extends Model implements Feedable
     }
 
     /**
-     * Scope a query to show posts not marked as drafts
+     * Scope a query to show posts not marked as drafts.
      *
      * @return collection
      */

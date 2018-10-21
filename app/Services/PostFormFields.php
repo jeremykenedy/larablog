@@ -4,8 +4,6 @@ namespace App\Services;
 
 use App\Models\Post;
 use App\Models\Tag;
-use App\Services\PostAuthors;
-use App\Services\PostTemplates;
 use Carbon\Carbon;
 
 class PostFormFields
@@ -70,7 +68,7 @@ class PostFormFields
 
         return array_merge(
             $fields, [
-                'allTags' => Tag::pluck('tag')->all()
+                'allTags' => Tag::pluck('tag')->all(),
             ],
             $postFormFieldData
         );
@@ -91,7 +89,7 @@ class PostFormFields
         $fieldNames = array_keys(array_except($fields, ['tags']));
 
         $fields = [
-            'id' => $id
+            'id' => $id,
         ];
         foreach ($fieldNames as $field) {
             $fields[$field] = $page->{$field};
@@ -103,19 +101,18 @@ class PostFormFields
     }
 
     /**
-     * Get the additonal post form fields data
+     * Get the additonal post form fields data.
      *
      * @return array
      */
     protected function postFormFieldData()
     {
-        $allAvailableAuthors    = PostAuthors::all();
-        $postTemplates          = PostTemplates::list();
+        $allAvailableAuthors = PostAuthors::all();
+        $postTemplates = PostTemplates::list();
 
         return [
             'allAvailableAuthors'   => $allAvailableAuthors,
             'postTemplates'         => $postTemplates,
         ];
     }
-
 }

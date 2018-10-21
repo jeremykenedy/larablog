@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Post;
-use App\Models\User;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
+use App\Models\Post;
 use App\Services\PostFormFields;
 use Illuminate\Http\Request;
 
@@ -47,8 +46,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        $service    = new PostFormFields();
-        $data       = $service->handle();
+        $service = new PostFormFields();
+        $data = $service->handle();
 
         return view('admin.post.create', $data);
     }
@@ -78,8 +77,8 @@ class PostController extends Controller
      */
     public function edit(Request $request, $id)
     {
-        $service    = new PostFormFields($id);
-        $data       = $service->handle();
+        $service = new PostFormFields($id);
+        $data = $service->handle();
 
         return view('admin.post.edit')->with($data);
     }
@@ -88,7 +87,7 @@ class PostController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param int $id
+     * @param int                      $id
      *
      * @return \Illuminate\Http\Response
      */
@@ -102,7 +101,6 @@ class PostController extends Controller
         return redirect()
             ->back()
             ->withSuccess(trans('messages.success.post-updated'));
-
     }
 
     /**

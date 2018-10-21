@@ -8,15 +8,15 @@ use App\Models\User;
 class PostAuthors
 {
     /**
-     * Get all the authors as a collection
+     * Get all the authors as a collection.
      *
      * @return
      */
     public static function all()
     {
-        $usernames              = User::userNames()->get();
-        $authors                = Post::authors()->get();
-        $allAvailableAuthors    = collect([]);
+        $usernames = User::userNames()->get();
+        $authors = Post::authors()->get();
+        $allAvailableAuthors = collect([]);
 
         foreach ($authors as $author) {
             $allAvailableAuthors[] = $author->author;

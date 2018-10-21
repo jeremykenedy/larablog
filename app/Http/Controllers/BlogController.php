@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use App\Models\User;
 use App\Models\Tag;
+use App\Models\User;
 use App\Services\PostProcesses;
 use Illuminate\Http\Request;
 
