@@ -25,7 +25,6 @@ Route::group(['middleware' => ['activity']], function () {
 
     // Register, Login, and forget PW Routes
     Auth::routes();
-
 });
 
 // Super Admin only routes

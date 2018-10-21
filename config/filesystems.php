@@ -66,7 +66,7 @@ return [
 
         'post-layouts' => [
             'driver' => 'local',
-            'root' => base_path('resources/views/blog/post-layouts'),
+            'root'   => base_path('resources/views/blog/post-layouts'),
         ],
 
     ],

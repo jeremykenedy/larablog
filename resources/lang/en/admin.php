@@ -161,7 +161,7 @@ return [
             ],
         ],
         'table' => [
-            'title' => 'Listing Tags',
+            'title'  => 'Listing Tags',
             'titles' => [
                 'id'                => 'Id',
                 'tag'               => 'Tag',

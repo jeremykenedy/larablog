@@ -71,7 +71,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * Scope a query the user names
+     * Scope a query the user names.
      *
      * @param \Illuminate\Database\Eloquent\Builder $query
      *
@@ -83,5 +83,4 @@ class User extends Authenticatable
                         ->distinct()
                         ->orderBy('name', 'asc');
     }
-
 }
