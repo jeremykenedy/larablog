@@ -7,6 +7,10 @@
 @section('template_description')
 @endsection
 
+@section('header_title')
+    {{ trans('admin.posts.pages.edit.header') }}
+@endsection
+
 @push('head')
 @endpush
 

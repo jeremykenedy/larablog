@@ -1,5 +1,4 @@
 const mix = require('laravel-mix');
-// const { mix } = require('laravel-mix')
 
 /*
  |--------------------------------------------------------------------------
@@ -25,6 +24,8 @@ var adminScripts = [
     'resources/admin/js/set-ckeditor.js',
     'public/js/admin.js',
     'resources/admin/js/bs-tooltips.js',
+    'public/vendor/laravel-filemanager/js/lfm.js',
+
 ];
 
 mix.webpackConfig({
@@ -46,7 +47,4 @@ mix.webpackConfig({
     .sass('resources/admin/sass/admin.scss', 'public/css')
     .scripts(adminScripts, 'public/js/admin.js')
     .version();
-
-
-
 

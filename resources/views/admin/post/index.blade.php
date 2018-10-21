@@ -7,8 +7,11 @@
 @section('template_description')
 @endsection
 
-@section('content')
+@section('header_title')
+    {{ trans('admin.posts.pages.index.header') }}
+@endsection
 
+@section('content')
     <div class="content">
         <div class="row">
             <div class="col-md-12">
@@ -23,6 +26,9 @@
                         <h4 class="card-title">
                             {{ trans('admin.posts.table.title') }}
                         </h4>
+                        <span class="badge badge-pill badge-primary">
+                            {!! trans('admin.posts.pages.index.badge', ['per' => $posts->perPage(), 'total' => $posts->total()]) !!}
+                        </span>
                     </div>
 
                     @include('admin.partials.messages')

@@ -20,6 +20,9 @@
     $bootstrapCardClasses = (is_null(config('laravelPhpInfo.bootstrapCardClasses')) ? '' : config('laravelPhpInfo.bootstrapCardClasses'));
 @endphp
 
+@section('header_title')
+    {{ trans('laravelPhpInfo::laravel-phpinfo.title') }}
+@endsection
 
 @if(config('laravelPhpInfo.usePHPinfoCSS'))
     <style type="text/css" media="screen">

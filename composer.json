@@ -16,7 +16,8 @@
         "michelf/php-markdown": "^1.8",
         "michelf/php-smartypants": "^1.8",
         "spatie/laravel-feed": "^2.1",
-        "spatie/laravel-sitemap": "^5.2"
+        "spatie/laravel-sitemap": "^5.2",
+        "unisharp/laravel-filemanager": "^1.9"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.2",

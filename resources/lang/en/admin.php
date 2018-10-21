@@ -53,6 +53,7 @@ return [
 
     'dashboard' => [
         'title'                     => 'Dashboard',
+        'header'                    => 'Welcome!',
         'welcome-card-title'        => 'Hi :username, Welcome to Lara(b)og2',
         'welcome-card-sub-title'    => 'Lara(b)log An opensource blog platform built on Laravel and Bootstrap 4.',
         'welcome-access'            => 'Your role level: ',
@@ -64,13 +65,17 @@ return [
     'posts' => [
         'pages' => [
             'index' => [
-                'title' => 'Posts',
+                'title'     => 'Posts',
+                'badge'     => 'Showing :per of :total',
+                'header'    => 'Showing Blog Posts',
             ],
             'edit' => [
-                'title' => 'Editing Post Id: :id',
+                'title'     => 'Editing Post Id: :id',
+                'header'    => 'Edit Blog Post',
             ],
             'create' => [
-                'title' => 'Create New Post',
+                'title'     => 'Create New Post',
+                'header'    => 'New Blog Post',
             ],
         ],
         'table' => [
@@ -112,6 +117,29 @@ return [
 
     'loader' => [
         'message' => 'loading',
+    ],
+
+    'user_pages' => [
+        'index'     => [
+            'header' => 'Showing Users',
+        ],
+        'show'      => [
+            'header' => 'Showing User',
+        ],
+        'edit'      => [
+            'header' => 'Editing User',
+        ],
+        'create'    => [
+            'header' => 'Creating User',
+        ],
+    ],
+
+    'file_manager' => [
+        'index'     => [
+            'title'     => 'File Manager',
+            'desc'      => '',
+            'header'    => 'File Manager',
+        ],
     ],
 
 ];

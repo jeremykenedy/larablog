@@ -18,6 +18,10 @@
     @include('laravelusers::partials.bs-visibility-css')
 @endsection
 
+@section('header_title')
+    {{ trans('admin.user_pages.create.header') }}
+@endsection
+
 @section('content')
     <div class="container">
         @if(config('laravelusers.enablePackageBootstapAlerts'))

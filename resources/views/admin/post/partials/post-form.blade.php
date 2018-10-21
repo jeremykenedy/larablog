@@ -43,12 +43,21 @@
             @endif
         </div>
 
-        <div class="form-group has-feedback row {{ $errors->has('subtitle') ? ' has-error ' : '' }}">
+        <div class="form-group has-feedback row {{ $errors->has('post_image') ? ' has-error ' : '' }}">
             {!! Form::label('post_image', trans('forms.edit-post.labels.post-post_image'), ['class' => 'col-12 control-label']); !!}
             <div class="col-12">
                 <div class="row">
                     <div class="col-md-9 mb-4 mb-md-0">
-                        <input type="text" class="form-control" name="post_image" id="post_image" onchange="handle_image_change()" value="{{ $post_image }}">
+                        <div class="row">
+                            <div class="col-12 mb-1">
+                                <a id="post_image_trigger" data-input="post_image" data-preview="post_image_preview" class="btn btn-primary text-white btn-block">
+                                    {!! trans('forms.edit-post.buttons.choose-image') !!}
+                                </a>
+                            </div>
+                            <div class="col-12 mt-2 mb-1">
+                                <input type="text" id="post_image" class="form-control" name="post_image" value="{{ $post_image }}">
+                            </div>
+                        </div>
                         @if ($errors->has('post_image'))
                             <div class="row">
                                 <div class="col-12">
@@ -59,8 +68,8 @@
                             </div>
                         @endif
                     </div>
-                    <div class="col-12 col-md-3 pull-right">
-                        <img src="{{ post_image($post_image) }}" class="img img_responsive" id="post-image-preview" alt="Post Image Thumbnail">
+                    <div class="col-12 col-md-3 pull-right mb-3 mt-md-2">
+                        <img src="{{ post_image($post_image) }}" id="post_image_preview" class="img img_responsive" alt="Post Image Thumbnail" draggable="false">
                     </div>
                 </div>
             </div>
@@ -191,21 +200,4 @@
 </div>
 
 @push('scripts')
-    <script type="text/javascript">
-        function handle_image_change() {
-            $("#post-image-preview").attr("src", function () {
-                var value = $("#post_image").val();
-                if ( ! value) {
-                    value = {!! json_encode(config('blog.post_image')) !!};
-                    if (value == null) {
-                        value = '';
-                    }
-                }
-                if (value.substr(0, 4) != 'http' && value.substr(0, 1) != '/') {
-                    value = {!! json_encode(config('blog.uploads.webpath')) !!} + '/' + value;
-                }
-                return value;
-            });
-        }
-    </script>
 @endpush

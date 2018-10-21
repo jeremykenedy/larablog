@@ -30,6 +30,7 @@ return [
             'save-finished' => '<i class="fa fa-floppy-o fa-fw" aria-hidden="true"></i> Save',
             'save-continue' => '<i class="fa fa-floppy-o fa-fw" aria-hidden="true"></i> Save',
             'delete'        => '<i class="fa fa-times-circle fa-fw" aria-hidden="true"></i> Delete',
+            'choose-image'  => '<i class="nc-icon nc-album-2" aria-hidden="true"></i> Choose Post Image',
         ],
     ],
 

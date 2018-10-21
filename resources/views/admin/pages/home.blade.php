@@ -7,6 +7,10 @@
 @section('template_description')
 @endsection
 
+@section('header_title')
+    {{ trans('admin.dashboard.header') }}
+@endsection
+
 @section('content')
     <div class="row">
         <div class="col-md-12">
