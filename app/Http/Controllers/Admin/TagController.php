@@ -10,6 +10,16 @@ use Illuminate\Http\Request;
 
 class TagController extends Controller
 {
+    protected $fields = [
+        'tag'               => '',
+        'title'             => '',
+        'subtitle'          => '',
+        'meta_description'  => '',
+        'post_image'        => '',
+        'layout'            => 'blog.post-layouts.stnadard',
+        'reverse_direction' => 0,
+    ];
+
     /**
      * Create a new controller instance.
      *
@@ -39,7 +49,13 @@ class TagController extends Controller
      */
     public function create()
     {
-        //
+        $data = [];
+
+        foreach ($this->fields as $field => $default) {
+            $data[$field] = old($field, $default);
+        }
+
+        return view('admin.tag.create', $data);
     }
 
     /**
@@ -50,18 +66,6 @@ class TagController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
     {
         //
     }

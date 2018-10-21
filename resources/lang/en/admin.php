@@ -153,6 +153,12 @@ return [
                 'header'    => 'Tags Manager',
                 'badge'     => ':total Tags Total',
             ],
+            'create' => [
+                'title'     => 'Create New Tag',
+                'desc'      => '',
+                'header'    => 'Creating New Tag',
+                'badge'     => ':total Tags Total',
+            ],
         ],
         'table' => [
             'title' => 'Listing Tags',
