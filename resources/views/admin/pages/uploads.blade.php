@@ -15,6 +15,7 @@
 @push('head')
     <link rel="shortcut icon" type="image/png" href="{{ asset('vendor/laravel-filemanager/img/folder.png') }}">
     <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/bs3-modals.css') }}">
 @endpush
 
 @section('content')
@@ -27,6 +28,7 @@
                     {!! trans('laravel-filemanager::lfm.title-panel') !!}
                 </h5>
             </div>
+            <hr>
             <div class="card-body">
                 <div class="row">
                     <div class="col-sm-2 hidden-xs">
@@ -106,7 +108,7 @@
 </div>
 
 @include('admin.modals.upload-modal')
-@include('admin.partials.loading-file-1')
+{{-- @include('admin.partials.loading-file-1') --}}
 
 @endsection
 

@@ -31,6 +31,7 @@
                     </h5>
                 </div>
 
+                <hr>
                 @include('admin.partials.messages')
                 @include('admin.partials.loading-spinner-1')
 

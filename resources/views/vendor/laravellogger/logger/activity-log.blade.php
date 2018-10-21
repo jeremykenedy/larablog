@@ -56,74 +56,75 @@
 
 @section('content')
 
-    <div class="container-fluid">
+    @if(config('LaravelLogger.enablePackageFlashMessageBlade'))
+        @include('LaravelLogger::partials.form-status')
+    @endif
 
-        @if(config('LaravelLogger.enablePackageFlashMessageBlade'))
-            @include('LaravelLogger::partials.form-status')
-        @endif
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="{{ $containerClass }} {{ $bootstrapCardClasses }}">
+                <div class="{{ $containerHeaderClass }}">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
 
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="{{ $containerClass }} {{ $bootstrapCardClasses }}">
-                    <div class="{{ $containerHeaderClass }}">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                        @if(config('LaravelLogger.enableSubMenu'))
 
-                            @if(config('LaravelLogger.enableSubMenu'))
-
-                                <span>
+                            <span>
+                                <h5 class="card-title">
                                     {!! trans('LaravelLogger::laravel-logger.dashboard.title') !!}
-                                    <small>
-                                        <sup class="label label-default">
-                                            {{ $totalActivities }} {!! trans('LaravelLogger::laravel-logger.dashboard.subtitle') !!}
-                                        </sup>
-                                    </small>
-                                </span>
+                                </h5>
 
-                                <div class="btn-group pull-right btn-group-xs">
-                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fa fa-ellipsis-v fa-fw" aria-hidden="true"></i>
-                                        <span class="sr-only">
-                                            {!! trans('LaravelLogger::laravel-logger.dashboard.menu.alt') !!}
-                                        </span>
-                                    </button>
-                                    @if(config('LaravelLogger.bootstapVersion') == '4')
-                                        <div class="dropdown-menu dropdown-menu-right">
+                                <small>
+                                    <sup class="badge badge-pill badge-primary">
+                                        {{ $totalActivities }} {!! trans('LaravelLogger::laravel-logger.dashboard.subtitle') !!}
+                                    </sup>
+                                </small>
+                            </span>
+
+                            <div class="btn-group pull-right btn-group-xs">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-ellipsis-v fa-fw" aria-hidden="true"></i>
+                                    <span class="sr-only">
+                                        {!! trans('LaravelLogger::laravel-logger.dashboard.menu.alt') !!}
+                                    </span>
+                                </button>
+                                @if(config('LaravelLogger.bootstapVersion') == '4')
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        @include('LaravelLogger::forms.clear-activity-log')
+                                        <a href="{{route('cleared')}}" class="dropdown-item">
+                                            <i class="fa fa-fw fa-history" aria-hidden="true"></i>
+                                            {!! trans('LaravelLogger::laravel-logger.dashboard.menu.show') !!}
+                                        </a>
+                                    </div>
+                                @else
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li class="dropdown-item">
                                             @include('LaravelLogger::forms.clear-activity-log')
-                                            <a href="{{route('cleared')}}" class="dropdown-item">
+                                        </li>
+                                        <li class="dropdown-item">
+                                            <a href="{{route('cleared')}}">
                                                 <i class="fa fa-fw fa-history" aria-hidden="true"></i>
                                                 {!! trans('LaravelLogger::laravel-logger.dashboard.menu.show') !!}
                                             </a>
-                                        </div>
-                                    @else
-                                        <ul class="dropdown-menu dropdown-menu-right">
-                                            <li class="dropdown-item">
-                                                @include('LaravelLogger::forms.clear-activity-log')
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <a href="{{route('cleared')}}">
-                                                    <i class="fa fa-fw fa-history" aria-hidden="true"></i>
-                                                    {!! trans('LaravelLogger::laravel-logger.dashboard.menu.show') !!}
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    @endif
-                                </div>
+                                        </li>
+                                    </ul>
+                                @endif
+                            </div>
 
-                            @else
-                                {!! trans('LaravelLogger::laravel-logger.dashboard.title') !!}
-                                <span class="pull-right label label-default">
-                                    {{ $totalActivities }}
-                                    <span class="hidden-sms">
-                                        {!! trans('LaravelLogger::laravel-logger.dashboard.subtitle') !!}
-                                    </span>
+                        @else
+                            {!! trans('LaravelLogger::laravel-logger.dashboard.title') !!}
+                            <span class="pull-right label label-default">
+                                {{ $totalActivities }}
+                                <span class="hidden-sms">
+                                    {!! trans('LaravelLogger::laravel-logger.dashboard.subtitle') !!}
                                 </span>
-                            @endif
+                            </span>
+                        @endif
 
-                        </div>
                     </div>
-                    <div class="{{ $containerBodyClass }}">
-                        @include('LaravelLogger::logger.partials.activity-table', ['activities' => $activities, 'hoverable' => true])
-                    </div>
+                </div>
+                <hr>
+                <div class="{{ $containerBodyClass }}">
+                    @include('LaravelLogger::logger.partials.activity-table', ['activities' => $activities, 'hoverable' => true])
                 </div>
             </div>
         </div>

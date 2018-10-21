@@ -33,6 +33,7 @@
                     </span>
                 </div>
 
+                <hr>
                 @include('admin.partials.messages')
 
                 <div class="card-body">
@@ -113,8 +114,8 @@
 
                     <div class="clearfix mb-2"></div>
                     {{ $posts->links() }}
-
                 </div>
+
             </div>
         </div>
     </div>

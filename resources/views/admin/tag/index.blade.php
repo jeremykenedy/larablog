@@ -36,6 +36,7 @@
                     </span>
                 </div>
 
+                <hr>
                 @include('admin.partials.messages')
 
                 <div class="card-body">

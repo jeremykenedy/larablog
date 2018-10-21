@@ -4,6 +4,7 @@
        -o-transition: opacity .15s linear;
           transition: opacity .15s linear;
 }
+.fade.show,
 .fade.in {
     opacity: 1;
 }

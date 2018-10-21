@@ -37,9 +37,9 @@
                 <div class="card-header">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
 
-                        <span id="card_title">
+                        <h5 id="card_title" class="card-title">
                             {!! trans('laravelusers::laravelusers.showing-all-users') !!}
-                        </span>
+                        </h5>
 
                         <div class="btn-group pull-right btn-group-xs">
                             @if(config('laravelusers.softDeletedEnabled'))
@@ -78,6 +78,7 @@
                         </div>
                     </div>
                 </div>
+                <hr>
                 <div class="card-body">
 
                     @if(config('laravelusers.enableSearchUsers'))
@@ -158,7 +159,6 @@
 
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

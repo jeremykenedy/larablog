@@ -106,29 +106,31 @@
     </style>
 @endif
 
-
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="{{ $containerClass }} {{ $bootstrapCardClasses }}">
-                    <div class="{{ $containerHeaderClass }}">
-                        @lang('laravelPhpInfo::laravel-phpinfo.title')
-                    </div>
-                    <div class="{{ $containerBodyClass }}">
-                        <div class="php-info">
-                            @php
-                                ob_start();
-                                phpinfo();
-                                $pinfo = ob_get_contents();
-                                ob_end_clean();
-                                $pinfo = preg_replace( '%^.*<body>(.*)</body>.*$%ms','$1',$pinfo);
-                                echo $pinfo;
-                            @endphp
-                        </div>
-                    </div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="{{ $containerClass }} {{ $bootstrapCardClasses }}">
+            <div class="{{ $containerHeaderClass }}">
+                <h5 class="card-title">
+                    {!! trans('laravelPhpInfo::laravel-phpinfo.title') !!}
+                </h5>
+            </div>
+            <hr>
+            <div class="{{ $containerBodyClass }}">
+                <div class="php-info">
+                    @php
+                        ob_start();
+                        phpinfo();
+                        $pinfo = ob_get_contents();
+                        ob_end_clean();
+                        $pinfo = preg_replace( '%^.*<body>(.*)</body>.*$%ms','$1',$pinfo);
+                        echo $pinfo;
+                    @endphp
                 </div>
             </div>
         </div>
     </div>
+</div>
+
 @endsection
