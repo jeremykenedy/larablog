@@ -53,6 +53,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'permission:perms.wr
     ]);
 
     Route::get('/', 'Admin\AdminController@index')->name('admin');
+    Route::get('/uploads', 'Admin\AdminController@uploads')->name('admin-uploads');
 });
 
 Route::group(['middleware' => ['activity']], function () {

@@ -57,9 +57,9 @@
                 </li>
             @endif
 
-            @if (Route::has('unisharp.lfm.show'))
-                <li class="{{ Request::is('admin/filemanager') ? 'active' : null }} ">
-                    <a href="{{ route('unisharp.lfm.show') }}">
+            @if (Route::has('admin-uploads'))
+                <li class="{{ Request::is('admin/uploads') ? 'active' : null }} ">
+                    <a href="{{ route('admin-uploads') }}">
                         <i class="nc-icon nc-album-2"></i>
                         <p>
                             {!! trans('admin.drawer-nav.file-manager') !!}

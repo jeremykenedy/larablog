@@ -25,4 +25,15 @@ class AdminController extends Controller
     {
         return view('admin.pages.home');
     }
+
+    /**
+     * Show the application files manager/uploads dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function uploads()
+    {
+        return view('admin.pages.uploads');
+    }
+
 }
