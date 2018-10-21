@@ -7,7 +7,6 @@ use App\Models\User;
 use App\Models\Tag;
 use App\Services\PostProcesses;
 use Illuminate\Http\Request;
-use Validator;
 
 class BlogController extends Controller
 {
@@ -90,16 +89,6 @@ class BlogController extends Controller
      */
     public function author(Request $request, $author)
     {
-        $validator = Validator::make([
-            'author' => $author,
-        ], [
-            'author' => 'string|max:255',
-        ]);
-
-        if ($validator->fails()) {
-            return back()->withErrors($validator);
-        }
-
         $tag = $request->get('tag');
         $posts = Post::postsByAuthors($author)->get();
 
