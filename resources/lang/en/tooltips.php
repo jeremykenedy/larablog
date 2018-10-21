@@ -19,4 +19,9 @@ return [
         'select-pub-time'   => 'Select Post Publish Time',
     ],
 
+    'tag' => [
+        'create'    => 'Create New Tag',
+        'edit'      => 'Edit Tag',
+    ],
+
 ];

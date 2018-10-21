@@ -27,7 +27,7 @@
 
         @if(Auth::check() && Auth::user()->hasPermission('perms.admin'))
             @if (Route::has('showtags'))
-                <li class="{{ Request::is('showtags') ? 'active' : null }} ">
+                <li class="{{ Request::is('admin/tags') ? 'active' : null }} ">
                     <a href="{{ route('showtags') }}">
                         <i class="nc-icon nc-tag-content"></i>
                         <p>

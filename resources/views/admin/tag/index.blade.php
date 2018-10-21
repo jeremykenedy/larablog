@@ -22,7 +22,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <a href="{{ route('createtag') }}" class="btn btn-sm pull-right" data-toggle="tooltip" data-placement="left" title="{!! trans('tooltips.post.create') !!}">
+                    <a href="{{ route('createtag') }}" class="btn btn-sm pull-right" data-toggle="tooltip" data-placement="left" title="{!! trans('tooltips.tag.create') !!}">
                         <i class="nc-icon nc-simple-add" aria-hidden="true"></i>
                         <span class="hidden-xs">
                             {{ trans('admin.buttons.create-tag') }}
@@ -58,6 +58,9 @@
                                 <th class="hidden-md">
                                     {{ trans('admin.tags.table.titles.post_image') }}
                                 </th>
+                                <th>
+                                    {{ trans('admin.tags.table.titles.used') }}
+                                </th>
                                 <th class="hidden-md">
                                     {{ trans('admin.tags.table.titles.layout') }}
                                 </th>
@@ -78,7 +81,9 @@
                                             {{ $tag->id }}
                                         </td>
                                         <td>
-                                            {{ $tag->tag }}
+                                            <span class="badge badge-light badge-pill">
+                                                {!! $tag->link() !!}
+                                            </span>
                                         </td>
                                         <td>
                                             {{ $tag->title }}
@@ -88,6 +93,11 @@
                                         </td>
                                         <td class="hidden-md data-style">
                                             <img src="{{ $tag->post_image }}" alt="{{ $tag->title }} Image" class="img-thumbnail" draggable="false">
+                                        </td>
+                                        <td>
+                                            <span class="badge badge-secondary badge-pill data-style">
+                                                {{ $tag->posts()->count() }}
+                                            </span>
                                         </td>
                                         <td class="hidden-md data-style">
                                             <span class="badge badge-light">
@@ -109,7 +119,7 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <a href="/admin/tag/{{ $tag->id }}/edit" class="btn btn-sm btn-info">
+                                            <a href="/admin/tag/{{ $tag->id }}/edit" class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="left" title="{!! trans('tooltips.tag.edit') !!}">
                                                 <i class="fa fa-edit fa-fw" aria-hidden="true"></i>
                                                 {!! trans('admin.buttons.edit-tag') !!}
                                             </a>

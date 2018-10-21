@@ -49,11 +49,19 @@
                                 <th>
                                     {{ trans('admin.posts.table.titles.title') }}
                                 </th>
+                                {{--
                                 <th>
                                     {{ trans('admin.posts.table.titles.subtitle') }}
                                 </th>
+                                --}}
                                 <th>
                                     {{ trans('admin.posts.table.titles.author') }}
+                                </th>
+                                <th>
+                                    {{ trans('admin.posts.table.titles.image') }}
+                                </th>
+                                <th>
+                                    {{ trans('admin.posts.table.titles.tags') }}
                                 </th>
                                 <th data-sortable="false">
                                     {{ trans('admin.posts.table.titles.actions') }}
@@ -67,18 +75,41 @@
                                             {{ $post->id }}
                                         </td>
                                         <td data-order="{{ $post->published_at->timestamp }}" class="data-style">
-                                          {{ $post->published_at->format('M-j-y g:ia') }}
+                                            @php
+                                                $status = 'Draft';
+                                                $statusBadge = 'warning text-white';
+
+                                                if(!$post->is_draft ) {
+                                                    $status = 'Published';
+                                                    $statusBadge = 'success';
+                                                }
+                                            @endphp
+                                            <span class="badge badge-pill badge-{{ $statusBadge }}">
+                                                {{ $status }}
+                                            </span>
+                                            <br />
+                                            {{ $post->published_at->format('M-j-y g:ia') }}
                                         </td>
                                         <td>
                                             {{ $post->title }}
                                         </td>
+                                        {{--
                                         <td>
                                             {{ $post->subtitle }}
                                         </td>
+                                        --}}
                                         <td>
                                             <!-- <a href="{{ url('/admin/authors/' . $post->author) }}" > -->
                                                 {{ $post->author }}
                                             <!-- </a> -->
+                                        </td>
+                                        <td class="data-style">
+                                            <img src="{{ $post->post_image }}" alt="{{ $post->title }} Image" class="img-thumbnail" draggable="false">
+                                        </td>
+                                        <td>
+                                            <span class="badge badge-light badge-pill">
+                                                {!! join('</span> <span class="badge badge-light badge-pill">', $post->tagLinks()) !!}
+                                            </span>
                                         </td>
                                         <td>
                                             <a href="/admin/posts/{{ $post->id }}/edit" class="btn btn-sm btn-block btn-info" data-toggle="tooltip" data-placement="top" title="{!! trans('tooltips.post.edit') !!}">

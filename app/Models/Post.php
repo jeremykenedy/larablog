@@ -210,7 +210,7 @@ class Post extends Model implements Feedable
 
         foreach ($tags as $tag) {
             $url = str_replace('%TAG%', urlencode($tag), $base);
-            $return[] = '<a class="badge" href="'.$url.'">'.e($tag).'</a>';
+            $return[] = '<a class="badge" href="' . $url . '">' . e($tag) . '</a>';
         }
 
         return $return;

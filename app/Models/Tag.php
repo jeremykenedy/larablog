@@ -51,13 +51,28 @@ class Tag extends Model
     ];
 
     /**
-     * The many-to-many relationship between tags and font end pages.
+     * The many-to-many relationship between tags and posts.
      *
      * @return BelongsToMany
      */
-    public function pages()
+    public function posts()
     {
-        return $this->belongsToMany('App\Models\FrontEndPage', 'front_end_page_tag_pivot');
+        return $this->belongsToMany('App\Models\Post', 'post_tag_pivot');
+    }
+
+    /**
+     * Return a tag link.
+     *
+     * @param string $base
+     *
+     * @return string
+     */
+    public function link($base = '/?tag=%TAG%')
+    {
+        $url = str_replace('%TAG%', urlencode($this->tag), $base);
+        $tagLink = '<a href="' . $url . '">' . e($this->tag) . '</a>';
+
+        return $tagLink;
     }
 
     /**
@@ -93,7 +108,7 @@ class Tag extends Model
      *
      * @return string
      */
-    public static function layout($tag, $default = 'blog.index')
+    public static function layout($tag, $default = 'blog.post-layouts.standard')
     {
         $layout = static::whereTag($tag)->pluck('layout');
 

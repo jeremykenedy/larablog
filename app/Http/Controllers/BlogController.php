@@ -20,6 +20,9 @@ class BlogController extends Controller
         $tag = $request->get('tag');
         $service = new PostProcesses($tag);
         $data = $service->getResponse();
+
+// dd($data);
+
         $layout = $tag ? Tag::layout($tag) : 'blog.index';
 
         return view($layout, $data);

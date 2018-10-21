@@ -4,10 +4,10 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Models\Tag::class, function (Faker $faker) {
     $images = [
-        'backgrounds/about-bg.jpg',
-        'backgrounds/contact-bg.jpg',
-        'backgrounds/home-bg.jpg',
-        'backgrounds/post-bg.jpg',
+        'https://picsum.photos/1600/900/?random',
+        'https://source.unsplash.com/random/1600x900',
+        'https://loremflickr.com/1600/900',
+        'https://baconmockup.com/1600/900',
     ];
     $word = $faker->unique()->word;
 
