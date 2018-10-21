@@ -66,6 +66,7 @@ return [
         'pages' => [
             'index' => [
                 'title'     => 'Posts',
+                'desc'      => '',
                 'badge'     => 'Showing :per of :total',
                 'header'    => 'Showing Blog Posts',
             ],
@@ -92,10 +93,12 @@ return [
     ],
 
     'buttons' => [
-        'edit'      => 'Edit',
-        'view'      => 'View',
-        'delete'    => 'Delete',
-        'create'    => 'Create Post',
+        'edit'          => 'Edit',
+        'view'          => 'View',
+        'delete'        => 'Delete',
+        'create'        => 'Create Post',
+        'create-tag'    => 'Create Tag',
+        'edit-tag'      => '<span class="hidden-xs hidden-sm hidden-md">Edit</span> <span class="hidden-xs hidden-sm hidden-md hidden-lg">Tag</span>',
     ],
 
     'modals' => [
@@ -139,6 +142,35 @@ return [
             'title'     => 'File Manager',
             'desc'      => '',
             'header'    => 'File Manager',
+        ],
+    ],
+
+    'tags' => [
+        'pages' => [
+            'index' => [
+                'title'     => 'Tags Manager',
+                'desc'      => '',
+                'header'    => 'Tags Manager',
+                'badge'     => ':total Tags Total',
+            ],
+        ],
+        'table' => [
+            'title' => 'Listing Tags',
+            'titles' => [
+                'id'                => 'Id',
+                'tag'               => 'Tag',
+                'title'             => 'Title',
+                'subtitle'          => 'Subtitle',
+                'post_image'        => 'Image',
+                'layout'            => 'Layout',
+                'meta_description'  => 'Meta Description',
+                'direction'         => 'Direction',
+                'actions'           => 'Actions',
+                'directions'        => [
+                    'normal'    => 'Normal',
+                    'reverse'   => 'Reverse',
+                ],
+            ],
         ],
     ],
 

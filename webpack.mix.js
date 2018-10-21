@@ -25,7 +25,6 @@ var adminScripts = [
     'public/js/admin.js',
     'resources/admin/js/bs-tooltips.js',
     'public/vendor/laravel-filemanager/js/lfm.js',
-
 ];
 
 mix.webpackConfig({

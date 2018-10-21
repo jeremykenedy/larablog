@@ -41,8 +41,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'permission:perms.wr
             'index'     => 'admin.posts',
             'update'    => 'updatepost',
             'store'     => 'storepost',
-            'destroy'   => 'destroypost',
             'edit'      => 'editpost',
+            'destroy'   => 'destroypost',
         ],
         'except' => [
             'show',
@@ -52,8 +52,29 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'permission:perms.wr
         ],
     ]);
 
-    Route::get('/', 'Admin\AdminController@index')->name('admin');
+    Route::resource('tags', 'Admin\TagController', [
+        'names'    => [
+            'create'    => 'createtag',
+            'index'     => 'showtags',
+            'update'    => 'updatetag',
+            'store'     => 'storetag',
+            'edit'      => 'edittag',
+            'destroy'   => 'destroytag',
+        ],
+        'except' => [
+            'show',
+        ],
+        'parameters' => [
+            'tag' => 'id',
+        ],
+    ]);
+
     Route::get('/uploads', 'Admin\AdminController@uploads')->name('admin-uploads');
+});
+
+// User and above routes
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'permission:perms.user', 'activity']], function () {
+    Route::get('/', 'Admin\AdminController@index')->name('admin');
 });
 
 Route::group(['middleware' => ['activity']], function () {

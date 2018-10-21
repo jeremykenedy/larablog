@@ -18762,6 +18762,52 @@ readers do not read off random characters that represent icons */
   width: auto;
 }
 
+.center-block {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.pull-right {
+  float: right !important;
+}
+
+.pull-left {
+  float: left !important;
+}
+
+.hide {
+  display: none !important;
+}
+
+.show {
+  display: block !important;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.text-hide {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.affix {
+  position: fixed;
+}
+
+@-ms-viewport {
+  width: device-width;
+}
+
 .visible-xs,
 .visible-sm,
 .visible-md,
@@ -18790,7 +18836,7 @@ readers do not read off random characters that represent icons */
   }
 
   table.visible-xs {
-    display: table !important;
+    display: table;
   }
 
   tr.visible-xs {
@@ -18827,7 +18873,7 @@ readers do not read off random characters that represent icons */
   }
 
   table.visible-sm {
-    display: table !important;
+    display: table;
   }
 
   tr.visible-sm {
@@ -18864,7 +18910,7 @@ readers do not read off random characters that represent icons */
   }
 
   table.visible-md {
-    display: table !important;
+    display: table;
   }
 
   tr.visible-md {
@@ -18901,7 +18947,7 @@ readers do not read off random characters that represent icons */
   }
 
   table.visible-lg {
-    display: table !important;
+    display: table;
   }
 
   tr.visible-lg {
@@ -18966,7 +19012,7 @@ readers do not read off random characters that represent icons */
   }
 
   table.visible-print {
-    display: table !important;
+    display: table;
   }
 
   tr.visible-print {

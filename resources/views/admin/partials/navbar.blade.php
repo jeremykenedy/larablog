@@ -33,16 +33,19 @@
             -->
 
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a href="{{ route('posts.create') }}" class="nav-link btn-magnify" data-toggle="tooltip" data-placement="bottom" title="{!! trans('tooltips.post.create') !!}">
-                        <i class="nc-icon nc-simple-add" aria-hidden="true"></i>
-                        <p>
-                            <span class="d-lg-none d-md-block">
-                                {{ trans('admin.buttons.create') }}
-                            </span>
-                        </p>
-                    </a>
-                </li>
+
+                @if(Auth::check() && Auth::user()->hasPermission('perms.writer'))
+                    <li class="nav-item">
+                        <a href="{{ route('posts.create') }}" class="nav-link btn-magnify" data-toggle="tooltip" data-placement="bottom" title="{!! trans('tooltips.post.create') !!}">
+                            <i class="nc-icon nc-simple-add" aria-hidden="true"></i>
+                            <p>
+                                <span class="d-lg-none d-md-block">
+                                    {{ trans('admin.buttons.create') }}
+                                </span>
+                            </p>
+                        </a>
+                    </li>
+                @endif
                 <li class="nav-item btn-rotate dropdown">
                     <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="nc-icon nc-circle-10" aria-hidden="true"></i>

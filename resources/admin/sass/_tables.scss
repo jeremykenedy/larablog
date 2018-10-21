@@ -1,0 +1,19 @@
+body {
+    table {
+        &.table-sm {
+            td {
+                padding: 0.3rem;
+                font-size: .9em;
+            }
+        }
+    }
+}
+
+#users_table {
+    td {
+        &:nth-child(5),
+        &:nth-child(6) {
+            @extend .data-style;
+        }
+    }
+}

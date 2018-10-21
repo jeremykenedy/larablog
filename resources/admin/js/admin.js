@@ -11,6 +11,7 @@ require('pickadate/lib/picker');
 require('pickadate/lib/picker.date');
 require('pickadate/lib/picker.time');
 require('selectize');
+require('datatables.net-bs4');
 
 window.Vue = require('vue');
 

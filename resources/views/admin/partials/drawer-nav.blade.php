@@ -12,37 +12,43 @@
             </li>
         @endif
 
-        @if (Route::has('admin.posts'))
-            <li class="{{ Request::is('admin/posts') ? 'active' : null }} ">
-                <a href="{{ route('admin.posts') }}">
-                    <i class="nc-icon nc-paper"></i>
-                    <p>
-                        {!! trans('admin.drawer-nav.posts') !!}
-                    </p>
-                </a>
-            </li>
+        @if(Auth::check() && Auth::user()->hasPermission('perms.writer'))
+            @if (Route::has('admin.posts'))
+                <li class="{{ Request::is('admin/posts') ? 'active' : null }} ">
+                    <a href="{{ route('admin.posts') }}">
+                        <i class="nc-icon nc-paper"></i>
+                        <p>
+                            {!! trans('admin.drawer-nav.posts') !!}
+                        </p>
+                    </a>
+                </li>
+            @endif
         @endif
 
-        @if (Route::has('admin/tags'))
-            <li class="{{ Request::is('admin/tags') ? 'active' : null }} ">
-                <a href="{{ route('admin/tags') }}">
-                    <i class="nc-icon nc-tag-content"></i>
-                    <p>
-                        {!! trans('admin.drawer-nav.tags') !!}
-                    </p>
-                </a>
-            </li>
+        @if(Auth::check() && Auth::user()->hasPermission('perms.admin'))
+            @if (Route::has('showtags'))
+                <li class="{{ Request::is('showtags') ? 'active' : null }} ">
+                    <a href="{{ route('showtags') }}">
+                        <i class="nc-icon nc-tag-content"></i>
+                        <p>
+                            {!! trans('admin.drawer-nav.tags') !!}
+                        </p>
+                    </a>
+                </li>
+            @endif
         @endif
 
-        @if (Route::has('admin/files'))
-            <li class="{{ Request::is('admin/files') ? 'active' : null }} ">
-                <a href="{{ route('admin/files') }}">
-                    <i class="nc-icon nc-box"></i>
-                    <p>
-                        {!! trans('admin.drawer-nav.file-manager') !!}
-                    </p>
-                </a>
-            </li>
+        @if(Auth::check() && Auth::user()->hasPermission('perms.moderator'))
+            @if (Route::has('admin-uploads'))
+                <li class="{{ Request::is('admin/uploads') ? 'active' : null }} ">
+                    <a href="{{ route('admin-uploads') }}">
+                        <i class="nc-icon nc-album-2"></i>
+                        <p>
+                            {!! trans('admin.drawer-nav.file-manager') !!}
+                        </p>
+                    </a>
+                </li>
+            @endif
         @endif
 
         @if(Auth::check() && Auth::user()->hasPermission('perms.super.admin'))
@@ -52,17 +58,6 @@
                         <i class="nc-icon nc-single-02"></i>
                         <p>
                             {!! trans('admin.drawer-nav.users') !!}
-                        </p>
-                    </a>
-                </li>
-            @endif
-
-            @if (Route::has('admin-uploads'))
-                <li class="{{ Request::is('admin/uploads') ? 'active' : null }} ">
-                    <a href="{{ route('admin-uploads') }}">
-                        <i class="nc-icon nc-album-2"></i>
-                        <p>
-                            {!! trans('admin.drawer-nav.file-manager') !!}
                         </p>
                     </a>
                 </li>

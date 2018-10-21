@@ -26,6 +26,8 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
-        "ckeditor": "^4.10.1"
+        "ckeditor": "^4.10.1",
+        "datatables.net-bs4": "^1.10.19",
+        "jquery-ui": "^1.12.1"
     }
 }
