@@ -34,8 +34,8 @@ class PostTableSeeder extends Seeder
             shuffle($tags);
             $postTags = [$tags[0]];
 
-            // 30% of the time we're assigning tags, assign 2
-            if (mt_rand(1, 100) <= 30) {
+            // 70% of the time we're assigning tags, assign 2
+            if (mt_rand(1, 100) <= 70) {
                 $postTags[] = $tags[1];
             }
 

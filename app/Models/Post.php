@@ -46,7 +46,6 @@ class Post extends Model implements Feedable
      * @var array
      */
     protected $fillable = [
-        'slug',
         'title',
         'subtitle',
         'content_raw',
@@ -55,6 +54,7 @@ class Post extends Model implements Feedable
         'meta_description',
         'author',
         'layout',
+        'slug',
         'is_draft',
         'published_at',
     ];
@@ -287,16 +287,61 @@ class Post extends Model implements Feedable
     }
 
     /**
-     * Scope a query to get only published posts.
+     * Scope a query to get only published posts with tags.
      *
      * @return collection
      */
     public function scopeAllPublishedPosts($query)
     {
         return $query->with('tags')
-            ->where('published_at', '<=', Carbon::now())
-            ->where('is_draft', 0)
+            ->publishedTimePast()
+            ->isNotDraft()
             ->orderBy('published_at', 'desc');
+    }
+
+    /**
+     * Scope a query to get by slug
+     *
+     * @param string $slug
+     * @return collection
+     */
+    public function scopeBySlug($query, $slug)
+    {
+        $query->whereSlug($slug);
+    }
+
+    /**
+     * Scope a query to show posts not marked as drafts
+     *
+     * @return collection
+     */
+    public function scopeIsNotDraft($query)
+    {
+        $query->where('is_draft', 0);
+    }
+
+    /**
+     * Scope a query to show posts that the have past the published date and time.
+     *
+     * @return collection
+     */
+    public function scopePublishedTimePast($query)
+    {
+        return $query->where('published_at', '<=', Carbon::now());
+    }
+
+    /**
+     * Scope a query to all posts authors.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeAuthors($query)
+    {
+        return $query->select('author')
+                        ->distinct()
+                        ->orderBy('author', 'asc');
     }
 
     /**
@@ -309,8 +354,8 @@ class Post extends Model implements Feedable
     public function scopeActiveAuthors($query)
     {
         return $query->select('author')
-                        ->where('published_at', '<=', Carbon::now())
-                        ->where('is_draft', 0)
+                        ->publishedTimePast()
+                        ->isNotDraft()
                         ->distinct()
                         ->orderBy('author', 'asc');
     }
@@ -326,8 +371,8 @@ class Post extends Model implements Feedable
     {
         return $query->with('tags')
             ->where('author', $author)
-            ->where('published_at', '<=', Carbon::now())
-            ->where('is_draft', 0)
+            ->publishedTimePast()
+            ->isNotDraft()
             ->orderBy('published_at', 'desc');
     }
 }

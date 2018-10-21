@@ -14,7 +14,7 @@ class StorePostRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return $this->user()->hasPermission('perms.writer');
     }
 
     /**
@@ -25,12 +25,17 @@ class StorePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'         => 'required',
-            'subtitle'      => 'required',
-            'content'       => 'required',
-            'publish_date'  => 'required',
-            'publish_time'  => 'required',
-            'layout'        => 'required',
+            'title'             => 'required|max:255|unique:posts,id,' . $this->id,
+            'subtitle'          => 'required',
+            'content'           => 'required',
+            'post_image'        => 'required',
+            'meta_description'  => 'required|max:255',
+            'is_draft'          => 'nullable',
+            'author'            => 'required',
+            'slug'              => 'required|unique:posts,id,' . $this->id,
+            'publish_date'      => 'required',
+            'publish_time'      => 'required',
+            'layout'            => 'required',
         ];
     }
 
@@ -42,15 +47,18 @@ class StorePostRequest extends FormRequest
     public function postFillData()
     {
         $published_at = new Carbon(
-            $this->publish_date.' '.$this->publish_time   // need to align this.
+            $this->publish_date.' '.$this->publish_time
         );
+
         return [
             'title'             => $this->title,
             'subtitle'          => $this->subtitle,
-            'page_image'        => $this->page_image,
+            'post_image'        => $this->post_image,
             'content_raw'       => $this->get('content'),
             'meta_description'  => $this->meta_description,
             'is_draft'          => (bool)$this->is_draft,
+            'author'            => $this->author,
+            'slug'              => $this->slug,
             'published_at'      => $published_at,
             'layout'            => $this->layout,
         ];

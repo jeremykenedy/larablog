@@ -78,25 +78,33 @@
 // Helpers
 @import '../../sass/partials/bs-visibility-classes';
 
+// General
+.has-error {
+    label
+    textarea,
+    textarea.form-control,
+    textarea + #cke_content,
+    select,
+    input {
+        border-color: $danger;
+    }
+    label {
+        color: $danger;
+    }
+}
+#cke_content {
+    width: 99%;
+}
+
+#publish_date,
+#publish_time {
+    cursor: pointer;
+}
+
 .data-style {
     font-family: monospace;
     font-size: .7em;
 }
-.sidebar .sidebar-wrapper,
-.off-canvas-sidebar .sidebar-wrapper {
-    overflow-x: hidden;
-}
-.dropdown-menu .dropdown-item {
-    border-radius: inherit;
-}
-
-.auth-page {
-    height: 100%;
-    width: 100%;
-    background-color: $default-body-bg;
-    margin-top: 2em;
-}
-
 .input-group-append {
     .btn {
         margin: 0;
@@ -133,3 +141,33 @@ table {
         max-height: 40px;
     }
 }
+
+// Fix sidebar overflow
+.sidebar .sidebar-wrapper,
+.off-canvas-sidebar .sidebar-wrapper {
+    overflow-x: hidden;
+}
+.dropdown-menu .dropdown-item {
+    border-radius: inherit;
+}
+
+// Auth Template
+.auth-page {
+    height: 100%;
+    width: 100%;
+    background-color: $default-body-bg;
+    margin-top: 2em;
+}
+
+// Loading
+.loading {
+    text-align: center;
+    margin: 5em auto;
+    .nc-icon {
+        font-size: 30px;
+    }
+}
+
+
+
+

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 use App\Models\Tag;
 use App\Services\PostProcesses;
 use Illuminate\Http\Request;
@@ -35,10 +36,20 @@ class BlogController extends Controller
      */
     public function showPost(Request $request, $slug)
     {
-        $post = Post::with('tags')
-                        ->whereSlug($slug)
-                        ->where('is_draft', 0)
-                        ->firstOrFail();
+        $user = \Auth::user();
+
+        // Allow writers to view posts in draft mode and future dates
+        if ($user && $user->level() > 2) {
+            $post = Post::with('tags')
+                            ->bySlug($slug)
+                            ->firstOrFail();
+        } else {
+            $post = Post::with('tags')
+                            ->bySlug($slug)
+                            ->publishedTimePast()
+                            ->isNotDraft()
+                            ->firstOrFail();
+        }
 
         $tag = $request->get('tag');
 

@@ -11,33 +11,38 @@
 |
 */
 
-// Homepage Route
-Route::get('/', 'BlogController@index')->name('home');
+Route::group(['middleware' => ['activity']], function () {
 
-// Authors Routes
-Route::get('/authors', 'BlogController@authors')->name('authors');
-Route::get('/author/{author}', 'BlogController@author')->name('author');
+    // Homepage Route
+    Route::get('/', 'BlogController@index')->name('home');
 
-// RSS Feed Route
-Route::feeds();
+    // Authors Routes
+    Route::get('/authors', 'BlogController@authors')->name('authors');
+    Route::get('/author/{author}', 'BlogController@author')->name('author');
 
-// Register, Login, and forget PW Routes
-Auth::routes();
+    // RSS Feed Route
+    Route::feeds();
+
+    // Register, Login, and forget PW Routes
+    Auth::routes();
+
+});
 
 // Super Admin only routes
-Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'permission:perms.super.admin']], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'permission:perms.super.admin', 'activity']], function () {
     //
 });
 
 // Writer and above routes
-Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'permission:perms.writer']], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'permission:perms.writer', 'activity']], function () {
     Route::resource('posts', 'Admin\PostController', [
         'names'    => [
-            'create' => 'posts.create',
-            'index'  => 'admin.posts',
-            'update' => 'updatepost',
-            // 'store'   => 'storepage',
-            // 'update'  => 'updatepage',
+            'create'    => 'posts.create',
+            'index'     => 'admin.posts',
+            'update'    => 'updatepost',
+            'store'     => 'storepost',
+            'destroy'   => 'destroypost',
+            'edit'      => 'editpost',
         ],
         'except' => [
             'show',
@@ -50,5 +55,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'permission:perms.wr
     Route::get('/', 'Admin\AdminController@index')->name('admin');
 });
 
-// Dynamic Pages Routes
-Route::get('/{slug}/', 'BlogController@showPost');
+Route::group(['middleware' => ['activity']], function () {
+    // Dynamic Pages Routes
+    Route::get('/{slug}/', 'BlogController@showPost');
+});

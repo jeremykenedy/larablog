@@ -23,7 +23,7 @@ class CreatePostsTable extends Migration
             $table->string('post_image');
             $table->longText('meta_description');
             $table->string('author');
-            $table->string('layout')->default('blog.post');
+            $table->string('layout')->default('blog.post-layouts.regular');
             $table->boolean('is_draft')->default(1);
             $table->timestamps();
             $table->timestamp('published_at')->nullable()->index();

@@ -9,7 +9,7 @@ $factory->define(App\Models\Tag::class, function (Faker $faker) {
         'backgrounds/home-bg.jpg',
         'backgrounds/post-bg.jpg',
     ];
-    $word = $faker->unique()->name;
+    $word = $faker->unique()->word;
 
     return [
         'tag'               => $word,

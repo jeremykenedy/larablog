@@ -14,6 +14,6 @@ class TagTableSeeder extends Seeder
     {
         Tag::truncate();
 
-        factory(Tag::class, 10000)->create();
+        factory(Tag::class, 100)->create();
     }
 }

@@ -10,7 +10,7 @@ return [
     */
 
     'navbar' => [
-
+        'title' => 'Admin Menu',
     ],
 
     'drawer-nav' => [
@@ -21,6 +21,7 @@ return [
         'users'         => 'Users',
         'roles'         => 'Roles',
         'phpinfo'       => 'PHP Info',
+        'activity'      => 'Activity',
         'settings'      => 'Settings',
     ],
 
@@ -65,21 +66,52 @@ return [
             'index' => [
                 'title' => 'Posts',
             ],
+            'edit' => [
+                'title' => 'Editing Post Id: :id',
+            ],
+            'create' => [
+                'title' => 'Create New Post',
+            ],
         ],
         'table' => [
             'title'  => 'Blog Posts',
             'titles' => [
+                'id'        => 'Id',
                 'published' => 'Published',
                 'title'     => 'Title',
                 'subtitle'  => 'SubTitle',
+                'author'    => 'Author',
                 'actions'   => 'Actions',
             ],
         ],
     ],
 
     'buttons' => [
-        'edit' => 'Edit',
-        'view' => 'View',
+        'edit'      => 'Edit',
+        'view'      => 'View',
+        'delete'    => 'Delete',
+        'create'    => 'Create Post',
+    ],
+
+    'modals' => [
+        'delete-post' => [
+            'close'     => 'Close',
+            'title'     => 'Confirm Delete',
+            'message'   => 'Delete this post?',
+            'cancel'    => 'Cancel',
+            'confirm'   => 'Confirm Delete',
+        ],
+        'save-post' => [
+            'close'     => 'Close',
+            'title'     => 'Confirm Save',
+            'message'   => 'Save post change?',
+            'cancel'    => 'Cancel',
+            'confirm'   => 'Confirm Save',
+        ],
+    ],
+
+    'loader' => [
+        'message' => 'loading',
     ],
 
 ];

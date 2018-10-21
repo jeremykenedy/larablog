@@ -39,21 +39,15 @@
     </head>
     <body>
         <div id="app">
-
             @include('blog.partials.nav')
-
             <main>
                 @yield('content')
             </main>
-
            @include('blog.partials.footer')
-
         </div>
 
         {{-- Scripts --}}
         <script src="{{ mix('js/app.js') }}" defer></script>
-
         @stack('scripts')
-
     </body>
 </html>

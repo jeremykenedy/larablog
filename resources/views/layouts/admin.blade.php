@@ -41,30 +41,20 @@
                         {{ session('status') }}
                     </div>
                 @endif
-
                 <div class="wrapper ">
-
                     @include('admin.partials.sidebar')
-
                     <div class="main-panel">
-
                         @include('admin.partials.navbar')
-
                         <div class="content">
                             @yield('content')
                         </div>
-
                         @include('admin.partials.footer')
-
                     </div>
                 </div>
             </main>
         </div>
 
         {{-- Scripts --}}
-        <script type="text/javascript">
-            var CKEDITOR_BASEPATH = '/js/ckeditor/';
-        </script>
         <script src="{{ mix('js/admin.js') }}"></script>
         @stack('scripts')
         @yield('template_scripts')

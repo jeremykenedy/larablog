@@ -4,6 +4,8 @@ namespace App\Services;
 
 use App\Models\Post;
 use App\Models\Tag;
+use App\Services\PostAuthors;
+use App\Services\PostTemplates;
 use Carbon\Carbon;
 
 class PostFormFields
@@ -14,16 +16,18 @@ class PostFormFields
      * @var array
      */
     protected $fieldList = [
-        'title'            => '',
-        'subtitle'         => '',
-        'post_image'       => '',
-        'content'          => '',
-        'meta_description' => '',
-        'is_draft'         => '0',
-        'publish_date'     => '',
-        'publish_time'     => '',
-        'layout'           => 'front-end.pages.page-dynamic',
-        'tags'             => [],
+        'title'             => '',
+        'subtitle'          => '',
+        'post_image'        => '',
+        'content'           => '',
+        'meta_description'  => '',
+        'is_draft'          => '1',
+        'author'            => '',
+        'slug'              => '',
+        'publish_date'      => '',
+        'publish_time'      => '',
+        'layout'            => 'blog.post',
+        'tags'              => [],
     ];
 
     /**
@@ -49,6 +53,8 @@ class PostFormFields
 
         if ($this->id) {
             $fields = $this->fieldsFromModel($this->id, $fields);
+            $fields['publish_time'] = $fields['publish_date']->format('g:i A');
+            $fields['publish_date'] = $fields['publish_date']->format('M-d-Y');
         } else {
             $when = Carbon::now()->addHour();
             $fields['publish_date'] = $when->format('M-j-Y');
@@ -59,9 +65,14 @@ class PostFormFields
             $fields[$fieldName] = old($fieldName, $fieldValue);
         }
 
+        // Get the additional data for the form fields
+        $postFormFieldData = $this->postFormFieldData();
+
         return array_merge(
-            $fields,
-            ['allTags' => Tag::pluck('tag')->all()]
+            $fields, [
+                'allTags' => Tag::pluck('tag')->all()
+            ],
+            $postFormFieldData
         );
     }
 
@@ -79,7 +90,9 @@ class PostFormFields
 
         $fieldNames = array_keys(array_except($fields, ['tags']));
 
-        $fields = ['id' => $id];
+        $fields = [
+            'id' => $id
+        ];
         foreach ($fieldNames as $field) {
             $fields[$field] = $page->{$field};
         }
@@ -88,4 +101,21 @@ class PostFormFields
 
         return $fields;
     }
+
+    /**
+     * Get the additonal post form fields data
+     *
+     * @return array
+     */
+    protected function postFormFieldData()
+    {
+        $allAvailableAuthors    = PostAuthors::all();
+        $postTemplates          = PostTemplates::list();
+
+        return [
+            'allAvailableAuthors'   => $allAvailableAuthors,
+            'postTemplates'         => $postTemplates,
+        ];
+    }
+
 }

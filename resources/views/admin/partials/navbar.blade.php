@@ -9,16 +9,16 @@
                 </button>
             </div>
             <!--
-            <a class="navbar-brand" href="#pablo">
-                Paper Dashboard 2
+            <a class="navbar-brand" href="#">
+                Nav Bar Title Here
             </a>
             -->
-            </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-bar navbar-kebab"></span>
-                <span class="navbar-toggler-bar navbar-kebab"></span>
-                <span class="navbar-toggler-bar navbar-kebab"></span>
-            </button>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+        </button>
         <div class="collapse navbar-collapse justify-content-end" id="navigation">
 
             <!--
@@ -35,30 +35,30 @@
             -->
 
             <ul class="navbar-nav">
-
-                <!--
                 <li class="nav-item">
-                    <a class="nav-link btn-magnify" href="#pablo">
-                        <i class="nc-icon nc-layout-11"></i>
+                    <a href="{{ route('posts.create') }}" class="nav-link btn-magnify" data-toggle="tooltip" data-placement="bottom" title="{!! trans('tooltips.post.create') !!}">
+                        <i class="nc-icon nc-simple-add" aria-hidden="true"></i>
                         <p>
-                            <span class="d-lg-none d-md-block">Stats</span>
+                            <span class="d-lg-none d-md-block">
+                                {{ trans('admin.buttons.create') }}
+                            </span>
                         </p>
                     </a>
                 </li>
-                -->
-
                 <li class="nav-item btn-rotate dropdown">
                     <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="nc-icon nc-circle-10"></i>
+                        <i class="nc-icon nc-circle-10" aria-hidden="true"></i>
                         <p>
                             <span class="d-lg-none d-md-block">
-                                Admin Menu
+
+                                {{ trans('admin.navbar.title') }}
                             </span>
                         </p>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             {!! trans('larablog.nav.logout') !!}
+                            <i class="nc-icon nc-button-power pull-right mt-1" aria-hidden="true"></i>
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf

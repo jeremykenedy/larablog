@@ -69,11 +69,22 @@
             @endif
 
             @if (Route::has('laravelPhpInfo::phpinfo'))
-                <li class="{{ Request::is('laravelPhpInfo::phpinfo') ? 'active' : null }} ">
+                <li class="{{ Request::is('phpinfo') ? 'active' : null }} ">
                     <a href="{{ route('laravelPhpInfo::phpinfo') }}">
                         <i class="nc-icon nc-alert-circle-i"></i>
                         <p>
                             {!! trans('admin.drawer-nav.phpinfo') !!}
+                        </p>
+                    </a>
+                </li>
+            @endif
+
+            @if (Route::has('activity'))
+                <li class="{{ Request::is('activity') ? 'active' : null }} ">
+                    <a href="{{ route('activity') }}">
+                        <i class="nc-icon nc-tap-01"></i>
+                        <p>
+                            {!! trans('admin.drawer-nav.activity') !!}
                         </p>
                     </a>
                 </li>

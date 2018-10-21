@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
+use App\Models\User;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Services\PostFormFields;
@@ -12,6 +13,16 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -19,7 +30,7 @@ class PostController extends Controller
     public function index(Request $request)
     {
         $posts = Post::with('tags')
-            ->orderBy('published_at', 'desc')
+            ->orderBy('id', 'desc')
             ->paginate(config('admin.posts_per_page'));
 
         $data = [
@@ -36,8 +47,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        $service = new PostFormFields();
-        $data = $service->handle();
+        $service    = new PostFormFields();
+        $data       = $service->handle();
 
         return view('admin.post.create', $data);
     }
@@ -54,9 +65,8 @@ class PostController extends Controller
         $post = Post::create($request->postFillData());
         $post->syncTags($request->get('tags', []));
 
-        return redirect()
-            ->route('admin.post.index')
-            ->withSuccess('New Post Successfully Created.');
+        return redirect()->route('editpost', [$post])
+                            ->withSuccess(trans('messages.success.post-created'));
     }
 
     /**
@@ -68,8 +78,8 @@ class PostController extends Controller
      */
     public function edit(Request $request, $id)
     {
-        $service = new PostFormFields($id);
-        $data = $service->handle();
+        $service    = new PostFormFields($id);
+        $data       = $service->handle();
 
         return view('admin.post.edit')->with($data);
     }
@@ -78,7 +88,7 @@ class PostController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param int                      $id
+     * @param int $id
      *
      * @return \Illuminate\Http\Response
      */
@@ -89,15 +99,10 @@ class PostController extends Controller
         $post->save();
         $post->syncTags($request->get('tags', []));
 
-        // if ($request->action === 'continue') {
         return redirect()
             ->back()
-            ->withSuccess('Post saved.');
-        // }
+            ->withSuccess(trans('messages.success.post-updated'));
 
-        // return redirect()
-        //     ->route('admin.post.index')
-        //     ->withSuccess('Post saved.');
     }
 
     /**
@@ -107,14 +112,14 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         $post = Post::findOrFail($id);
         $post->tags()->detach();
         $post->delete();
 
         return redirect()
-            ->route('admin.post.index')
-            ->withSuccess('Post deleted.');
+            ->route('admin.posts')
+            ->withSuccess(trans('messages.success.post-deleted'));
     }
 }

@@ -20,6 +20,7 @@ $factory->define(App\Models\Post::class, function (Faker $faker) {
         'published_at'      => $faker->dateTimeBetween('-1 month', '+3 days'),
         'author'            => $faker->name,
         'meta_description'  => "Meta for $title",
-        'is_draft'          => false,
+        'is_draft'          => rand(0,1),
+        'layout'            => 'blog.post-layouts.standard',
     ];
 });

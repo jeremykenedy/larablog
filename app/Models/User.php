@@ -69,4 +69,19 @@ class User extends Authenticatable
         'email'             => 'string',
         'password'          => 'string',
     ];
+
+    /**
+     * Scope a query the user names
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeUserNames($query)
+    {
+        return $query->select('name')
+                        ->distinct()
+                        ->orderBy('name', 'asc');
+    }
+
 }

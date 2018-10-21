@@ -3987,6 +3987,8 @@ Picker.extend( 'pickadate', DatePicker )
 
 
 
+var CKEDITOR_BASEPATH = '/js/ckeditor/';
+
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -59916,3 +59918,9 @@ module.exports = __webpack_require__("./resources/admin/js/admin.js");
 /***/ })
 
 /******/ });
+$(function () {
+    var is_touch_device = 'ontouchstart' in document.documentElement;
+    if (!is_touch_device) {
+        $('[data-toggle="tooltip"]').tooltip();
+    }
+});

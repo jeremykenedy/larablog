@@ -64,6 +64,11 @@ return [
             'url'    => env('AWS_URL'),
         ],
 
+        'post-layouts' => [
+            'driver' => 'local',
+            'root' => base_path('resources/views/blog/post-layouts'),
+        ],
+
     ],
 
 ];

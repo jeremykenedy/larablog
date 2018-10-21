@@ -22,7 +22,9 @@ var adminScripts = [
     'node_modules/pickadate/lib/picker.js',
     'node_modules/pickadate/lib/picker.time.js',
     'node_modules/pickadate/lib/picker.date.js',
+    'resources/admin/js/set-ckeditor.js',
     'public/js/admin.js',
+    'resources/admin/js/bs-tooltips.js',
 ];
 
 mix.webpackConfig({
