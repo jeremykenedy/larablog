@@ -15,7 +15,7 @@
                             @endphp
                             <div class="mt-4">
                                 <strong>
-                                    {!! trans_choice('larablog.tags.totals', $postCount,['count' => $postCount]) !!}
+                                    {!! trans_choice('larablog.tags.totals', $postCount,['count' => $postCount, 'tag' => $tag->tag]) !!}
                                 </strong>
                             <div>
                         @endisset

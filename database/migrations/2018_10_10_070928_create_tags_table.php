@@ -16,10 +16,10 @@ class CreateTagsTable extends Migration
         Schema::create('tags', function (Blueprint $table) {
             $table->increments('id');
             $table->string('tag')->unique();
-            $table->longText('title');
-            $table->longText('subtitle');
-            $table->longText('post_image');
-            $table->longText('meta_description');
+            $table->longText('title')->nullable();
+            $table->longText('subtitle')->nullable();
+            $table->longText('post_image')->nullable();
+            $table->longText('meta_description')->nullable();
             $table->string('layout')->default('blog.roll-layouts.home');
             $table->boolean('reverse_direction');
             $table->timestamps();

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreTagRequest;
 use App\Models\Tag;
 use App\Services\TagFormFields;
 use Illuminate\Http\Request;
@@ -46,14 +47,29 @@ class TagController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param \App\Http\Requests\StoreTagRequest $request
      *
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreTagRequest $request)
     {
-        // Need to create request
-        dd('made it');
+
+        $tag = new Tag();
+
+// $post = Post::create($request->postFillData());
+
+        $fields = TagFormFields::fields();
+
+        foreach (array_keys($fields) as $field) {
+            $tag->$field = $request->get($field);
+        }
+        $tag->save();
+
+        return redirect('/admin/tags')
+            ->withSuccess("The tag '$tag->tag' was created.");
+
+
+
     }
 
     /**

@@ -55,7 +55,7 @@
                                 </a>
                             </div>
                             <div class="col-12 mt-2 mb-1">
-                                <input type="text" id="post_image" class="form-control" name="post_image" placeholder="{{ trans('forms.edit-post.labels.post-image-url') }}" value="{{ $post_image }}">
+                                <input type="text" id="post_image" class="form-control" name="post_image" placeholder="{{ trans('forms.edit-post.labels.post-image-url') }}" value="{{ post_image($post_image) }}">
                             </div>
                         </div>
                         @if ($errors->has('post_image'))

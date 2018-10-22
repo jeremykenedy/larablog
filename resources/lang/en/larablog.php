@@ -38,7 +38,7 @@ return [
     ],
 
     'tags' => [
-        'totals' => '{0} No posts tagged.|{1} :count Post tagged.|[2,*] :count Posts tagged.',
+        'totals' => '{0} No posts tagged with <strong>:tag</strong>.|{1} :count Post tagged with <strong>:tag</strong>.|[2,*] :count Posts tagged with <strong>:tag</strong>.',
     ],
 
     'authors' => [
