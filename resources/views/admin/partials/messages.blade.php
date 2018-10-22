@@ -10,7 +10,7 @@
             </h6>
             <ul>
                 @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
+                    <li>{!! $error !!}</li>
                 @endforeach
             </ul>
         </div>
@@ -28,7 +28,7 @@
                 {!! trans('messages.errors.single-title') !!}
             </h6>
             <p>
-                {{ session('error') }}
+                {!! session('error') !!}
             </p>
         </div>
     </div>
@@ -45,7 +45,7 @@
                 {!! trans('messages.success.single-title') !!}
             </h6>
             <p>
-                {{ session('success') }}
+                {!! session('success') !!}
             </p>
         </div>
     </div>

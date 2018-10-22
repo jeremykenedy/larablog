@@ -118,6 +118,13 @@ return [
             'cancel'    => 'Cancel',
             'confirm'   => 'Confirm Save',
         ],
+        'delete-tag' => [
+            'close'     => 'Close',
+            'title'     => 'Confirm Delete',
+            'message'   => 'Delete this tag?',
+            'cancel'    => 'Cancel',
+            'confirm'   => 'Confirm Delete',
+        ],
     ],
 
     'loader' => [
@@ -160,6 +167,12 @@ return [
                 'desc'      => '',
                 'header'    => 'Creating New Tag',
                 'badge'     => ':total Tags Total',
+            ],
+            'update' => [
+                'title'     => 'Tag Update',
+                'desc'      => '',
+                'header'    => 'Tag Update',
+                'badge'     => ':total Tags Uses',
             ],
         ],
         'table' => [

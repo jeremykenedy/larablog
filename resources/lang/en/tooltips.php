@@ -22,6 +22,7 @@ return [
     'tag' => [
         'create'    => 'Create New Tag',
         'edit'      => 'Edit Tag',
+        'delete'    => 'Delete Tag',
     ],
 
 ];

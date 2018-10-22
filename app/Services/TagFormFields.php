@@ -31,9 +31,19 @@ class TagFormFields
         return self::$_fieldList;
     }
 
-    public static function formData()
+    /**
+     * Get data needed for tag forms
+     *
+     * @param App/Models/Tag $tag
+     *
+     * @return array
+     */
+    public static function formData($tag = null)
     {
-        $data                   = self::fields();
+        $data = self::fields();
+        if ($tag) {
+            $data = $tag->toArray();
+        }
         $postTemplates          = PostTemplates::list('roll');
         $data['postTemplates']  = $postTemplates;
 

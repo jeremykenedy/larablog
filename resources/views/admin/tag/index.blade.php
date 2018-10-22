@@ -38,8 +38,9 @@
 
                 <hr>
                 @include('admin.partials.messages')
+                @include('admin.partials.loading-spinner-1')
 
-                <div class="card-body">
+                <div class="card-body" id="tags_table_card" style="display: none;">
                     <div class="table-responsive">
                         <table id="tags_table" class="table table-sm">
                             <thead class="text-primary">
@@ -70,9 +71,10 @@
                                 <th class="hidden-sm">
                                     {{ trans('admin.tags.table.titles.direction') }}
                                 </th>
-                                <th data-sortable="false">
+                                <th data-sortable="false" class="no-search no-sort">
                                     {{ trans('admin.tags.table.titles.actions') }}
                                 </th>
+                                <th data-sortable="false" class="no-sort no-search"></th>
                             </thead>
                             <tbody>
                                 @foreach ($tags as $tag)
@@ -119,11 +121,22 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <a href="/admin/tag/{{ $tag->id }}/edit" class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="left" title="{!! trans('tooltips.tag.edit') !!}">
+                                            <a href="/admin/tags/{{ $tag->id }}/edit" class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="left" title="{!! trans('tooltips.tag.edit') !!}">
                                                 <i class="fa fa-edit fa-fw" aria-hidden="true"></i>
                                                 {!! trans('admin.buttons.edit-tag') !!}
                                             </a>
                                         </td>
+                                        <td>
+                                            <span data-toggle="tooltip" data-placement="top" title="{!! trans('tooltips.tag.delete') !!}">
+                                                <button type="button" class="btn btn-danger btn-sm btn-block delete-tag-trigger" data-toggle="modal" data-target="#modal_delete_tag" data-tagid="{{ $tag->id }}">
+                                                    <i class="fa fa-trash-o fa-fw" aria-hidden="true"></i>
+                                                    <span class="hidden-xs hidden-sm hidden-md">
+                                                        {{ trans('admin.buttons.delete') }}
+                                                    </span>
+                                                </button>
+                                            </span>
+                                        </td>
+
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -138,12 +151,39 @@
     </div>
 </div>
 
+@include('admin.modals.delete-tag-modal-form', ['tagId' => null])
+
 @endsection
 
 @push('scripts')
     <script>
         $(function() {
-            $("#tags_table").DataTable({});
+            $('#tags_table').DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": true,
+                "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
+                "order": [[ 0, "desc" ]],
+                'aoColumnDefs': [{
+                    'bSortable': false,
+                    'searchable': false,
+                    'aTargets': ['no-search'],
+                    'bTargets': ['no-sort']
+                }]
+            });
+
+            $('.delete-tag-trigger').click(function(event) {
+                var tagId = $(this).data("tagid");
+                $('#modal_delete_tag').on('show.bs.modal', function (e) {
+                    document.delete_tag_form.action = "{{ url('/') }}" + "/admin/tags/" + tagId;
+                });
+            });
+
+            $('.loading').hide();
+            $('#tags_table_card').fadeIn(100);
         });
     </script>
 @endpush

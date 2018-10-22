@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTagRequest;
+use App\Http\Requests\UpdateTagRequest;
+use App\Http\Requests\DestroyTagRequest;
 use App\Models\Tag;
 use App\Services\TagFormFields;
 use Illuminate\Http\Request;
@@ -53,59 +55,72 @@ class TagController extends Controller
      */
     public function store(StoreTagRequest $request)
     {
-
-        $tag = new Tag();
-
-// $post = Post::create($request->postFillData());
-
+        $tag    = new Tag();
         $fields = TagFormFields::fields();
-
         foreach (array_keys($fields) as $field) {
             $tag->$field = $request->get($field);
         }
         $tag->save();
 
-        return redirect('/admin/tags')
-            ->withSuccess("The tag '$tag->tag' was created.");
-
-
-
+        return redirect('/admin/tags')->withSuccess(trans('messages.succes.tag-created', ['tag' => $tag->tag]));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
+     * @param \Illuminate\Http\Request $request
      * @param int $id
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        //
+        $tag    = Tag::findOrFail($id);
+        $data   = TagFormFields::formData($tag);
+
+        return view('admin.tag.edit', $data);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param int                      $id
+     * @param \App\Http\Requests\UpdateTagRequest $request
+     * @param int $id
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateTagRequest $request, $id)
     {
-        // Need to create update request that extends off of create class
+        $tag = Tag::findOrFail($id);
+
+
+
+        // foreach (array_keys(array_except($this->fields, ['tag'])) as $field) {
+        //   $tag->$field = $request->get($field);
+        // }
+        // $tag->save();
+
+        // return redirect("/admin/tag/$id/edit")
+        //     ->withSuccess("Changes saved.");
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
+     * @param \App\Http\Requests\DestroyTagRequest $request
      * @param int $id
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(DestroyTagRequest $request, $id)
     {
-        //
+        $tag = Tag::findOrFail($id);
+        $tag->posts()->detach();
+        $tag->delete();
+
+        return redirect()
+            ->route('showtags')
+            ->withSuccess(trans('messages.success.tag-deleted', ['tag' => $tag->tag]));
     }
 }

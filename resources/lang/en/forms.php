@@ -42,7 +42,7 @@ return [
     ],
 
     'create-tag' => [
-        'title'     => 'Create New Tag',
+        'title'     => '<i class="fa fa-tag fa-fw" aria-hidden="true"></i> Create New Tag',
         'labels' => [
             'tag'                   => 'Tag',
             'title'                 => 'Tag Title',
@@ -59,6 +59,14 @@ return [
         ],
         'buttons' => [
             'add-new'       => '<i class="fa fa-plus-circle" aria-hidden="true"></i> Add New Tag',
+            'choose-image'  => '<i class="nc-icon nc-album-2" aria-hidden="true"></i> Choose Tag Image',
+        ],
+    ],
+
+    'update-tag' => [
+        'title'     => '<i class="fa fa-tag fa-fw" aria-hidden="true"></i> Updating Tag <strong>:tag</strong>',
+        'buttons' => [
+            'update'        => '<i class="fa fa-check fa-fw" aria-hidden="true"></i> Update Tag',
             'choose-image'  => '<i class="nc-icon nc-album-2" aria-hidden="true"></i> Choose Tag Image',
         ],
 
