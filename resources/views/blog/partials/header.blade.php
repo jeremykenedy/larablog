@@ -9,6 +9,26 @@
                     </h1>
                     <span class="subheading">
                         {!! $subtitle !!}
+                        @isset($tag)
+                            @php
+                                $postCount = $posts->count();
+                            @endphp
+                            <div class="mt-4">
+                                <strong>
+                                    {!! trans_choice('larablog.tags.totals', $postCount,['count' => $postCount]) !!}
+                                </strong>
+                            <div>
+                        @endisset
+                        @isset($authors)
+                            @php
+                                $authorCount = $authors->count();
+                            @endphp
+                            <div class="mt-4">
+                                <strong>
+                                    {!! trans_choice('larablog.authors.totals', $authorCount,['count' => $authorCount]) !!}
+                                </strong>
+                            <div>
+                        @endisset
                     </span>
                 </div>
             </div>

@@ -9,7 +9,7 @@ use Carbon\Carbon;
 class PostProcesses
 {
     protected $tag;
-    protected $pageData;
+    protected $postsData;
 
     /**
      * Create a new job instance.
@@ -30,12 +30,12 @@ class PostProcesses
     public function handle()
     {
         if ($this->tag) {
-            $this->pageData = $this->tagIndexData($this->tag);
+            $this->postsData = $this->tagIndexData($this->tag);
 
             return $this->tagIndexData($this->tag);
         }
 
-        $this->pageData = $this->normalIndexData();
+        $this->postsData = $this->normalIndexData();
 
         return $this->normalIndexData();
     }
@@ -43,11 +43,11 @@ class PostProcesses
     /**
      * Gets the response.
      *
-     * @return private pageData[]
+     * @return private postsData[]
      */
     public function getResponse()
     {
-        return $this->pageData;
+        return $this->postsData;
     }
 
     /**
@@ -88,9 +88,9 @@ class PostProcesses
             })
             ->where('is_draft', 0)
             ->orderBy('published_at', $reverse_direction ? 'asc' : 'desc')
-            ->simplePaginate(config('blog.posts_per_page'));
+            ->simplePaginate(99999999999999); // No limit in theory
 
-        $posts->appends('tag', $tag->tag);
+            $posts->appends('tag', $tag->tag);
 
         $post_image = $tag->post_image ?: config('blog.post_image');
 

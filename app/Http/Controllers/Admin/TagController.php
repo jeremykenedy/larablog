@@ -4,20 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Tag;
+use App\Services\TagFormFields;
 use Illuminate\Http\Request;
 
 class TagController extends Controller
 {
-    protected $fields = [
-        'tag'               => '',
-        'title'             => '',
-        'subtitle'          => '',
-        'meta_description'  => '',
-        'post_image'        => '',
-        'layout'            => 'blog.index',
-        'reverse_direction' => 0,
-    ];
-
     /**
      * Create a new controller instance.
      *
@@ -47,11 +38,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        $data = [];
-
-        foreach ($this->fields as $field => $default) {
-            $data[$field] = old($field, $default);
-        }
+        $data = TagFormFields::formData();
 
         return view('admin.tag.create', $data);
     }
@@ -65,7 +52,8 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Need to create request
+        dd('made it');
     }
 
     /**
@@ -90,7 +78,7 @@ class TagController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // Need to create update request that extends off of create class
     }
 
     /**

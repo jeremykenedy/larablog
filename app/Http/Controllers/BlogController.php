@@ -21,9 +21,7 @@ class BlogController extends Controller
         $service = new PostProcesses($tag);
         $data = $service->getResponse();
 
-// dd($data);
-
-        $layout = $tag ? Tag::layout($tag) : 'blog.index';
+        $layout = $tag ? Tag::layout($tag) : 'blog.roll-layouts.home';
 
         return view($layout, $data);
     }

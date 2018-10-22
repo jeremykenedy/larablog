@@ -37,10 +37,15 @@ return [
         'description'   => 'Larablog is an open source blog built on Laravel and Bootstrap',
     ],
 
+    'tags' => [
+        'totals' => '{0} No posts tagged.|{1} :count Post tagged.|[2,*] :count Posts tagged.',
+    ],
+
     'authors' => [
         'title'         => 'Authors',
         'subtitle'      => 'The people behind the goods.',
         'description'   => 'A list of authors with published posts.',
+        'totals'        => '{0} No Authors.|{1} :count Author.|[2,*] :count Authors.',
     ],
 
     'author' => [

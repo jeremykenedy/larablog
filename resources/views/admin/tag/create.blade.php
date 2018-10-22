@@ -21,133 +21,39 @@
         <div class="card ">
             <div class="card-header ">
                 <h5 class="card-title">
-                    Create New Tag
+                    {!! trans('forms.create-tag.title') !!}
                 </h5>
             </div>
             <hr>
-            <div class="card-body">
-
-                <form class="form-horizontal" role="form" method="POST" action="/admin/tag">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                    <div class="mb-4">
-
-                        <div class="row">
-                            <div class="col-12">
-                                <label for="tag" class="col-md-3 control-label">
-                                    Tag
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-sm-6 mb-3">
-                                <input type="text" class="form-control" name="tag" id="tag" value="{{ $tag }}" autofocus>
-                            </div>
-
-
-
-
-
-<div class="form-group">
-  <label for="title" class="col-md-3 control-label">
-    Title
-  </label>
-  <div class="col-md-8">
-    <input type="text" class="form-control" name="title"
-           id="title" value="{{ $title }}">
-  </div>
-</div>
-
-<div class="form-group">
-  <label for="subtitle" class="col-md-3 control-label">
-    Subtitle
-  </label>
-  <div class="col-md-8">
-    <input type="text" class="form-control" name="subtitle"
-           id="subtitle" value="{{ $subtitle }}">
-  </div>
-</div>
-
-<div class="form-group">
-  <label for="meta_description" class="col-md-3 control-label">
-    Meta Description
-  </label>
-  <div class="col-md-8">
-    <textarea class="form-control" id="meta_description"
-              name="meta_description" rows="3">{{
-      $meta_description
-    }}</textarea>
-  </div>
-</div>
-
-<div class="form-group">
-  <label for="post_image" class="col-md-3 control-label">
-    Page Image
-  </label>
-  <div class="col-md-8">
-    <input type="text" class="form-control" name="post_image"
-           id="post_image" value="{{ $post_image }}">
-  </div>
-</div>
-
-<div class="form-group">
-  <label for="layout" class="col-md-3 control-label">
-    Layout
-  </label>
-  <div class="col-md-4">
-    <input type="text" class="form-control" name="layout" id="layout"
-           value="{{ $layout }}">
-  </div>
-</div>
-
-<div class="form-group">
-  <label for="reverse_direction" class="col-md-3 control-label">
-    Direction
-  </label>
-  <div class="col-md-7">
-    <label class="radio-inline">
-      <input type="radio" name="reverse_direction"
-             id="reverse_direction"
-      @if (! $reverse_direction)
-        checked="checked"
-      @endif
-      value="0"> Normal
-    </label>
-    <label class="radio-inline">
-      <input type="radio" name="reverse_direction"
-      @if ($reverse_direction)
-        checked="checked"
-      @endif
-      value="1"> Reversed
-    </label>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-                            <div class="col-sm-6 mb-3">
-                                <button type="submit" class="btn btn-primary btn-md btn-block mt-0">
-                                    <i class="fa fa-plus-circle"></i>
-                                    Add New Tag
-                                </button>
-                            </div>
+            {!! Form::open(['method' => 'POST', 'route' => 'storetag',  'class' => 'create-tag-form', 'id' => 'create_tag_form', 'role' => 'form', 'enctype' => 'multipart/form-data' ]) !!}
+                <div class="card-body">
+                    <input type="hidden" name="_method" value="POST">
+                    @include('admin.tag.partials.tag-form')
+                </div>
+                <hr>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-sm-6 mb-3">
+                            <button type="submit" class="btn btn-primary btn-md btn-block mt-0">
+                                {!! trans('forms.create-tag.buttons.add-new') !!}
+                            </button>
                         </div>
                     </div>
-                </form>
-
-            </div>
+                </div>
+            {!! Form::close() !!}
         </div>
-
     </div>
 </div>
 
 @endsection
 
 @push('scripts')
+
+<script type="text/javascript">
+    $(function() {
+        // Image Uploader
+        $('#post_image_trigger').filemanager('image');
+    });
+</script>
+
 @endpush

@@ -69,6 +69,11 @@ return [
             'root'   => base_path('resources/views/blog/post-layouts'),
         ],
 
+        'roll-layouts' => [
+            'driver' => 'local',
+            'root'   => base_path('resources/views/blog/roll-layouts'),
+        ],
+
     ],
 
 ];

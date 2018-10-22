@@ -108,7 +108,7 @@ class Tag extends Model
      *
      * @return string
      */
-    public static function layout($tag, $default = 'blog.post-layouts.standard')
+    public static function layout($tag, $default = 'blog.roll-layouts.home')
     {
         $layout = static::whereTag($tag)->pluck('layout');
 

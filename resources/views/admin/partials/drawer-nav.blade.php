@@ -12,9 +12,11 @@
             </li>
         @endif
 
+{{ Request::is() }}
+
         @if(Auth::check() && Auth::user()->hasPermission('perms.writer'))
             @if (Route::has('admin.posts'))
-                <li class="{{ Request::is('admin/posts') ? 'active' : null }} ">
+                <li class="{{ (Request::routeIs('admin.posts') || Request::routeIs('posts.create') || Request::routeIs('editpost')) ? 'active' : null }} ">
                     <a href="{{ route('admin.posts') }}">
                         <i class="nc-icon nc-paper"></i>
                         <p>
@@ -27,7 +29,7 @@
 
         @if(Auth::check() && Auth::user()->hasPermission('perms.admin'))
             @if (Route::has('showtags'))
-                <li class="{{ Request::is('admin/tags') ? 'active' : null }} ">
+                <li class="{{ (Request::routeIs('createtag') || Request::routeIs('showtags') || Request::routeIs('edittag')) ? 'active' : null }} ">
                     <a href="{{ route('showtags') }}">
                         <i class="nc-icon nc-tag-content"></i>
                         <p>
@@ -40,7 +42,7 @@
 
         @if(Auth::check() && Auth::user()->hasPermission('perms.moderator'))
             @if (Route::has('admin-uploads'))
-                <li class="{{ Request::is('admin/uploads') ? 'active' : null }} ">
+                <li class="{{ Request::routeIs('admin-uploads') ? 'active' : null }} ">
                     <a href="{{ route('admin-uploads') }}">
                         <i class="nc-icon nc-album-2"></i>
                         <p>
@@ -53,7 +55,7 @@
 
         @if(Auth::check() && Auth::user()->hasPermission('perms.super.admin'))
             @if (Route::has('users'))
-                <li class="{{ Request::is('users') ? 'active' : null }} ">
+                <li class="{{ (Request::routeIs('users') || Request::routeIs('users.create') || Request::routeIs('users.show') || Request::routeIs('users.edit')) ? 'active' : null }} ">
                     <a href="{{ route('users') }}">
                         <i class="nc-icon nc-single-02"></i>
                         <p>
@@ -86,7 +88,7 @@
             @endif
 
             @if (Route::has('activity'))
-                <li class="{{ Request::is('activity') ? 'active' : null }} ">
+                <li class="{{ (Request::routeIs('activity') || Request::routeIs('clear-activity')) ? 'active' : null }} ">
                     <a href="{{ route('activity') }}">
                         <i class="nc-icon nc-tap-01"></i>
                         <p>
