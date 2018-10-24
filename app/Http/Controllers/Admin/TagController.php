@@ -62,7 +62,8 @@ class TagController extends Controller
         }
         $tag->save();
 
-        return redirect('/admin/tags')->withSuccess(trans('messages.succes.tag-created', ['tag' => $tag->tag]));
+        return redirect('/admin/tags')
+                ->withSuccess(trans('messages.success.tag-created', ['tag' => $tag->tag]));
     }
 
     /**
@@ -91,18 +92,18 @@ class TagController extends Controller
      */
     public function update(UpdateTagRequest $request, $id)
     {
-        $tag = Tag::findOrFail($id);
+        $tag    = Tag::findOrFail($id);
+        $fields = TagFormFields::fields();
 
+        foreach (array_keys($fields) as $field) {
 
+            $tag->$field = $request->get($field);
+        }
 
-        // foreach (array_keys(array_except($this->fields, ['tag'])) as $field) {
-        //   $tag->$field = $request->get($field);
-        // }
-        // $tag->save();
+        $tag->save();
 
-        // return redirect("/admin/tag/$id/edit")
-        //     ->withSuccess("Changes saved.");
-
+        return redirect("/admin/tags/$id/edit")
+                    ->withSuccess(trans('messages.success.tag-updated', ['tag' => $tag->tag]));
     }
 
     /**

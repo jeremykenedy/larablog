@@ -25,6 +25,7 @@
                 </h5>
             </div>
             <hr>
+            @include('admin.partials.messages')
             {!! Form::open(['method' => 'PUT', 'route' => ['updatetag', $id],  'class' => 'update-tag-form', 'id' => 'update_tag_form', 'role' => 'form', 'enctype' => 'multipart/form-data' ]) !!}
                 <div class="card-body">
                     <input type="hidden" name="_method" value="PUT">

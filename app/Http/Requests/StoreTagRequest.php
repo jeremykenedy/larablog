@@ -24,7 +24,7 @@ class StoreTagRequest extends FormRequest
     public function rules()
     {
         return [
-            'tag'               => 'required|max:255|string|unique:tags,tag,' . $this->tag,
+            'tag'               => 'required|max:255|string|unique:tags,tag,' . $this->route('tag'),
             'title'             => 'string|nullable',
             'subtitle'          => 'string|nullable',
             'meta_description'  => 'string|nullable',
