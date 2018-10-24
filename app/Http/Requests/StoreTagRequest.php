@@ -24,13 +24,13 @@ class StoreTagRequest extends FormRequest
     public function rules()
     {
         return [
-            'tag'               => 'required|max:255|string|unique:tags,tag,' . $this->route('tag'),
+            'tag'               => 'required|max:255|string|unique:tags,tag,'.$this->route('tag'),
             'title'             => 'string|nullable',
             'subtitle'          => 'string|nullable',
             'meta_description'  => 'string|nullable',
             'post_image'        => 'required|string',
             'layout'            => 'required|string',
-            'reverse_direction' => ''
+            'reverse_direction' => '',
         ];
     }
 }
