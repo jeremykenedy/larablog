@@ -9,10 +9,11 @@ services:
 
 before_script:
   - cp .env.travis .env
-  - mysql -u root -e 'create database larablog;'
+  - mysql -u root -e 'create database larablogtest;'
   - composer self-update
   - composer install --dev --prefer-source --no-interaction
   - php artisan key:generate
+  - php artisan vendor:publish --tag=laravelroles
   - php artisan migrate:install --env=testing --no-interaction
   - composer dump-autoload
   - php artisan db:seed
