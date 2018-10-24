@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\DestroyTagRequest;
 use App\Http\Requests\StoreTagRequest;
 use App\Http\Requests\UpdateTagRequest;
-use App\Http\Requests\DestroyTagRequest;
 use App\Models\Tag;
 use App\Services\TagFormFields;
 use Illuminate\Http\Request;
@@ -55,7 +55,7 @@ class TagController extends Controller
      */
     public function store(StoreTagRequest $request)
     {
-        $tag    = new Tag();
+        $tag = new Tag();
         $fields = TagFormFields::fields();
         foreach (array_keys($fields) as $field) {
             $tag->$field = $request->get($field);
@@ -70,14 +70,14 @@ class TagController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param \Illuminate\Http\Request $request
-     * @param int $id
+     * @param int                      $id
      *
      * @return \Illuminate\Http\Response
      */
     public function edit(Request $request, $id)
     {
-        $tag    = Tag::findOrFail($id);
-        $data   = TagFormFields::formData($tag);
+        $tag = Tag::findOrFail($id);
+        $data = TagFormFields::formData($tag);
 
         return view('admin.tag.edit', $data);
     }
@@ -86,17 +86,16 @@ class TagController extends Controller
      * Update the specified resource in storage.
      *
      * @param \App\Http\Requests\UpdateTagRequest $request
-     * @param int $id
+     * @param int                                 $id
      *
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateTagRequest $request, $id)
     {
-        $tag    = Tag::findOrFail($id);
+        $tag = Tag::findOrFail($id);
         $fields = TagFormFields::fields();
 
         foreach (array_keys($fields) as $field) {
-
             $tag->$field = $request->get($field);
         }
 
@@ -110,7 +109,7 @@ class TagController extends Controller
      * Remove the specified resource from storage.
      *
      * @param \App\Http\Requests\DestroyTagRequest $request
-     * @param int $id
+     * @param int                                  $id
      *
      * @return \Illuminate\Http\Response
      */

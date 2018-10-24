@@ -90,7 +90,7 @@ class PostProcesses
             ->orderBy('published_at', $reverse_direction ? 'asc' : 'desc')
             ->simplePaginate(99999999999999); // No limit in theory
 
-            $posts->appends('tag', $tag->tag);
+        $posts->appends('tag', $tag->tag);
 
         $post_image = $tag->post_image ?: config('blog.post_image');
 

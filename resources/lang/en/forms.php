@@ -43,7 +43,7 @@ return [
 
     'create-tag' => [
         'title'     => '<i class="fa fa-tag fa-fw" aria-hidden="true"></i> Create New Tag',
-        'labels' => [
+        'labels'    => [
             'tag'                   => 'Tag',
             'title'                 => 'Tag Title',
             'subtitle'              => 'Tag Subtitle',
@@ -55,7 +55,7 @@ return [
             'sort-direction'        => [
                 'normal'    => 'Normal',
                 'reversed'  => 'Reversed',
-            ]
+            ],
         ],
         'buttons' => [
             'add-new'       => '<i class="fa fa-plus-circle" aria-hidden="true"></i> Add New Tag',
@@ -65,7 +65,7 @@ return [
 
     'update-tag' => [
         'title'     => '<i class="fa fa-tag fa-fw" aria-hidden="true"></i> Updating Tag <strong>:tag</strong>',
-        'buttons' => [
+        'buttons'   => [
             'update'        => '<i class="fa fa-check fa-fw" aria-hidden="true"></i> Update Tag',
             'choose-image'  => '<i class="nc-icon nc-album-2" aria-hidden="true"></i> Choose Tag Image',
         ],

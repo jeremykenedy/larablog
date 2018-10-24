@@ -2,8 +2,6 @@
 
 namespace App\Services;
 
-use App\Services\PostTemplates;
-
 class TagFormFields
 {
     /**
@@ -32,7 +30,7 @@ class TagFormFields
     }
 
     /**
-     * Get data needed for tag forms
+     * Get data needed for tag forms.
      *
      * @param App/Models/Tag $tag
      *
@@ -44,10 +42,9 @@ class TagFormFields
         if ($tag) {
             $data = $tag->toArray();
         }
-        $postTemplates          = PostTemplates::list('roll');
-        $data['postTemplates']  = $postTemplates;
+        $postTemplates = PostTemplates::list('roll');
+        $data['postTemplates'] = $postTemplates;
 
         return $data;
     }
-
 }

@@ -25,14 +25,14 @@ class StorePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'             => 'required|max:255|unique:posts,id,' . $this->id,
+            'title'             => 'required|max:255|unique:posts,id,'.$this->id,
             'subtitle'          => 'required',
             'content'           => 'required',
             'post_image'        => 'required',
             'meta_description'  => 'required|max:255',
             'is_draft'          => 'nullable',
             'author'            => 'required',
-            'slug'              => 'required|unique:posts,id,' . $this->id,
+            'slug'              => 'required|unique:posts,id,'.$this->id,
             'publish_date'      => 'required',
             'publish_time'      => 'required',
             'layout'            => 'required',

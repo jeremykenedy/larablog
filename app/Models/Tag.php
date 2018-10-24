@@ -70,7 +70,7 @@ class Tag extends Model
     public function link($base = '/?tag=%TAG%')
     {
         $url = str_replace('%TAG%', urlencode($this->tag), $base);
-        $tagLink = '<a href="' . $url . '">' . e($this->tag) . '</a>';
+        $tagLink = '<a href="'.$url.'">'.e($this->tag).'</a>';
 
         return $tagLink;
     }

@@ -15,7 +15,7 @@ class PostTemplates
     {
         $dir = 'post-layouts';
         if ($type != 'post') {
-            $dir = $type . '-layouts';
+            $dir = $type.'-layouts';
         }
         $postTemplatefilesList = collect([]);
         $postTemplatefiles = Storage::disk($dir)->files('');
@@ -24,7 +24,7 @@ class PostTemplates
             $name = substr($postTemplatefile, 0, strpos($postTemplatefile, '.blade.php'));
             $postTemplatefilesList[] = [
                 'name' => $name,
-                'path' => 'blog.' . $dir . '.' . $name,
+                'path' => 'blog.'.$dir.'.'.$name,
             ];
         }
 

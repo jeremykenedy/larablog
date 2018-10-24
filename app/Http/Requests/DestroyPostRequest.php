@@ -27,5 +27,4 @@ class DestroyPostRequest extends FormRequest
             //
         ];
     }
-
 }

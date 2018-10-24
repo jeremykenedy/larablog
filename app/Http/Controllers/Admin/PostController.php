@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\DestroyPostRequest;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
-use App\Http\Requests\DestroyPostRequest;
 use App\Models\Post;
 use App\Services\PostFormFields;
 use Illuminate\Http\Request;
@@ -88,7 +88,7 @@ class PostController extends Controller
      * Update the specified resource in storage.
      *
      * @param \App\Http\Requests\UpdatePostRequest $request
-     * @param int $id
+     * @param int                                  $id
      *
      * @return \Illuminate\Http\Response
      */
@@ -108,7 +108,7 @@ class PostController extends Controller
      * Remove the specified resource from storage.
      *
      * @param \App\Http\Requests\DestroyPostRequest $request
-     * @param int $id
+     * @param int                                   $id
      *
      * @return \Illuminate\Http\Response
      */
