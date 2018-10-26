@@ -54,5 +54,4 @@ class ContactRequest extends FormRequest
             'g-recaptcha-response.required' => trans('forms.contact.validation.captcha'),
         ];
     }
-
 }
