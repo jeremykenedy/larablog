@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactRequest;
 use App\Mail\ContactMail;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
@@ -40,5 +39,4 @@ class ContactController extends Controller
 
         return back()->withSuccess(trans('forms.contact.messages.sent'));
     }
-
 }

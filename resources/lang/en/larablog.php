@@ -60,9 +60,9 @@ return [
 
     'contact' => [
         'pageTitle' => 'Contact Me',
-        'pageDesc' => '',
-        'title' => 'Contact Me',
-        'subtitle' => 'Need something? I can help (maybe).',
-    ]
+        'pageDesc'  => '',
+        'title'     => 'Contact Me',
+        'subtitle'  => 'Need something? I can help (maybe).',
+    ],
 
 ];

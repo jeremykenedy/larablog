@@ -94,7 +94,6 @@ return [
         'reCaptchSecret'    => env('RECAPTCHA_SECRET', 'YOURGOOGLECAPTCHAsecretHERE'),
         'reCaptchCDN'       => env('RECAPTCHA_CDN', 'https://www.google.com/recaptcha/api.js'),
 
-
     ],
 
     /*
