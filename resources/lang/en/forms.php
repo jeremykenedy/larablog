@@ -69,7 +69,33 @@ return [
             'update'        => '<i class="fa fa-check fa-fw" aria-hidden="true"></i> Update Tag',
             'choose-image'  => '<i class="nc-icon nc-album-2" aria-hidden="true"></i> Choose Tag Image',
         ],
+    ],
 
+    'contact' => [
+        'labels' => [
+            'firstname' => 'Firstname *',
+            'lastname'  => 'Lastname',
+            'email'     => 'Email *',
+            'phone'     => 'Phone Number',
+            'message'   => 'Message *',
+        ],
+        'placeholders' => [
+            'firstname' => 'Please enter your firstname *',
+            'lastname'  => 'Please enter your lastname ',
+            'email'     => 'Please enter your email  *',
+            'phone'     => 'Please enter your phone number ',
+            'message'   => 'Please enter your message  *',
+        ],
+        'buttons' => [
+            'send' => 'Send Message',
+        ],
+        'messages' => [
+            'required'  => '<strong>*</strong> Required fields.',
+            'sent'      => 'Thank you for your message. It has been sent.',
+        ],
+        'validation' => [
+            'captcha' => 'Captcha is required',
+        ],
     ],
 
 ];

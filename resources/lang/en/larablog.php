@@ -58,4 +58,11 @@ return [
         'copyright' => '&copy; Lara(b)log 2018 | An <a href="https://github.com/jeremykenedy/larablog" target="_blank" class="text-success">opensource</a> blog platform<br /> Developed with Love <i class="fa fa-heart text-danger"></i> by <a href="https://github.com/jeremykenedy" class="text-muted" target="_blank">Jeremy Kenedy</a>',
     ],
 
+    'contact' => [
+        'pageTitle' => 'Contact Me',
+        'pageDesc' => '',
+        'title' => 'Contact Me',
+        'subtitle' => 'Need something? I can help (maybe).',
+    ]
+
 ];

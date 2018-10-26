@@ -80,7 +80,7 @@ class BlogController extends Controller
             'image'     => config('blog.authors_page_image'),
         ];
 
-        return view('blog.authors', $data);
+        return view('blog.pages.authors', $data);
     }
 
     /**
@@ -100,7 +100,7 @@ class BlogController extends Controller
             'tag'       => $tag,
         ];
 
-        return view('blog.author', $data);
+        return view('blog.pages.author', $data);
     }
 
     /**

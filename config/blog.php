@@ -89,6 +89,12 @@ return [
     'services' => [
         'disqusKey'         => env('BLOG_DISQUSSHORTNAME', null),
         'googleAnalyticsID' => env('BLOG_GOOGLEANALYTICSID', null),
+        'reCaptchStatus'    => env('ENABLE_RECAPTCHA', false),
+        'reCaptchSite'      => env('RECAPTCHA_SITE', 'YOURGOOGLECAPTCHAsitekeyHERE'),
+        'reCaptchSecret'    => env('RECAPTCHA_SECRET', 'YOURGOOGLECAPTCHAsecretHERE'),
+        'reCaptchCDN'       => env('RECAPTCHA_CDN', 'https://www.google.com/recaptcha/api.js'),
+
+
     ],
 
     /*
@@ -106,5 +112,6 @@ return [
     'home_page_image'    => env('BLOG_HOME_IMAGE', '/backgrounds/default-home-bg.jpg'),
     'authors_page_image' => env('BLOG_AUTHORS_IMAGE', '/backgrounds/default-authors-bg.jpg'),
     'author_page_image'  => env('BLOG_AUTHOR_IMAGE', '/backgrounds/default-authors-bg.jpg'),
+    'contact_page_image' => env('BLOG_CONTACT_IMAGE', '/backgrounds/default-authors-bg.jpg'),
 
 ];

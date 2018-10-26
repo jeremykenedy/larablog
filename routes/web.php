@@ -20,6 +20,10 @@ Route::group(['middleware' => ['activity']], function () {
     Route::get('/authors', 'BlogController@authors')->name('authors');
     Route::get('/author/{author}', 'BlogController@author')->name('author');
 
+    // Contact Routes
+    Route::get('/contact', 'ContactController@index')->name('contact');
+    Route::post('/contact', 'ContactController@contactSend')->name('contactSend');
+
     // RSS Feed Route
     Route::feeds();
 
