@@ -44,6 +44,8 @@
 |Admin PHP Information UI using [Laravel PHP Info](https://github.com/jeremykenedy/laravel-phpinfo) Package|
 |Activity Logging using [Laravel-logger](https://github.com/jeremykenedy/laravel-logger)|
 |Uses Laravel built in [mail](https://laravel.com/docs/5.7/mail) services|
+|Automatic sitemap generation with [Spatie Laravel Sitemap](https://github.com/spatie/laravel-sitemap) Package|
+|Automatic RSS Feed generation with [Spatie Laravel Feed](https://github.com/spatie/laravel-feed) Package|
 
 ### Installation Instructions
 1. Run `git clone https://github.com/jeremykenedy/larablog.git larablog`
