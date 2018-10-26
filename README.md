@@ -3,9 +3,9 @@
 
 [![Build Status](https://travis-ci.org/jeremykenedy/larablog.svg?branch=master)](https://travis-ci.org/jeremykenedy/larablog)
 [![StyleCI](https://github.styleci.io/repos/40459558/shield?branch=master)](https://github.styleci.io/repos/40459558)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/jeremykenedy/larablog/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/jeremykenedy/larablog/?branch=master)
+[![Code Intelligence Status](https://scrutinizer-ci.com/g/jeremykenedy/larablog/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-
 
 #### Table of contents
 - [Features](#features)
@@ -25,6 +25,25 @@
 | :------------ |
 |Built on [Laravel](http://laravel.com/) 5.7|
 |Built on [Bootstrap](https://getbootstrap.com/) 4|
+|Front End Built on [Start Bootstrap - Clean Blog](https://www.npmjs.com/package/startbootstrap-clean-blog) |
+|Admin Built on [Paper Dashboard 2](https://www.npmjs.com/package/paper-dashboard-2) |
+|Uses [MySQL](https://github.com/mysql) Database (can be changed)|
+|Uses [Artisan](http://laravel.com/docs/5.7/artisan) to manage database migration, schema creations, and create/publish page controller templates|
+|Dependencies are managed with [COMPOSER](https://getcomposer.org/)|
+|Laravel Scaffolding **User** and **Administrator Authentication**.|
+|CRUD (Create, Read, Update, Delete) User Management with [Laravel Users](https://github.com/jeremykenedy/laravel-users) Package|
+|CRUD (Create, Read, Update, Delete) Blog Posts|
+|CRUD (Create, Read, Update, Delete) Tags|
+|Built in [CKEditor](https://ckeditor.com/) WYSWYG Editor|
+|Google [reCaptcha Protection with Google API](https://developers.google.com/recaptcha/)|
+|Robust File Manager using [UniSharp Laravel File Manager](https://github.com/UniSharp/laravel-filemanager) Package|
+|Makes us of Laravel [Mix](https://laravel.com/docs/5.7/mix) to compile assets|
+|Makes use of [Language Localization Files](https://laravel.com/docs/5.7/localization)|
+|Active Nav states using [Laravel Requests](https://laravel.com/docs/5.7/requests)|
+|User [Roles/ACL Implementation](https://github.com/jeremykenedy/laravel-roles)|
+|Admin PHP Information UI using [Laravel PHP Info](https://github.com/jeremykenedy/laravel-phpinfo) Package|
+|Activity Logging using [Laravel-logger](https://github.com/jeremykenedy/laravel-logger)|
+|Uses Laravel built in [mail](https://laravel.com/docs/5.7/mail) services|
 
 ### Installation Instructions
 1. Run `git clone https://github.com/jeremykenedy/larablog.git larablog`
@@ -124,14 +143,14 @@ php artisan vendor:publish --tag=laravelroles
 |        | GET|HEAD                               | admin/filemanager/rename                          | unisharp.lfm.getRename       | UniSharp\LaravelFilemanager\Controllers\RenameController@getRename                                | web,auth,\UniSharp\LaravelFilemanager\Middlewares\MultiUser,\UniSharp\LaravelFilemanager\Middlewares\CreateDefaultFolder |
 |        | GET|HEAD                               | admin/filemanager/resize                          | unisharp.lfm.getResize       | UniSharp\LaravelFilemanager\Controllers\ResizeController@getResize                                | web,auth,\UniSharp\LaravelFilemanager\Middlewares\MultiUser,\UniSharp\LaravelFilemanager\Middlewares\CreateDefaultFolder |
 |        | GET|HEAD|POST|PUT|PATCH|DELETE|OPTIONS | admin/filemanager/upload                          | unisharp.lfm.upload          | UniSharp\LaravelFilemanager\Controllers\UploadController@upload                                   | web,auth,\UniSharp\LaravelFilemanager\Middlewares\MultiUser,\UniSharp\LaravelFilemanager\Middlewares\CreateDefaultFolder |
-|        | GET|HEAD                               | admin/posts                                       | admin.posts                  | App\Http\Controllers\Admin\PostController@index                                                   | web,auth,permission:perms.writer,activity                                                                                |
 |        | POST                                   | admin/posts                                       | storepost                    | App\Http\Controllers\Admin\PostController@store                                                   | web,auth,permission:perms.writer,activity                                                                                |
+|        | GET|HEAD                               | admin/posts                                       | admin.posts                  | App\Http\Controllers\Admin\PostController@index                                                   | web,auth,permission:perms.writer,activity                                                                                |
 |        | GET|HEAD                               | admin/posts/create                                | posts.create                 | App\Http\Controllers\Admin\PostController@create                                                  | web,auth,permission:perms.writer,activity                                                                                |
-|        | DELETE                                 | admin/posts/{post}                                | destroypost                  | App\Http\Controllers\Admin\PostController@destroy                                                 | web,auth,permission:perms.writer,activity                                                                                |
 |        | PUT|PATCH                              | admin/posts/{post}                                | updatepost                   | App\Http\Controllers\Admin\PostController@update                                                  | web,auth,permission:perms.writer,activity                                                                                |
+|        | DELETE                                 | admin/posts/{post}                                | destroypost                  | App\Http\Controllers\Admin\PostController@destroy                                                 | web,auth,permission:perms.writer,activity                                                                                |
 |        | GET|HEAD                               | admin/posts/{post}/edit                           | editpost                     | App\Http\Controllers\Admin\PostController@edit                                                    | web,auth,permission:perms.writer,activity                                                                                |
-|        | GET|HEAD                               | admin/tags                                        | showtags                     | App\Http\Controllers\Admin\TagController@index                                                    | web,auth,permission:perms.writer,activity                                                                                |
 |        | POST                                   | admin/tags                                        | storetag                     | App\Http\Controllers\Admin\TagController@store                                                    | web,auth,permission:perms.writer,activity                                                                                |
+|        | GET|HEAD                               | admin/tags                                        | showtags                     | App\Http\Controllers\Admin\TagController@index                                                    | web,auth,permission:perms.writer,activity                                                                                |
 |        | GET|HEAD                               | admin/tags/create                                 | createtag                    | App\Http\Controllers\Admin\TagController@create                                                   | web,auth,permission:perms.writer,activity                                                                                |
 |        | PUT|PATCH                              | admin/tags/{tag}                                  | updatetag                    | App\Http\Controllers\Admin\TagController@update                                                   | web,auth,permission:perms.writer,activity                                                                                |
 |        | DELETE                                 | admin/tags/{tag}                                  | destroytag                   | App\Http\Controllers\Admin\TagController@destroy                                                  | web,auth,permission:perms.writer,activity                                                                                |
@@ -146,16 +165,18 @@ php artisan vendor:publish --tag=laravelroles
 |        | GET|HEAD                               | author/{author}                                   | author                       | App\Http\Controllers\BlogController@author                                                        | web,activity                                                                                                             |
 |        | GET|HEAD                               | authors                                           | authors                      | App\Http\Controllers\BlogController@authors                                                       | web,activity                                                                                                             |
 |        | GET|HEAD                               | blog.rss                                          | feeds.blog                   | Spatie\Feed\Http\FeedController                                                                   | web,activity                                                                                                             |
-|        | GET|HEAD                               | login                                             | login                        | App\Http\Controllers\Auth\LoginController@showLoginForm                                           | web,activity,guest                                                                                                       |
+|        | GET|HEAD                               | contact                                           | contact                      | App\Http\Controllers\ContactController@index                                                      | web,activity                                                                                                             |
+|        | POST                                   | contact                                           | contactSend                  | App\Http\Controllers\ContactController@contactSend                                                | web,activity                                                                                                             |
 |        | POST                                   | login                                             |                              | App\Http\Controllers\Auth\LoginController@login                                                   | web,activity,guest                                                                                                       |
+|        | GET|HEAD                               | login                                             | login                        | App\Http\Controllers\Auth\LoginController@showLoginForm                                           | web,activity,guest                                                                                                       |
 |        | POST                                   | logout                                            | logout                       | App\Http\Controllers\Auth\LoginController@logout                                                  | web,activity                                                                                                             |
 |        | POST                                   | password/email                                    | password.email               | App\Http\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail                             | web,activity,guest                                                                                                       |
-|        | POST                                   | password/reset                                    | password.update              | App\Http\Controllers\Auth\ResetPasswordController@reset                                           | web,activity,guest                                                                                                       |
 |        | GET|HEAD                               | password/reset                                    | password.request             | App\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm                            | web,activity,guest                                                                                                       |
+|        | POST                                   | password/reset                                    | password.update              | App\Http\Controllers\Auth\ResetPasswordController@reset                                           | web,activity,guest                                                                                                       |
 |        | GET|HEAD                               | password/reset/{token}                            | password.reset               | App\Http\Controllers\Auth\ResetPasswordController@showResetForm                                   | web,activity,guest                                                                                                       |
 |        | GET|HEAD                               | phpinfo                                           | laravelPhpInfo::phpinfo      | jeremykenedy\LaravelPhpInfo\App\Http\Controllers\LaravelPhpInfoController@phpinfo                 | web,auth,permission:perms.super.admin                                                                                    |
-|        | POST                                   | register                                          |                              | App\Http\Controllers\Auth\RegisterController@register                                             | web,activity,guest                                                                                                       |
 |        | GET|HEAD                               | register                                          | register                     | App\Http\Controllers\Auth\RegisterController@showRegistrationForm                                 | web,activity,guest                                                                                                       |
+|        | POST                                   | register                                          |                              | App\Http\Controllers\Auth\RegisterController@register                                             | web,activity,guest                                                                                                       |
 |        | POST                                   | search-users                                      | search-users                 | jeremykenedy\laravelusers\app\Http\Controllers\UsersManagementController@search                   | web,auth,permission:perms.super.admin                                                                                    |
 |        | GET|HEAD                               | users                                             | users                        | jeremykenedy\laravelusers\app\Http\Controllers\UsersManagementController@index                    | web,auth,permission:perms.super.admin                                                                                    |
 |        | POST                                   | users                                             | users.store                  | jeremykenedy\laravelusers\app\Http\Controllers\UsersManagementController@store                    | web,auth,permission:perms.super.admin                                                                                    |
@@ -208,6 +229,7 @@ Larablog
 │   │   │   │   ├── ResetPasswordController.php
 │   │   │   │   └── VerificationController.php
 │   │   │   ├── BlogController.php
+│   │   │   ├── ContactController.php
 │   │   │   ├── Controller.php
 │   │   │   └── HomeController.php
 │   │   ├── Kernel.php
@@ -220,16 +242,17 @@ Larablog
 │   │   │   ├── TrustProxies.php
 │   │   │   └── VerifyCsrfToken.php
 │   │   └── Requests
+│   │       ├── ContactRequest.php
 │   │       ├── DestroyPostRequest.php
 │   │       ├── DestroyTagRequest.php
 │   │       ├── StorePostRequest.php
 │   │       ├── StoreTagRequest.php
-│   │       ├── TagCreateRequest.php
-│   │       ├── TagUpdateRequest.php
 │   │       ├── UpdatePostRequest.php
 │   │       └── UpdateTagRequest.php
 │   ├── Logic
 │   │   └── helpers.php
+│   ├── Mail
+│   │   └── ContactMail.php
 │   ├── Models
 │   │   ├── Post.php
 │   │   ├── Tag.php
@@ -240,14 +263,16 @@ Larablog
 │   │   ├── BroadcastServiceProvider.php
 │   │   ├── EventServiceProvider.php
 │   │   └── RouteServiceProvider.php
-│   └── Services
-│       ├── Markdowner.php
-│       ├── PostAuthors.php
-│       ├── PostFormFields.php
-│       ├── PostProcesses.php
-│       ├── PostTemplates.php
-│       ├── SitemapCrawlProfile.php
-│       └── TagFormFields.php
+│   ├── Services
+│   │   ├── Markdowner.php
+│   │   ├── PostAuthors.php
+│   │   ├── PostFormFields.php
+│   │   ├── PostProcesses.php
+│   │   ├── PostTemplates.php
+│   │   ├── SitemapCrawlProfile.php
+│   │   └── TagFormFields.php
+│   └── Traits
+│       └── CaptchaTrait.php
 ├── artisan
 ├── bootstrap
 │   ├── app.php
@@ -256,6 +281,7 @@ Larablog
 │       ├── packages.php
 │       └── services.php
 ├── composer.json
+├── composer.lock
 ├── config
 │   ├── admin.php
 │   ├── app.php
@@ -393,6 +419,7 @@ Larablog
 │   │   └── en
 │   │       ├── admin.php
 │   │       ├── auth.php
+│   │       ├── emails.php
 │   │       ├── forms.php
 │   │       ├── larablog.php
 │   │       ├── messages.php
@@ -446,8 +473,12 @@ Larablog
 │       │   ├── register.blade.php
 │       │   └── verify.blade.php
 │       ├── blog
-│       │   ├── author.blade.php
-│       │   ├── authors.blade.php
+│       │   ├── forms
+│       │   │   └── contact-form.blade.php
+│       │   ├── pages
+│       │   │   ├── author.blade.php
+│       │   │   ├── authors.blade.php
+│       │   │   └── contact.blade.php
 │       │   ├── partials
 │       │   │   ├── analytics.blade.php
 │       │   │   ├── disqus.blade.php
@@ -464,10 +495,12 @@ Larablog
 │       │   │   └── standard.blade.php
 │       │   └── roll-layouts
 │       │       └── home.blade.php
-│       └── layouts
-│           ├── admin.blade.php
-│           ├── app.blade.php
-│           └── auth.blade.php
+│       ├── layouts
+│       │   ├── admin.blade.php
+│       │   ├── app.blade.php
+│       │   └── auth.blade.php
+│       └── mail
+│           └── contact.blade.php
 ├── routes
 │   ├── api.php
 │   ├── channels.php
