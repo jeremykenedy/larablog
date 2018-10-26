@@ -1,5 +1,5 @@
 ## Larablog
-#### A powerful open source Laravel Blog CRUD (Create Read Update Delete) with WYSWYG built on [Laravel](http://laravel.com/) 5.7 and [Bootstrap](http://getbootstrap.com) 4
+#### A powerful open source Laravel Blog with WYSWYG and CRUD (Create Read Update Delete) built on [Laravel](http://laravel.com/) 5.7 and [Bootstrap](http://getbootstrap.com) 4
 
 [![Build Status](https://travis-ci.org/jeremykenedy/larablog.svg?branch=master)](https://travis-ci.org/jeremykenedy/larablog)
 [![StyleCI](https://github.styleci.io/repos/40459558/shield?branch=master)](https://github.styleci.io/repos/40459558)
