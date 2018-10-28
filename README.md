@@ -15,6 +15,12 @@
     - [Seeded Roles](#seeded-roles)
     - [Seeded Permissions](#seeded-permissions)
     - [Seeded Users](#seeded-users)
+- [Commands](#commands)
+    - [Generate Site Map](#generate-site-map)
+- [Configs](#configs)
+    - [Config File](#config-file)
+    - [Env Variables](#env-variables)
+    - [Language Files](#language-files)
 - [Routes](#routes)
 - [Screenshots](#screenshots)
 - [File Tree](#file-tree)
@@ -47,6 +53,7 @@
 |Automatic sitemap generation with [Spatie Laravel Sitemap](https://github.com/spatie/laravel-sitemap) Package|
 |Automatic RSS Feed generation with [Spatie Laravel Feed](https://github.com/spatie/laravel-feed) Package|
 |Uses [Laravel Debugbar](https://github.com/barryvdh/laravel-debugbar) Package for local debugging|
+|Generate sitemap through the admin panel or the CLI with Artisan.|
 
 ### Installation Instructions
 1. Run `git clone https://github.com/jeremykenedy/larablog.git larablog`
@@ -81,6 +88,14 @@ php artisan vendor:publish --tag=laravelroles
 ###### And thats it with the caveat of setting up and configuring your development environment. I recommend [Laravel Homestead](https://laravel.com/docs/5.7/homestead)
 
 ### Seeds
+* [DatabaseSeeder.php](https://github.com/jeremykenedy/larablog/blob/master/database/seeds/DatabaseSeeder.php)
+* [PermissionsTableSeeder.php](https://github.com/jeremykenedy/larablog/blob/master/database/seeds/PermissionsTableSeeder.php)
+* [RolesTableSeeder.php](https://github.com/jeremykenedy/larablog/blob/master/database/seeds/RolesTableSeeder.php)
+* [ConnectRelationshipsSeeder.php](https://github.com/jeremykenedy/larablog/blob/master/database/seeds/ConnectRelationshipsSeeder.php)
+* [UsersTableSeeder.php](https://github.com/jeremykenedy/larablog/blob/master/database/seeds/UsersTableSeeder.php)
+* [TagTableSeeder.php](https://github.com/jeremykenedy/larablog/blob/master/database/seeds/TagTableSeeder.php)
+* [PostTableSeeder.php](https://github.com/jeremykenedy/larablog/blob/master/database/seeds/PostTableSeeder.php)
+
 ##### Seeded Roles
 | Role | Level |
 | :------------ | :------------ |
@@ -108,6 +123,92 @@ php artisan vendor:publish --tag=laravelroles
 |admin@admin.com|password|Super Admin Access|
 
 * Controlled by the `.env` file.
+
+### Commands
+#### Generate Site Map
+* You can generate a XML sitemap which is located at `/sitemap.xml` with the following Artisan Command:
+
+`php artisan sitemap:generate` or `php artisan sitemap:generate {limit}`
+
+`{limit}` is the number of pages that the sitemap generator will limit to generating.
+
+* The sitemaps default number of pages is controlled by the `.env` variable `BLOG_SITEMAP_LIMIT`
+
+
+### Configs
+#### Config File
+Here is a list of the custom config files that have been added or modified to the project:
+* [blog.php](https://github.com/jeremykenedy/larablog/blob/master/config/blog.php)
+* [admin.php](https://github.com/jeremykenedy/larablog/blob/master/config/admin.php)
+* [laravel-logger.php](https://github.com/jeremykenedy/larablog/blob/master/config/laravel-logger.php)
+* [laravelPhpInfo.php](https://github.com/jeremykenedy/larablog/blob/master/config/laravelPhpInfo.php)
+* [laravelusers.php](https://github.com/jeremykenedy/larablog/blob/master/config/laravelusers.php)
+* [roles.php](https://github.com/jeremykenedy/larablog/blob/master/config/roles.php)
+* [superadmin.php](https://github.com/jeremykenedy/larablog/blob/master/config/superadmin.php)
+* [sitemap.php](https://github.com/jeremykenedy/larablog/blob/master/config/sitemap.php)
+* [filesystems.php](https://github.com/jeremykenedy/larablog/blob/master/config/filesystems.php)
+
+#### Env Variables
+Here is a list of the additonal added [`.env`](https://github.com/jeremykenedy/larablog/blob/master/.env.example) variables:
+
+```
+INITIAL_SEEDED_SUPER_ADMIN_USERNAME='Admin'
+INITIAL_SEEDED_SUPER_ADMIN_USEREMAIL='admin@admin.com'
+INITIAL_SEEDED_SUPER_ADMIN_USERPASSWORD='password'
+
+BLOG_APP_NAME="${APP_NAME}"
+BLOG_DEFAULT_TITLE='Lara(b)log2'
+BLOG_DEFAULT_SUBTITLE='An open source blog platform'
+BLOG_DEFAULT_DESCRIPTION='Larablog 2 is an open source blog built on Laravel'
+BLOG_DEFAULT_AUTHOR='Jeremy Kenedy'
+BLOG_SITEMAP_LIMIT=100
+
+BLOG_DEFAULT_IMAGE=
+BLOG_HOME_IMAGE=
+BLOG_AUTHORS_IMAGE=
+BLOG_AUTHOR_IMAGE=
+BLOG_CONTACT_IMAGE=
+
+BLOG_SM_URL_TWITTER=
+BLOG_SM_URL_FACEBOOK=
+BLOG_SM_URL_LINKEDIN=
+BLOG_SM_URL_GOOGLEPLUS=
+BLOG_SM_URL_GITHUB=
+
+BLOG_DISQUSSHORTNAME=null
+BLOG_GOOGLEANALYTICSID=null
+
+BLOG_RSS_FEED_URL='/blog.rss'
+BLOG_RSS_FEED_TITLE='My Blog feed'
+
+BLOG_DEFAULT_PAGES_PER_PAGE=10
+BLOG_DEFAULT_REVERSE_PAGINATION_DIRECTION=false
+BLOG_DEFAULT_CONTACT_EMAIL=null
+BLOG_UPLOADS_ENVIRONMENT=null
+BLOG_UPLOADS_WEBPATH=null
+
+ADMIN_DEFAULT_PAGES_PER_PAGE=100
+
+LARAVEL_LOGGER_ROLES_MIDDLWARE=permission:perms.super.admin
+LARAVEL_LOGGER_MIDDLEWARE_ENABLED=true
+LARAVEL_LOGGER_USER_MODEL=App\Models\User
+LARAVEL_LOGGER_LAYOUT=layouts.admin
+
+# https://www.google.com/recaptcha/admin#list
+ENABLE_RECAPTCHA=false
+RECAPTCHA_SITE=YOURGOOGLECAPTCHAsitekeyHERE
+RECAPTCHA_SECRET=YOURGOOGLECAPTCHAsecretHERE
+RECAPTCHA_CDN=https://www.google.com/recaptcha/api.js
+```
+
+#### Language Files
+* [larablog.php](https://github.com/jeremykenedy/larablog/blob/master/resources/lang/en/larablog.php)
+* [admin.php](https://github.com/jeremykenedy/larablog/blob/master/resources/lang/en/admin.php)
+* [tooltips.php](https://github.com/jeremykenedy/larablog/blob/master/resources/lang/en/tooltips.php)
+* [messages.php](https://github.com/jeremykenedy/larablog/blob/master/resources/lang/en/messages.php)
+* [forms.php](https://github.com/jeremykenedy/larablog/blob/master/resources/lang/en/forms.php)
+* [emails.php](https://github.com/jeremykenedy/larablog/blob/master/resources/lang/en/emails.php)
+* [validation.php](https://github.com/jeremykenedy/larablog/blob/master/resources/lang/en/validation.php)
 
 ### Routes
 
@@ -210,6 +311,7 @@ php artisan vendor:publish --tag=laravelroles
 ![LaraBlog Admin Users](https://s3-us-west-2.amazonaws.com/larablog.io/15-larablog-admin-users.jpg)
 ![LaraBlog Admin User](https://s3-us-west-2.amazonaws.com/larablog.io/16-larablog-admin-user.jpg)
 ![LaraBlog Admin User Edit](https://s3-us-west-2.amazonaws.com/larablog.io/17-larablog-admin-user-edit.jpg)
+![LaraBlog Admin Sitemap](https://s3-us-west-2.amazonaws.com/larablog.io/20-larablog-admin-sitemap-gen.jpg)
 ![LaraBlog Admin PHP Info](https://s3-us-west-2.amazonaws.com/larablog.io/18-larablog-admin-phpinfo.jpg)
 ![LaraBlog Admin Activity](https://s3-us-west-2.amazonaws.com/larablog.io/19-larablog-admin-activity.jpg)
 
@@ -265,6 +367,7 @@ Larablog
 │   │       ├── ContactRequest.php
 │   │       ├── DestroyPostRequest.php
 │   │       ├── DestroyTagRequest.php
+│   │       ├── GenerateSitemapRequest.php
 │   │       ├── StorePostRequest.php
 │   │       ├── StoreTagRequest.php
 │   │       ├── UpdatePostRequest.php
@@ -454,6 +557,8 @@ Larablog
 │   │       └── _bs-visibility-classes.scss
 │   └── views
 │       ├── admin
+│       │   ├── forms
+│       │   │   └── generate-sitemap.blade.php
 │       │   ├── modals
 │       │   │   ├── delete-post-modal-form.blade.php
 │       │   │   ├── delete-tag-modal-form.blade.php
@@ -461,6 +566,7 @@ Larablog
 │       │   │   └── upload-modal.blade.php
 │       │   ├── pages
 │       │   │   ├── home.blade.php
+│       │   │   ├── sitemap.blade.php
 │       │   │   └── uploads.blade.php
 │       │   ├── partials
 │       │   │   ├── drawer-nav.blade.php

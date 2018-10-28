@@ -33,7 +33,6 @@
                 </h5>
                 <div class="row">
                     <div class="col-12">
-                        {{-- @include('admin.partials.loading-spinner-1') --}}
                         <div class="bg-dark p-1 rounded">
                             <code>
                                 <pre lang="xml" class="text-light">
