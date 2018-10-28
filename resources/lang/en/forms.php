@@ -101,7 +101,7 @@ return [
     'sitemap' => [
         'buttons' => [
             'generate'  => 'Generate Sitemap',
-            'view'      => 'View Sitemap'
+            'view'      => 'View Sitemap',
         ],
         'placeholders' => [
             'limit' => 'Page Limit',
@@ -109,6 +109,6 @@ return [
         'messages' => [
             'success'  => 'Sitemap Generated',
         ],
-    ]
+    ],
 
 ];
