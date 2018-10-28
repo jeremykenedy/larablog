@@ -46,13 +46,13 @@ class AdminController extends Controller
      */
     public function sitemap()
     {
-        $sitemap    = base_path('public/sitemap.xml');
-        $modified   = null;
+        $sitemap = base_path('public/sitemap.xml');
+        $modified = null;
         $sitemapxml = [];
 
         if (file_exists($sitemap)) {
             $sitemapxml = simplexml_load_file($sitemap);
-            $modified   = date ("F jS, Y H:i:s", filemtime($sitemap));
+            $modified = date('F jS, Y H:i:s', filemtime($sitemap));
         }
 
         $data = [
@@ -64,7 +64,7 @@ class AdminController extends Controller
     }
 
     /**
-     * Generate Sitemap from Artisan Command via Request
+     * Generate Sitemap from Artisan Command via Request.
      *
      * @param \App\Http\Requests\GenerateSitemapRequest
      *
@@ -76,5 +76,4 @@ class AdminController extends Controller
 
         return redirect()->back()->withSuccess(trans('forms.sitemap.messages.success'));
     }
-
 }
