@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('template_title')
-    Admin Dashboard
+    {{ trans('admin.dashboard.title') }}
 @endsection
 
 @section('template_description')

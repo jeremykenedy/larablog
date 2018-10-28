@@ -19,6 +19,7 @@ return [
         'tags'          => 'Tags',
         'file-manager'  => 'Files',
         'users'         => 'Users',
+        'sitemap-admin' => 'Sitemap',
         'roles'         => 'Roles',
         'phpinfo'       => 'PHP Info',
         'activity'      => 'Activity',
@@ -194,6 +195,15 @@ return [
                 ],
             ],
         ],
+    ],
+
+    'sitemap' => [
+        'title'             => 'Sitemap Admin',
+        'header'            => 'Sitemap Admin',
+        'card-title'        => 'Public Sitemap',
+        'card-sub-title'    => '<span class="badge badge-secondary badge-pill">There are :count sitemap entries</span>',
+        'preview'           => 'Sitemap Preview',
+        'footer'            => 'Last Generated on: <strong>:date</srong>',
     ],
 
 ];

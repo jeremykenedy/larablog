@@ -98,4 +98,17 @@ return [
         ],
     ],
 
+    'sitemap' => [
+        'buttons' => [
+            'generate'  => 'Generate Sitemap',
+            'view'      => 'View Sitemap'
+        ],
+        'placeholders' => [
+            'limit' => 'Page Limit',
+        ],
+        'messages' => [
+            'success'  => 'Sitemap Generated',
+        ],
+    ]
+
 ];

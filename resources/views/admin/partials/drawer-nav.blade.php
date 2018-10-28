@@ -51,6 +51,18 @@
                     </a>
                 </li>
             @endif
+
+            @if (Route::has('sitemap-admin'))
+                <li class="{{ Request::routeIs('sitemap-admin') ? 'active' : null }} ">
+                    <a href="{{ route('sitemap-admin') }}">
+                        <i class="nc-icon nc-map-big"></i>
+                        <p>
+                            {!! trans('admin.drawer-nav.sitemap-admin') !!}
+                        </p>
+                    </a>
+                </li>
+            @endif
+
         @endif
 
         @if(Auth::check() && Auth::user()->hasPermission('perms.super.admin'))

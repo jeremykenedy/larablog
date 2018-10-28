@@ -93,7 +93,7 @@ return [
         'reCaptchSite'      => env('RECAPTCHA_SITE', 'YOURGOOGLECAPTCHAsitekeyHERE'),
         'reCaptchSecret'    => env('RECAPTCHA_SECRET', 'YOURGOOGLECAPTCHAsecretHERE'),
         'reCaptchCDN'       => env('RECAPTCHA_CDN', 'https://www.google.com/recaptcha/api.js'),
-
+        'siteMapLimit'      => env('BLOG_SITEMAP_LIMIT', 100),
     ],
 
     /*

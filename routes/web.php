@@ -78,6 +78,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'permission:perms.wr
 // User and above routes
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'permission:perms.user', 'activity']], function () {
     Route::get('/', 'Admin\AdminController@index')->name('admin');
+    Route::get('/sitemap', 'Admin\AdminController@sitemap')->name('sitemap-admin');
+    Route::post('/generate-sitemap', 'Admin\AdminController@generateSitemap')->name('generate-sitemap');
 });
 
 Route::group(['middleware' => ['activity']], function () {

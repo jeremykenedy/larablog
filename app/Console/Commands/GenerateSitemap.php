@@ -12,7 +12,7 @@ class GenerateSitemap extends Command
      *
      * @var string
      */
-    protected $signature = 'sitemap:generate';
+    protected $signature = 'sitemap:generate {limit=-1}';
 
     /**
      * The console command description.
@@ -38,7 +38,14 @@ class GenerateSitemap extends Command
      */
     public function handle()
     {
+        $limit = config('blog.services.siteMapLimit');
+
+        if ($this->argument('limit')) {
+            $limit = $this->argument('limit');
+        }
+
         SitemapGenerator::create(config('app.url'))
+            ->setMaximumCrawlCount($limit)
             ->writeToFile(public_path('sitemap.xml'));
     }
 }
