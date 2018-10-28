@@ -299,6 +299,7 @@ RECAPTCHA_CDN=https://www.google.com/recaptcha/api.js
 ### Screenshots
 ![LaraBlog](https://s3-us-west-2.amazonaws.com/larablog.io/1-larablog-home.jpg)
 ![LaraBlog Post](https://s3-us-west-2.amazonaws.com/larablog.io/2-larablog-post.jpg)
+![LaraBlog Post Comments](https://s3-us-west-2.amazonaws.com/larablog.io/22-larablog-comments.jpg)
 ![LaraBlog Tags](https://s3-us-west-2.amazonaws.com/larablog.io/3-larablog-tags.jpg)
 ![LaraBlog Author](https://s3-us-west-2.amazonaws.com/larablog.io/4-larablog-author.jpg)
 ![LaraBlog Authors](https://s3-us-west-2.amazonaws.com/larablog.io/5-larablog-authors.jpg)
