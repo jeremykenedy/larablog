@@ -27,6 +27,7 @@
 
         {{-- Styles --}}
         <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{{ $theme->link }}">
 
         {{-- Scripts --}}
         <script>

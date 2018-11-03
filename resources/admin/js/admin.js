@@ -12,6 +12,7 @@ require('pickadate/lib/picker.date');
 require('pickadate/lib/picker.time');
 require('selectize');
 require('datatables.net-bs4');
+require('../../../node_modules/paper-dashboard-2/assets/js/plugins/bootstrap-notify.js');
 
 window.Vue = require('vue');
 

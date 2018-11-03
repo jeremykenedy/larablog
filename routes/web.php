@@ -73,6 +73,19 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'permission:perms.wr
     ]);
 
     Route::get('/uploads', 'Admin\AdminController@uploads')->name('admin-uploads');
+
+    Route::resource('themes', 'Admin\ThemesManagementController', [
+        'names' => [
+            'index'     => 'themes',
+            'create'    => 'createtheme',
+            'update'    => 'updatetheme',
+            'store'     => 'storetheme',
+            'edit'      => 'edittheme',
+            'destroy'   => 'destroytheme',
+        ],
+    ]);
+    Route::post('/update-blog-theme', 'Admin\ThemesManagementController@updateDefaultTheme')->name('update-blog-theme');
+
 });
 
 // User and above routes

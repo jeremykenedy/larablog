@@ -63,6 +63,17 @@
                 </li>
             @endif
 
+            @if (Route::has('themes'))
+                <li class="{{ Request::routeIs('themes') ? 'active' : null }} ">
+                    <a href="{{ route('themes') }}">
+                        <i class="nc-icon nc-palette"></i>
+                        <p>
+                            {!! trans('admin.drawer-nav.themes') !!}
+                        </p>
+                    </a>
+                </li>
+            @endif
+
         @endif
 
         @if(Auth::check() && Auth::user()->hasPermission('perms.super.admin'))

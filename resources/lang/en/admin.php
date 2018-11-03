@@ -20,6 +20,7 @@ return [
         'file-manager'  => 'Files',
         'users'         => 'Users',
         'sitemap-admin' => 'Sitemap',
+        'themes'        => 'Themes',
         'roles'         => 'Roles',
         'phpinfo'       => 'PHP Info',
         'activity'      => 'Activity',
