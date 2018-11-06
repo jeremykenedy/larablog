@@ -32,6 +32,18 @@ class BlogThemeServices
     }
 
     /**
+     * Gets a theme.
+     *
+     * @param int$id
+     *
+     * @return colletion.
+     */
+    public static function getTheme($id)
+    {
+        return Theme::findOrFail($id);
+    }
+
+    /**
      * Gets all themes.
      *
      * @return collection
@@ -39,6 +51,27 @@ class BlogThemeServices
     public static function getAllThemes()
     {
         return Theme::orderBy('name', 'asc')->get();
+    }
+
+    /**
+     * Stores a new theme.
+     *
+     * @param $validatedRequest  The validated request
+     *
+     * @return collection
+     */
+    public static function storeNewTheme($validatedRequest)
+    {
+        $taggableBase = [
+            'taggable_id'     => 0,
+            'taggable_type'   => 'theme',
+        ];
+
+        $theme = Theme::create(array_merge($validatedRequest, $taggableBase));
+        $theme->taggable_id = $theme->id;
+        $theme->save();
+
+        return $theme;
     }
 
     /**
@@ -55,5 +88,20 @@ class BlogThemeServices
         $blogTheme->save();
 
         return $blogTheme;
+    }
+
+    /**
+     * Delete a blgo theme.
+     *
+     * @param int $themeId
+     *
+     * @return collection
+     */
+    public static function deleteBlogTheme($themeId)
+    {
+        $theme = Theme::findOrFail($themeId);
+        $theme->delete();
+
+        return $theme;
     }
 }

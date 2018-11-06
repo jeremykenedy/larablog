@@ -27,25 +27,19 @@
 {!! Form::close() !!}
 
 @push('scripts')
-
 <script type="text/javascript">
-
     $(function() {
-
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-
         document.getElementById('currentTheme').onchange = function(){
             var elem = (typeof this.selectedIndex === "undefined" ? window.event.srcElement : this);
             var value = elem.value || elem.options[elem.selectedIndex].value;
             processThemeChange(value);
         };
-
         function processThemeChange(themeId) {
-
             var notificaton = $.notify({
                 icon: "nc-icon nc-refresh-69 spin",
                 message: "{!! trans('themes.theme_updating') !!}"
@@ -59,9 +53,7 @@
                 },
                 showProgressbar: true
             });
-
             notificaton.update('progress', 50);
-
             $.ajax({
                 type:'POST',
                 url: "{{ route('update-blog-theme') }}",
@@ -86,5 +78,4 @@
         }
     });
 </script>
-
 @endpush

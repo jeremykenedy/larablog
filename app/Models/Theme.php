@@ -51,7 +51,7 @@ class Theme extends Model
         'notes'         => 'string',
         'status'        => 'boolean',
         'taggable_id'   => 'integer',
-        'taggable_type' => 'boolean',
+        'taggable_type' => 'string',
     ];
 
     /**

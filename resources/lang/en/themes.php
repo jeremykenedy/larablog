@@ -75,9 +75,26 @@ return [
     // Form
     'theme_updating'    => 'Updating Default Theme...',
     'theme_updated'     => 'Theme Successfully Updated.',
+    'theme_deleted'     => 'Theme Successfully Deleted: <strong>:name</strong>',
 
     'default' => [
         'label' => "Default Blog Theme",
+    ],
+
+    // Page Titles
+    'titles' => [
+        'index'     => 'Showing Themes',
+        'show'      => 'Showing Theme',
+        'edit'      => 'Editing Blog Theme',
+        'create'    => 'Add New Theme',
+    ],
+
+    // Page Headers
+    'header' => [
+        'index'     => 'Showing All Themes',
+        'show'      => 'Showing Blog Theme',
+        'edit'      => 'Editing Blog Theme',
+        'create'    => 'Adding New Theme',
     ],
 
 ];

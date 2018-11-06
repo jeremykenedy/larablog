@@ -12,8 +12,6 @@
             </li>
         @endif
 
-{{ Request::is() }}
-
         @if(Auth::check() && Auth::user()->hasPermission('perms.writer'))
             @if (Route::has('admin.posts'))
                 <li class="{{ (Request::routeIs('admin.posts') || Request::routeIs('posts.create') || Request::routeIs('editpost')) ? 'active' : null }} ">
@@ -64,7 +62,7 @@
             @endif
 
             @if (Route::has('themes'))
-                <li class="{{ Request::routeIs('themes') ? 'active' : null }} ">
+                <li class="{{ Request::routeIs('themes') || Request::routeIs('edittheme') || Request::routeIs('showtheme') || Request::routeIs('createtheme') ? 'active' : null }} ">
                     <a href="{{ route('themes') }}">
                         <i class="nc-icon nc-palette"></i>
                         <p>

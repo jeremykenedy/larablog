@@ -21,9 +21,7 @@ $fa-font-path: "/fonts/font-awesome";
 @import 'partials/bs-visibility-classes';
 
 .navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    background-color: $white;
+    box-shadow: 0 2px 4px rgba($black, 0.04);
 }
-
-
 

@@ -1,0 +1,16 @@
+@mixin vendor($property, $value) {
+    -webkit-#{$property}: $value;
+    -moz-#{$property}: $value;
+    -ms-#{$property}: $value;
+    -o-#{$property}: $value;
+    #{$property}: $value;
+}
+
+@mixin transitionless() {
+    @include vendor(transition, none);
+}
+
+@mixin draggless() {
+    @include vendor(user-drag, none);
+    @include vendor(user-select, none);
+}

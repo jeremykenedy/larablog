@@ -82,10 +82,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'permission:perms.wr
             'store'     => 'storetheme',
             'edit'      => 'edittheme',
             'destroy'   => 'destroytheme',
+            'show'      => 'showtheme',
         ],
     ]);
     Route::post('/update-blog-theme', 'Admin\ThemesManagementController@updateDefaultTheme')->name('update-blog-theme');
-
 });
 
 // User and above routes
