@@ -2,8 +2,8 @@
 
 namespace App\Services;
 
-use App\Models\Theme;
 use App\Models\BlogSetting;
+use App\Models\Theme;
 
 class BlogThemeServices
 {
@@ -16,7 +16,7 @@ class BlogThemeServices
      */
     public static function getBlogTheme()
     {
-        $self = new BlogThemeServices;
+        $self = new self();
 
         return Theme::find($self->getBlogThemeId());
     }
@@ -75,15 +75,15 @@ class BlogThemeServices
     }
 
     /**
-     * Update the default theme in the settings
+     * Update the default theme in the settings.
      *
-     * @param int $themeId  The theme identifier
+     * @param int $themeId The theme identifier
      *
      * @return collection
      */
     public static function updateDefaultThemeSetting($themeId)
     {
-        $blogTheme = BlogSetting::where('key','=','blog_theme_id')->first();
+        $blogTheme = BlogSetting::where('key', '=', 'blog_theme_id')->first();
         $blogTheme->value = $themeId;
         $blogTheme->save();
 

@@ -32,12 +32,10 @@ class StoreThemeRequest extends FormRequest
             // 'link'   => 'required|min:3|max:255|unique:themes,link',
             // 'title'  => 'required|max:255|unique:posts,id,'.$this->id,
             // 'tag'    => 'required|max:255|string|unique:tags,tag,'.$this->route('tag'),
-            'name'   => 'required|min:3|max:50|unique:themes,id,name,' . $this->id,
-            'link'   => 'required|min:3|max:255|unique:themes,id,link,' . $this->id,
+            'name'   => 'required|min:3|max:50|unique:themes,id,name,'.$this->id,
+            'link'   => 'required|min:3|max:255|unique:themes,id,link,'.$this->id,
             'notes'  => 'max:500',
             'status' => 'required',
         ];
     }
 }
-
-

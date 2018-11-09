@@ -3,7 +3,6 @@
 namespace App\Http\ViewComposers;
 
 use App\Models\Theme;
-use App\Models\BlogSetting;
 use App\Services\BlogThemeServices;
 use Illuminate\View\View;
 
@@ -31,7 +30,7 @@ class BlogSettingsComposer
     public function compose(View $view)
     {
         $data = [
-            'theme' =>$this->theme,
+            'theme' => $this->theme,
         ];
 
         $view->with($data);

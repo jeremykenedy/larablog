@@ -78,7 +78,7 @@ return [
     'theme_deleted'     => 'Theme Successfully Deleted: <strong>:name</strong>',
 
     'default' => [
-        'label' => "Default Blog Theme",
+        'label' => 'Default Blog Theme',
     ],
 
     // Page Titles

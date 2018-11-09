@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\DeleteThemeRequest;
-use App\Http\Requests\UpdateThemeRequest;
 use App\Http\Requests\StoreThemeRequest;
 use App\Http\Requests\ThemeRequest;
+use App\Http\Requests\UpdateThemeRequest;
 use App\Services\BlogThemeServices;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -30,8 +30,8 @@ class ThemesManagementController extends Controller
      */
     public function index()
     {
-        $themes         = BlogThemeServices::getAllThemes();
-        $currentTheme   = BlogThemeServices::getBlogTheme();
+        $themes = BlogThemeServices::getAllThemes();
+        $currentTheme = BlogThemeServices::getBlogTheme();
 
         $data = [
             'themes'        => $themes,
@@ -91,7 +91,7 @@ class ThemesManagementController extends Controller
      * Update a theme resource.
      *
      * @param \App\Http\Requests\UpdateThemeRequest $request
-     * @param int $id
+     * @param int                                   $id
      *
      * @return \Illuminate\Http\Response
      */
@@ -106,7 +106,7 @@ class ThemesManagementController extends Controller
     }
 
     /**
-     * Store a new blog theme request
+     * Store a new blog theme request.
      *
      * @param \App\Http\Requests\StoreThemeRequest $request
      *
@@ -116,7 +116,7 @@ class ThemesManagementController extends Controller
     {
         $theme = BlogThemeServices::storeNewTheme($request->validated());
 
-        return redirect('admin/themes/' . $theme->id)->with('success', trans('themes.createSuccess'));
+        return redirect('admin/themes/'.$theme->id)->with('success', trans('themes.createSuccess'));
     }
 
     /**
@@ -131,13 +131,13 @@ class ThemesManagementController extends Controller
         $theme = BlogThemeServices::updateDefaultThemeSetting($request->currentTheme);
 
         $data = [
-            'theme' => $theme
+            'theme' => $theme,
         ];
 
         return response()->json([
             'code'      => 202,
             'message'   => trans('themes.theme_updated'),
-            'data'      => $data
+            'data'      => $data,
         ], Response::HTTP_ACCEPTED);
     }
 
@@ -156,5 +156,4 @@ class ThemesManagementController extends Controller
                 ->route('themes')
                 ->withSuccess(trans('themes.theme_deleted', ['name' => $theme->name]));
     }
-
 }
