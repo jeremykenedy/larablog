@@ -15,6 +15,7 @@
     - [Seeded Roles](#seeded-roles)
     - [Seeded Permissions](#seeded-permissions)
     - [Seeded Users](#seeded-users)
+    - [Themes Seed List](#themes-seed-list)
 - [Commands](#commands)
     - [Generate Site Map](#generate-site-map)
 - [Configs](#configs)
@@ -54,6 +55,7 @@
 |Automatic RSS Feed generation with [Spatie Laravel Feed](https://github.com/spatie/laravel-feed) Package|
 |Uses [Laravel Debugbar](https://github.com/barryvdh/laravel-debugbar) Package for local debugging|
 |Generate sitemap through the admin panel or the CLI with Artisan.|
+|Front-end bootstrap themes with admin management panel|
 
 ### Installation Instructions
 1. Run `git clone https://github.com/jeremykenedy/larablog.git larablog`
@@ -123,6 +125,9 @@ php artisan vendor:publish --tag=laravelroles
 |admin@admin.com|password|Super Admin Access|
 
 * Controlled by the `.env` file.
+
+##### Themes Seed List
+  * [ThemesTableSeeder](https://github.com/jeremykenedy/larablog/blob/master/database/seeds/ThemesTableSeeder.php)
 
 ### Commands
 #### Generate Site Map
@@ -248,8 +253,8 @@ RECAPTCHA_CDN=https://www.google.com/recaptcha/api.js
 |        | GET|HEAD                               | admin/filemanager/resize                          | unisharp.lfm.getResize       | UniSharp\LaravelFilemanager\Controllers\ResizeController@getResize                                | web,auth,\UniSharp\LaravelFilemanager\Middlewares\MultiUser,\UniSharp\LaravelFilemanager\Middlewares\CreateDefaultFolder |
 |        | GET|HEAD|POST|PUT|PATCH|DELETE|OPTIONS | admin/filemanager/upload                          | unisharp.lfm.upload          | UniSharp\LaravelFilemanager\Controllers\UploadController@upload                                   | web,auth,\UniSharp\LaravelFilemanager\Middlewares\MultiUser,\UniSharp\LaravelFilemanager\Middlewares\CreateDefaultFolder |
 |        | POST                                   | admin/generate-sitemap                            | generate-sitemap             | App\Http\Controllers\Admin\AdminController@generateSitemap                                        | web,auth,permission:perms.user,activity                                                                                  |
-|        | POST                                   | admin/posts                                       | storepost                    | App\Http\Controllers\Admin\PostController@store                                                   | web,auth,permission:perms.writer,activity                                                                                |
 |        | GET|HEAD                               | admin/posts                                       | admin.posts                  | App\Http\Controllers\Admin\PostController@index                                                   | web,auth,permission:perms.writer,activity                                                                                |
+|        | POST                                   | admin/posts                                       | storepost                    | App\Http\Controllers\Admin\PostController@store                                                   | web,auth,permission:perms.writer,activity                                                                                |
 |        | GET|HEAD                               | admin/posts/create                                | posts.create                 | App\Http\Controllers\Admin\PostController@create                                                  | web,auth,permission:perms.writer,activity                                                                                |
 |        | DELETE                                 | admin/posts/{post}                                | destroypost                  | App\Http\Controllers\Admin\PostController@destroy                                                 | web,auth,permission:perms.writer,activity                                                                                |
 |        | PUT|PATCH                              | admin/posts/{post}                                | updatepost                   | App\Http\Controllers\Admin\PostController@update                                                  | web,auth,permission:perms.writer,activity                                                                                |
@@ -261,6 +266,14 @@ RECAPTCHA_CDN=https://www.google.com/recaptcha/api.js
 |        | PUT|PATCH                              | admin/tags/{tag}                                  | updatetag                    | App\Http\Controllers\Admin\TagController@update                                                   | web,auth,permission:perms.writer,activity                                                                                |
 |        | DELETE                                 | admin/tags/{tag}                                  | destroytag                   | App\Http\Controllers\Admin\TagController@destroy                                                  | web,auth,permission:perms.writer,activity                                                                                |
 |        | GET|HEAD                               | admin/tags/{tag}/edit                             | edittag                      | App\Http\Controllers\Admin\TagController@edit                                                     | web,auth,permission:perms.writer,activity                                                                                |
+|        | GET|HEAD                               | admin/themes                                      | themes                       | App\Http\Controllers\Admin\ThemesManagementController@index                                       | web,auth,permission:perms.writer,activity                                                                                |
+|        | POST                                   | admin/themes                                      | storetheme                   | App\Http\Controllers\Admin\ThemesManagementController@store                                       | web,auth,permission:perms.writer,activity                                                                                |
+|        | GET|HEAD                               | admin/themes/create                               | createtheme                  | App\Http\Controllers\Admin\ThemesManagementController@create                                      | web,auth,permission:perms.writer,activity                                                                                |
+|        | PUT|PATCH                              | admin/themes/{theme}                              | updatetheme                  | App\Http\Controllers\Admin\ThemesManagementController@update                                      | web,auth,permission:perms.writer,activity                                                                                |
+|        | DELETE                                 | admin/themes/{theme}                              | destroytheme                 | App\Http\Controllers\Admin\ThemesManagementController@destroy                                     | web,auth,permission:perms.writer,activity                                                                                |
+|        | GET|HEAD                               | admin/themes/{theme}                              | showtheme                    | App\Http\Controllers\Admin\ThemesManagementController@show                                        | web,auth,permission:perms.writer,activity                                                                                |
+|        | GET|HEAD                               | admin/themes/{theme}/edit                         | edittheme                    | App\Http\Controllers\Admin\ThemesManagementController@edit                                        | web,auth,permission:perms.writer,activity                                                                                |
+|        | POST                                   | admin/update-blog-theme                           | update-blog-theme            | App\Http\Controllers\Admin\ThemesManagementController@updateDefaultTheme                          | web,auth,permission:perms.writer,activity                                                                                |
 |        | GET|HEAD                               | admin/uploads                                     | admin-uploads                | App\Http\Controllers\Admin\AdminController@uploads                                                | web,auth,permission:perms.writer,activity                                                                                |
 |        | GET|HEAD                               | api                                               | api                          | App\Http\Controllers\Api\BlogController@index                                                     | api                                                                                                                      |
 |        | GET|HEAD                               | api/posts                                         | api-posts                    | App\Http\Controllers\Api\BlogController@posts                                                     | api                                                                                                                      |
@@ -273,23 +286,23 @@ RECAPTCHA_CDN=https://www.google.com/recaptcha/api.js
 |        | GET|HEAD                               | blog.rss                                          | feeds.blog                   | Spatie\Feed\Http\FeedController                                                                   | web,activity                                                                                                             |
 |        | POST                                   | contact                                           | contactSend                  | App\Http\Controllers\ContactController@contactSend                                                | web,activity                                                                                                             |
 |        | GET|HEAD                               | contact                                           | contact                      | App\Http\Controllers\ContactController@index                                                      | web,activity                                                                                                             |
-|        | GET|HEAD                               | login                                             | login                        | App\Http\Controllers\Auth\LoginController@showLoginForm                                           | web,activity,guest                                                                                                       |
 |        | POST                                   | login                                             |                              | App\Http\Controllers\Auth\LoginController@login                                                   | web,activity,guest                                                                                                       |
+|        | GET|HEAD                               | login                                             | login                        | App\Http\Controllers\Auth\LoginController@showLoginForm                                           | web,activity,guest                                                                                                       |
 |        | POST                                   | logout                                            | logout                       | App\Http\Controllers\Auth\LoginController@logout                                                  | web,activity                                                                                                             |
 |        | POST                                   | password/email                                    | password.email               | App\Http\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail                             | web,activity,guest                                                                                                       |
-|        | GET|HEAD                               | password/reset                                    | password.request             | App\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm                            | web,activity,guest                                                                                                       |
 |        | POST                                   | password/reset                                    | password.update              | App\Http\Controllers\Auth\ResetPasswordController@reset                                           | web,activity,guest                                                                                                       |
+|        | GET|HEAD                               | password/reset                                    | password.request             | App\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm                            | web,activity,guest                                                                                                       |
 |        | GET|HEAD                               | password/reset/{token}                            | password.reset               | App\Http\Controllers\Auth\ResetPasswordController@showResetForm                                   | web,activity,guest                                                                                                       |
 |        | GET|HEAD                               | phpinfo                                           | laravelPhpInfo::phpinfo      | jeremykenedy\LaravelPhpInfo\App\Http\Controllers\LaravelPhpInfoController@phpinfo                 | web,auth,permission:perms.super.admin                                                                                    |
-|        | POST                                   | register                                          |                              | App\Http\Controllers\Auth\RegisterController@register                                             | web,activity,guest                                                                                                       |
 |        | GET|HEAD                               | register                                          | register                     | App\Http\Controllers\Auth\RegisterController@showRegistrationForm                                 | web,activity,guest                                                                                                       |
+|        | POST                                   | register                                          |                              | App\Http\Controllers\Auth\RegisterController@register                                             | web,activity,guest                                                                                                       |
 |        | POST                                   | search-users                                      | search-users                 | jeremykenedy\laravelusers\app\Http\Controllers\UsersManagementController@search                   | web,auth,permission:perms.super.admin                                                                                    |
 |        | POST                                   | users                                             | users.store                  | jeremykenedy\laravelusers\app\Http\Controllers\UsersManagementController@store                    | web,auth,permission:perms.super.admin                                                                                    |
 |        | GET|HEAD                               | users                                             | users                        | jeremykenedy\laravelusers\app\Http\Controllers\UsersManagementController@index                    | web,auth,permission:perms.super.admin                                                                                    |
 |        | GET|HEAD                               | users/create                                      | users.create                 | jeremykenedy\laravelusers\app\Http\Controllers\UsersManagementController@create                   | web,auth,permission:perms.super.admin                                                                                    |
+|        | DELETE                                 | users/{user}                                      | user.destroy                 | jeremykenedy\laravelusers\app\Http\Controllers\UsersManagementController@destroy                  | web,auth,permission:perms.super.admin                                                                                    |
 |        | PUT|PATCH                              | users/{user}                                      | users.update                 | jeremykenedy\laravelusers\app\Http\Controllers\UsersManagementController@update                   | web,auth,permission:perms.super.admin                                                                                    |
 |        | GET|HEAD                               | users/{user}                                      | users.show                   | jeremykenedy\laravelusers\app\Http\Controllers\UsersManagementController@show                     | web,auth,permission:perms.super.admin                                                                                    |
-|        | DELETE                                 | users/{user}                                      | user.destroy                 | jeremykenedy\laravelusers\app\Http\Controllers\UsersManagementController@destroy                  | web,auth,permission:perms.super.admin                                                                                    |
 |        | GET|HEAD                               | users/{user}/edit                                 | users.edit                   | jeremykenedy\laravelusers\app\Http\Controllers\UsersManagementController@edit                     | web,auth,permission:perms.super.admin                                                                                    |
 |        | GET|HEAD                               | {slug}                                            |                              | App\Http\Controllers\BlogController@showPost                                                      | web,activity                                                                                                             |
 +--------+----------------------------------------+---------------------------------------------------+------------------------------+---------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------+
@@ -319,6 +332,10 @@ RECAPTCHA_CDN=https://www.google.com/recaptcha/api.js
 ![LaraBlog Admin Sitemap](https://s3-us-west-2.amazonaws.com/larablog.io/20-larablog-admin-sitemap-gen.jpg)
 ![LaraBlog Admin PHP Info](https://s3-us-west-2.amazonaws.com/larablog.io/18-larablog-admin-phpinfo.jpg)
 ![LaraBlog Admin Activity](https://s3-us-west-2.amazonaws.com/larablog.io/19-larablog-admin-activity.jpg)
+![LaraBlog Admin Themes](https://s3-us-west-2.amazonaws.com/larablog.io/23-larablog-themes.jpg)
+![LaraBlog Admin Theme Edit](https://s3-us-west-2.amazonaws.com/larablog.io/24-larablog-themes-edit.jpg)
+![LaraBlog Admin Theme Add](https://s3-us-west-2.amazonaws.com/larablog.io/25-larablog-themes-add.jpg)
+![LaraBlog Admin Theme Example](https://s3-us-west-2.amazonaws.com/larablog.io/26-larablog-themes-sketchy.jpg)
 
 ### File Tree
 
@@ -346,7 +363,8 @@ Larablog
 │   │   │   ├── Admin
 │   │   │   │   ├── AdminController.php
 │   │   │   │   ├── PostController.php
-│   │   │   │   └── TagController.php
+│   │   │   │   ├── TagController.php
+│   │   │   │   └── ThemesManagementController.php
 │   │   │   ├── Api
 │   │   │   │   └── BlogController.php
 │   │   │   ├── Auth
@@ -368,30 +386,40 @@ Larablog
 │   │   │   ├── TrimStrings.php
 │   │   │   ├── TrustProxies.php
 │   │   │   └── VerifyCsrfToken.php
-│   │   └── Requests
-│   │       ├── ContactRequest.php
-│   │       ├── DestroyPostRequest.php
-│   │       ├── DestroyTagRequest.php
-│   │       ├── GenerateSitemapRequest.php
-│   │       ├── StorePostRequest.php
-│   │       ├── StoreTagRequest.php
-│   │       ├── UpdatePostRequest.php
-│   │       └── UpdateTagRequest.php
+│   │   ├── Requests
+│   │   │   ├── ContactRequest.php
+│   │   │   ├── DeleteThemeRequest.php
+│   │   │   ├── DestroyPostRequest.php
+│   │   │   ├── DestroyTagRequest.php
+│   │   │   ├── GenerateSitemapRequest.php
+│   │   │   ├── StorePostRequest.php
+│   │   │   ├── StoreTagRequest.php
+│   │   │   ├── StoreThemeRequest.php
+│   │   │   ├── ThemeRequest.php
+│   │   │   ├── UpdatePostRequest.php
+│   │   │   ├── UpdateTagRequest.php
+│   │   │   └── UpdateThemeRequest.php
+│   │   └── ViewComposers
+│   │       └── BlogSettingsComposer.php
 │   ├── Logic
 │   │   └── helpers.php
 │   ├── Mail
 │   │   └── ContactMail.php
 │   ├── Models
+│   │   ├── BlogSetting.php
 │   │   ├── Post.php
 │   │   ├── Tag.php
+│   │   ├── Theme.php
 │   │   └── User.php
 │   ├── Providers
 │   │   ├── AppServiceProvider.php
 │   │   ├── AuthServiceProvider.php
 │   │   ├── BroadcastServiceProvider.php
+│   │   ├── ComposerServiceProvider.php
 │   │   ├── EventServiceProvider.php
 │   │   └── RouteServiceProvider.php
 │   ├── Services
+│   │   ├── BlogThemeServices.php
 │   │   ├── Markdowner.php
 │   │   ├── PostAuthors.php
 │   │   ├── PostFormFields.php
@@ -455,14 +483,18 @@ Larablog
 │   │   ├── 2016_02_09_132439_create_permission_user_table.php
 │   │   ├── 2018_10_10_070913_create_posts_table.php
 │   │   ├── 2018_10_10_070928_create_tags_table.php
-│   │   └── 2018_10_10_070949_create_post_tag_pivot_table.php
+│   │   ├── 2018_10_10_070949_create_post_tag_pivot_table.php
+│   │   ├── 2018_10_28_070857_create_themes_table.php
+│   │   └── 2018_10_29_042545_create_blog_settings_table.php
 │   └── seeds
+│       ├── BlogSettingsTableSeeder.php
 │       ├── ConnectRelationshipsSeeder.php
 │       ├── DatabaseSeeder.php
 │       ├── PermissionsTableSeeder.php
 │       ├── PostTableSeeder.php
 │       ├── RolesTableSeeder.php
 │       ├── TagTableSeeder.php
+│       ├── ThemesTableSeeder.php
 │       └── UsersTableSeeder.php
 ├── package.json
 ├── phpunit.xml
@@ -473,12 +505,6 @@ Larablog
 │   │   ├── app.css
 │   │   └── bs3-modals.css
 │   ├── favicon.ico
-│   ├── files
-│   │   ├── 1
-│   │   │   ├── thumbs
-│   │   │   │   └── user.png
-│   │   │   └── user.png
-│   │   └── shares
 │   ├── fonts
 │   │   ├── font-awesome
 │   │   │   ├── fa-brands-400.eot
@@ -511,11 +537,6 @@ Larablog
 │   ├── photos
 │   │   ├── 1
 │   │   └── shares
-│   │       ├── math.jpg
-│   │       ├── math_equations-wallpaper-2560x1600.jpg
-│   │       └── thumbs
-│   │           ├── math.jpg
-│   │           └── math_equations-wallpaper-2560x1600.jpg
 │   ├── robots.txt
 │   ├── sitemap.xml
 │   └── svg
@@ -534,6 +555,7 @@ Larablog
 │   │       ├── _dropzone.scss
 │   │       ├── _fab.scss
 │   │       ├── _forms.scss
+│   │       ├── _mixins.scss
 │   │       ├── _nucleo-icons.scss
 │   │       ├── _tables.scss
 │   │       ├── _variables.scss
@@ -551,8 +573,10 @@ Larablog
 │   │       ├── forms.php
 │   │       ├── larablog.php
 │   │       ├── messages.php
+│   │       ├── modals.php
 │   │       ├── pagination.php
 │   │       ├── passwords.php
+│   │       ├── themes.php
 │   │       ├── tooltips.php
 │   │       └── validation.php
 │   ├── sass
@@ -565,8 +589,10 @@ Larablog
 │       │   ├── forms
 │       │   │   └── generate-sitemap.blade.php
 │       │   ├── modals
+│       │   │   ├── delete-modal.blade.php
 │       │   │   ├── delete-post-modal-form.blade.php
 │       │   │   ├── delete-tag-modal-form.blade.php
+│       │   │   ├── save-modal.blade.php
 │       │   │   ├── save-post-modal-form.blade.php
 │       │   │   └── upload-modal.blade.php
 │       │   ├── pages
@@ -588,14 +614,25 @@ Larablog
 │       │   │   └── partials
 │       │   │       └── post-form.blade.php
 │       │   ├── scripts
+│       │   │   ├── delete-modal-script.blade.php
 │       │   │   ├── post-form-scripts.blade.php
-│       │   │   └── save-post-modal.blade.php
-│       │   └── tag
-│       │       ├── create.blade.php
-│       │       ├── edit.blade.php
+│       │   │   ├── save-modal-script.blade.php
+│       │   │   ├── save-post-modal.blade.php
+│       │   │   └── toggle-status.blade.php
+│       │   ├── tag
+│       │   │   ├── create.blade.php
+│       │   │   ├── edit.blade.php
+│       │   │   ├── index.blade.php
+│       │   │   └── partials
+│       │   │       └── tag-form.blade.php
+│       │   └── themesmanagement
+│       │       ├── create-theme.blade.php
+│       │       ├── edit-theme.blade.php
 │       │       ├── index.blade.php
-│       │       └── partials
-│       │           └── tag-form.blade.php
+│       │       ├── partials
+│       │       │   ├── default-theme-form.blade.php
+│       │       │   └── theme-table-list.blade.php
+│       │       └── show-theme.blade.php
 │       ├── auth
 │       │   ├── login.blade.php
 │       │   ├── passwords
@@ -647,7 +684,9 @@ Larablog
 │   ├── TestCase.php
 │   └── Unit
 │       └── ExampleTest.php
-└── webpack.mix.js
+├── webpack.mix.js
+├── yarn-error.log
+└── yarn.lock
 
 ```
 
