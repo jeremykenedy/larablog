@@ -61,7 +61,7 @@ class BlogSetting extends Model
     ];
 
     /**
-     * Scope a query to get the themeId from the settings table
+     * Scope a query to get the themeId from the settings table.
      *
      * @param \Illuminate\Database\Eloquent\Builder $query
      *
@@ -71,5 +71,4 @@ class BlogSetting extends Model
     {
         return $query->where('key', 'blog_theme_id');
     }
-
 }

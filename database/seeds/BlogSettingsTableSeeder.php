@@ -23,7 +23,7 @@ class BlogSettingsTableSeeder extends Seeder
 
         foreach ($settings as $setting) {
             $newBlogSetting = BlogSetting::where('name', '=', $setting['name'])
-                                            ->orWhere('key','=',$setting['key'])
+                                            ->orWhere('key', '=', $setting['key'])
                                             ->first();
 
             if ($newBlogSetting === null) {
@@ -34,7 +34,6 @@ class BlogSettingsTableSeeder extends Seeder
                     'active'    => $setting['active'],
                 ]);
             }
-
         }
     }
 }
