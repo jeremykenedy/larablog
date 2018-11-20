@@ -106,7 +106,7 @@ php artisan vendor:publish --tag=laravelroles
 |Writer|Level 2|
 |Moderator|Level 3|
 |Admin|Level 4|
-|Super Admin|Level 3|
+|Super Admin|Level 5|
 
 ##### Seeded Permissions
   * view.users
