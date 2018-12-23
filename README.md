@@ -25,6 +25,7 @@
 - [Routes](#routes)
 - [Screenshots](#screenshots)
 - [File Tree](#file-tree)
+- [Opening an Issue](#opening-an-issue)
 - [License](#license)
 
 ### Features
@@ -692,6 +693,22 @@ Larablog
 
 * Tree command can be installed using brew: `brew install tree`
 * File tree generated using command `tree -a -I '.git|node_modules|vendor|storage|ckeditor'`
+
+### Opening an Issue
+Before opening an issue there are a couple of considerations:
+* A **star** on this project shows support and is way to say thank you to all the contributors. If you open an issue without a star, *your issue may be closed without consideration.* Thank you for understanding and the support. You are all awesome!
+* **Read the instructions** and make sure all steps were *followed correctly*.
+* **Check** that the issue is not *specific to the development environment* setup.
+* **Provide** *duplication steps*.
+* **Attempt to look into the issue**, and if you *have a solution, make a pull request*.
+* **Show that you have made an attempt** to *look into the issue*.
+* **Check** to see if the issue you are *reporting is a duplicate* of a previous reported issue.
+* **Following these instructions show me that you have tried.**
+* If you have a questions send me an email to jeremykenedy@gmail.com
+* Need some help, I can do my best on Slack: https://opensourcehelpgroup.slack.com
+* Please be considerate that this is an open source project that I provide to the community for FREE when opening an issue.
+
+Open source projects are the community’s responsibility to use, contribute, and debug.
 
 ### License
 Larablog is licensed under the [MIT license](https://opensource.org/licenses/MIT). Enjoy!
