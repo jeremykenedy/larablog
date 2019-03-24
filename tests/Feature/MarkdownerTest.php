@@ -13,7 +13,7 @@ class MarkdownerTest extends TestCase
      *
      * @return void
      */
-    public function setup()
+    public function setUp(): void
     {
         $this->markdown = new \App\Services\Markdowner();
     }

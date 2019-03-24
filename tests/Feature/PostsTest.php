@@ -18,7 +18,7 @@ class PostsTest extends TestCase
      *
      * @return void
      */
-    public function setup()
+    public function setUp(): void
     {
         $this->postId = 20181010;
         $this->modifiedTitle = 'Jeremy was here';
