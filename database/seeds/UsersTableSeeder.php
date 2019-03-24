@@ -14,6 +14,7 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         $newSuperAdminSeeded = false;
+
         // Clear the table
         // User::truncate();
 
@@ -21,7 +22,6 @@ class UsersTableSeeder extends Seeder
         $superAdminRole = Role::whereSlug('super.admin')->first();
 
         // Seed super admin
-
         $seededSuperAdminEmail = config('superadmin.baseSuperAdminUser01Email');
         $user = User::where('email', '=', $seededSuperAdminEmail)->first();
         if ($user === null) {
