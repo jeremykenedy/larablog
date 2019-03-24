@@ -1,5 +1,5 @@
 ## Larablog
-#### A powerful open source Laravel Blog with WYSWYG and CRUD (Create Read Update Delete) built on [Laravel](http://laravel.com/) 5.7 and [Bootstrap](http://getbootstrap.com) 4
+#### A powerful open source Laravel Blog with WYSWYG and CRUD (Create Read Update Delete) built on [Laravel](http://laravel.com/) 5.8 and [Bootstrap](http://getbootstrap.com) 4
 
 [![Build Status](https://travis-ci.org/jeremykenedy/larablog.svg?branch=master)](https://travis-ci.org/jeremykenedy/larablog)
 [![StyleCI](https://github.styleci.io/repos/40459558/shield?branch=master)](https://github.styleci.io/repos/40459558)
@@ -31,12 +31,12 @@
 ### Features
 | Larablog Features |
 | :------------ |
-|Built on [Laravel](http://laravel.com/) 5.7|
+|Built on [Laravel](http://laravel.com/) 5.8|
 |Built on [Bootstrap](https://getbootstrap.com/) 4|
 |Front End Built on [Start Bootstrap - Clean Blog](https://www.npmjs.com/package/startbootstrap-clean-blog) |
 |Admin Built on [Paper Dashboard 2](https://www.npmjs.com/package/paper-dashboard-2) |
 |Uses [MySQL](https://github.com/mysql) Database (can be changed)|
-|Uses [Artisan](http://laravel.com/docs/5.7/artisan) to manage database migration, schema creations, and create/publish page controller templates|
+|Uses [Artisan](http://laravel.com/docs/5.8/artisan) to manage database migration, schema creations, and create/publish page controller templates|
 |Dependencies are managed with [COMPOSER](https://getcomposer.org/)|
 |Laravel Scaffolding **User** and **Administrator Authentication**.|
 |CRUD (Create, Read, Update, Delete) User Management with [Laravel Users](https://github.com/jeremykenedy/laravel-users) Package|
@@ -45,13 +45,13 @@
 |Built in [CKEditor](https://ckeditor.com/) WYSWYG Editor|
 |Google [reCaptcha Protection with Google API](https://developers.google.com/recaptcha/)|
 |Robust File Manager using [UniSharp Laravel File Manager](https://github.com/UniSharp/laravel-filemanager) Package|
-|Makes us of Laravel [Mix](https://laravel.com/docs/5.7/mix) to compile assets|
-|Makes use of [Language Localization Files](https://laravel.com/docs/5.7/localization)|
-|Active Nav states using [Laravel Requests](https://laravel.com/docs/5.7/requests)|
+|Makes us of Laravel [Mix](https://laravel.com/docs/5.8/mix) to compile assets|
+|Makes use of [Language Localization Files](https://laravel.com/docs/5.8/localization)|
+|Active Nav states using [Laravel Requests](https://laravel.com/docs/5.8/requests)|
 |User [Roles/ACL Implementation](https://github.com/jeremykenedy/laravel-roles)|
 |Admin PHP Information UI using [Laravel PHP Info](https://github.com/jeremykenedy/laravel-phpinfo) Package|
 |Activity Logging using [Laravel-logger](https://github.com/jeremykenedy/laravel-logger)|
-|Uses Laravel built in [mail](https://laravel.com/docs/5.7/mail) services|
+|Uses Laravel built in [mail](https://laravel.com/docs/5.8/mail) services|
 |Automatic sitemap generation with [Spatie Laravel Sitemap](https://github.com/spatie/laravel-sitemap) Package|
 |Automatic RSS Feed generation with [Spatie Laravel Feed](https://github.com/spatie/laravel-feed) Package|
 |Uses [Laravel Debugbar](https://github.com/barryvdh/laravel-debugbar) Package for local debugging|
@@ -88,7 +88,7 @@ php artisan vendor:publish --tag=laravelroles
 2. From the projects root folder run `yarn run dev` or `yarn run production`
   * You can watch assets with `yarn run watch`
 
-###### And thats it with the caveat of setting up and configuring your development environment. I recommend [Laravel Homestead](https://laravel.com/docs/5.7/homestead)
+###### And thats it with the caveat of setting up and configuring your development environment. I recommend [Laravel Homestead](https://laravel.com/docs/5.8/homestead)
 
 ### Seeds
 * [DatabaseSeeder.php](https://github.com/jeremykenedy/larablog/blob/master/database/seeds/DatabaseSeeder.php)
