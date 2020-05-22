@@ -19,6 +19,8 @@ return [
             'url' => env('BLOG_RSS_FEED_URL', '/blog.rss'),
 
             'title' => env('BLOG_RSS_FEED_TITLE', 'My Blog feed'),
+            'description' => 'The larablog feed.',
+            'language' => 'en-US',
 
             /*
              * The view that will render the feed.
