@@ -67,7 +67,8 @@ class PostFormFields
         $postFormFieldData = $this->postFormFieldData();
 
         return array_merge(
-            $fields, [
+            $fields,
+            [
                 'allTags' => Tag::pluck('tag')->all(),
             ],
             $postFormFieldData

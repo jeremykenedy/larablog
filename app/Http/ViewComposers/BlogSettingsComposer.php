@@ -2,7 +2,6 @@
 
 namespace App\Http\ViewComposers;
 
-use App\Models\Theme;
 use App\Services\BlogThemeServices;
 use Illuminate\View\View;
 
